@@ -22,15 +22,13 @@ module.exports = function (models, authenticationHelpers) {
     var getUserByFilter = function getUserByFilter(filter) {
         return models.User.find({
             where: filter,
-            include: [{model: models.Entry}]
-        })
-            .then(function (user) {
-                if (user === null) {
-                    throw new errors.UserNotFoundError(filter);
-                } else {
-                    return user;
-                }
-            });
+        }).then(function (user) {
+            if (user === null) {
+                throw new errors.UserNotFoundError(filter);
+            } else {
+                return user;
+            }
+        });
     };
 
 
