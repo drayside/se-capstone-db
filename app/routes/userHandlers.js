@@ -8,9 +8,10 @@ var validateParams = require('../common/validateParams');
 
 module.exports = function (userHelpers) {
 
+    // Request:
     var index = function index(req, res, next) {
         userHelpers.getUsers().then(function (users) {
-            res.json(users);
+            res.json({"users": users});
             next();
         });
     };
