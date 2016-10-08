@@ -31,6 +31,15 @@ module.exports = function (models, authenticationHelpers) {
         });
     };
 
+    var getUserById = function getUserById(id) {
+        return models.User.findById(id).then(function (user) {
+            if (user === null) {
+                throw new errors.UserNotFoundError(filter);
+            } else {
+                return user;
+            }
+        });
+    };
 
     var createUser = function createUser(userInfo) {
         return getUser(userInfo.name)
@@ -62,6 +71,7 @@ module.exports = function (models, authenticationHelpers) {
         getUsers: getUsers,
         getUser: getUser,
         getUserByFilter: getUserByFilter,
+        getUserById: getUserById,
         createUser: createUser,
         deleteUser: deleteUser
     };

@@ -65,15 +65,14 @@ server.use(function (req, res, next) {
 });
 
 // Routes
-// User route: get all the users
-server.get('/v1/users/', userHandlers.index);
-// User route: create a user
-server.post('/v1/user/create/', userHandlers.createUser);
+server.get('/v1/users/', userHandlers.index); // User route: get all the users
+server.get('/v1/user/:id', userHandlers.view); // User route: get user by the id
+server.post('/v1/user/create/', userHandlers.createUser); // User route: create a user
 
 sequelize.authenticate().then(function () {
     console.log('Connection has been established successfully');
     // use .sync{ force: true } to drop the db and make a new db from the schema
-    sequelize.sync( {force: true} ).then(function () {
+    sequelize.sync().then(function () {
         server.listen(config.port, function () {
             console.log(' --- Listening to %s --- ', server.url);
         });

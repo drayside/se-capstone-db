@@ -17,8 +17,14 @@ module.exports = function (userHelpers) {
     };
 
     var view = function view(req, res, next) {
-        res.json(200, req.user);
-        next();
+        // req.user would have had a value but authentication is turned off. Thus that cb is not
+        // hit.
+        // TODO: Validate params
+        userHelpers.getUserByFilter({id: req.params.id}).then(function(user){
+            console.log("user", user);
+            res.json(200, user);
+            next();
+        }).catch(errors.UserNotFoundError, sendError(httpErrors.BadRequestError, next));
     };
 
     var createUser = function createUser(req, res, next) {
@@ -34,7 +40,7 @@ module.exports = function (userHelpers) {
                     next();
                 })
                 .catch(errors.UserExistsError, sendError(httpErrors.ConflictError, next));
-        }).catch(errors.ValidationError, sendError(httpErrors.BadRequestError, next));
+        }).catch(errors.ValidationError, sendError(httpErrors.NotFoundError, next));
     };
 
     var del = function del(req, res, next) {
