@@ -3,21 +3,21 @@
     "host": "localhost",
     "user": "root",
     "password": "",
-    "database": "twilioDb",
+    "database": "sourMilqDb",
     "driver": "mysql"
   },
   "test": {
     "host": "localhost",
     "user": "root",
     "password": "",
-    "database": "twilioDbTest",
+    "database": "sourMilqDbTest",
     "driver": "mysql"
   },
   "travis": {
     "host": "localhost",
     "user": "root",
     "password": "",
-    "database": "twilioDbTest",
+    "database": "sourMilqDbTest",
     "driver": "mysql"
   }
 }
