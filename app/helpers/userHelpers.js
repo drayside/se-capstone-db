@@ -58,8 +58,8 @@ module.exports = function (models, authenticationHelpers) {
             });
     };
 
-    var deleteUser = function deleteUser(userName) {
-        return models.User.find({where: {name: userName}})
+    var deleteUser = function deleteUser(userId) {
+        return models.User.find({where: {id: userId}})
             .then(function (user) {
                 if (!_.isNull(user)) {
                     return user.destroy();

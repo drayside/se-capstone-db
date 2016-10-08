@@ -68,6 +68,7 @@ server.use(function (req, res, next) {
 server.get('/v1/users/', userHandlers.index); // User route: get all the users
 server.get('/v1/user/:id', userHandlers.view); // User route: get user by the id
 server.post('/v1/user/create/', userHandlers.createUser); // User route: create a user
+server.del('/v1/user/delete/:id', userHandlers.del); // User route: create a user
 
 sequelize.authenticate().then(function () {
     console.log('Connection has been established successfully');

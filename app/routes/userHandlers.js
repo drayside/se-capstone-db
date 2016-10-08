@@ -8,7 +8,27 @@ var validateParams = require('../common/validateParams');
 
 module.exports = function (userHelpers) {
 
-    // Request:
+    /*
+    Request:
+        params:
+        header: admin_token
+        body: {}
+    Response:
+        Success:
+        200 - Success
+        body: {
+            users: [
+                {
+                    "id": [INTEGER],
+                    "name": [STRING],
+                    "email": [STRING],
+                    "updatedAt": [STRING],
+                    "createdAt": [STRING]
+                },
+            ]
+        }
+        Failure:
+    */
     var index = function index(req, res, next) {
         userHelpers.getUsers().then(function (users) {
             res.json({"users": users});
@@ -16,6 +36,24 @@ module.exports = function (userHelpers) {
         });
     };
 
+    /*
+    Request:
+        params: id of target user
+        header: admin_token
+        body: {}
+    Response:
+        Success:
+        200 - Success
+        body: {
+            "id": [INTEGER],
+            "name": [STRING],
+            "email": [STRING],
+            "updatedAt": [STRING],
+            "createdAt": [STRING]
+        }
+        Failure:
+        404 - NotFoundError
+    */
     var view = function view(req, res, next) {
         // req.user would have had a value but authentication is turned off. Thus that cb is not
         // hit.
@@ -24,9 +62,32 @@ module.exports = function (userHelpers) {
             console.log("user", user);
             res.json(200, user);
             next();
-        }).catch(errors.UserNotFoundError, sendError(httpErrors.BadRequestError, next));
+        }).catch(errors.UserNotFoundError, sendError(httpErrors.NotFoundError, next));
     };
 
+    /*
+    Request:
+        params:
+        header: admin_token
+        body: {
+            "name": [STRING],
+            "email": [STRING],
+            "password": [STRING],
+        }
+    Response:
+        Success:
+        200 - Success
+        body: {
+            "id": [INTEGER],
+            "name": [STRING],
+            "email": [STRING],
+            "updatedAt": [STRING],
+            "createdAt": [STRING]
+        }
+        Failure:
+        404 - NotFoundError
+        409 - ConflictError
+    */
     var createUser = function createUser(req, res, next) {
         validateParams([
             {name: 'name', in: req.body, required: true},
@@ -43,8 +104,21 @@ module.exports = function (userHelpers) {
         }).catch(errors.ValidationError, sendError(httpErrors.NotFoundError, next));
     };
 
+    /*
+    Request:
+        params: id of user to be deleted
+        header: admin_token
+        body: {}
+    Response:
+        Success:
+        204 - No content
+        Failure:
+        401 - UnauthorizedError
+        403 - ForbiddenError
+        body: {}
+    */
     var del = function del(req, res, next) {
-        userHelpers.deleteUser(req.user.name)
+        userHelpers.deleteUser(req.params.id)
             .then(function () {
                 res.send(204);
                 next();
