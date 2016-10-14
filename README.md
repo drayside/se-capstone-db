@@ -1,9 +1,5 @@
 # API Documentation
 
-server.get('/v1/user/:id', userHandlers.view); // User route: get user by the id
-server.post('/v1/user/create/', userHandlers.createUser); // User route: create a user
-server.del('/v1/user/delete/:id', userHandlers.del); // User route: create a user
-
 ## 1. Users
 ### 1.1 List all users: [GET] `/v1/users/`
 #### Description
