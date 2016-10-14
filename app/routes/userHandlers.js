@@ -70,8 +70,10 @@ module.exports = function (userHelpers) {
         params:
         header: admin_token
         body: {
-            "name": [STRING],
+            "first_name": [STRING],
+            "last_name": [STRING],
             "email": [STRING],
+            "username": [STRING],
             "password": [STRING],
         }
     Response:
@@ -79,8 +81,10 @@ module.exports = function (userHelpers) {
         200 - Success
         body: {
             "id": [INTEGER],
-            "name": [STRING],
+            "first_name": [STRING],
+            "last_name": [STRING],
             "email": [STRING],
+            "username": [STRING],
             "updatedAt": [STRING],
             "createdAt": [STRING]
         }
@@ -90,11 +94,20 @@ module.exports = function (userHelpers) {
     */
     var createUser = function createUser(req, res, next) {
         validateParams([
-            {name: 'name', in: req.body, required: true},
+            {name: 'first_name', in: req.body, required: true},
+            {name: 'last_name', in: req.body, required: true},
             {name: 'email', in: req.body, required: true},
-            {name: 'password', in: req.body, required: true}
+            {name: 'username', in: req.body, required: true},
+            {name: 'password', in: req.body, required: true},
         ]).then(function () {
-            var userInfo = _.pick(req.body, 'name', 'password', 'email');
+            var userInfo = _.pick(
+                req.body,
+                'first_name',
+                'last_name',
+                'email',
+                'username',
+                'password'
+            );
             userHelpers.createUser(userInfo)
                 .then(function (user) {
                     res.json(200, user);

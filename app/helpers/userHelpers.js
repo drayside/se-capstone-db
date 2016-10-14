@@ -10,7 +10,7 @@ module.exports = function (models, authenticationHelpers) {
         return models.User.findAll();
     };
 
-    var getUser = function getUser(name) {
+    var getUser = function getUser(username) {
         return models.User.findAll({
             where: {name: name},
         }).then(function (user) {
@@ -19,6 +19,8 @@ module.exports = function (models, authenticationHelpers) {
         });
     };
 
+    // Gets by the filter param. For instance filter = { username : 'a' } will return the user
+    // with username = 'a'
     var getUserByFilter = function getUserByFilter(filter) {
         return models.User.find({
             where: filter,
@@ -42,18 +44,20 @@ module.exports = function (models, authenticationHelpers) {
     };
 
     var createUser = function createUser(userInfo) {
-        return getUser(userInfo.name)
+        return getUserByFilter({username: userInfo.username})
             .then(function () {
-                throw new errors.UserExistsError(userInfo.name);
+                throw new errors.UserExistsError(userInfo.username);
             }).catch(errors.UserNotFoundError, function () {
-                // TODO: Validate params
-                // userInfo.token = authenticationHelpers.encodePayload(userInfo);
+                userInfo.token = authenticationHelpers.encodePayload(userInfo);
                 userInfo.password = authenticationHelpers.generateHashedPassword(userInfo.password);
+                console.log("Creating user: ", userInfo);
                 return models.User.create({
-                    name: userInfo.name,
-                    password: userInfo.password,
+                    first_name: userInfo.first_name,
+                    last_name: userInfo.last_name,
                     email: userInfo.email,
-                    // token: userInfo.token
+                    username: userInfo.username,
+                    password: userInfo.password,
+                    token: userInfo.token,
                 });
             });
     };
