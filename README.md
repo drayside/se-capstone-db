@@ -1,4 +1,5 @@
 # API Documentation
+
 ## 1. Users
 ### 1.1 List all users: [GET] `/v1/users/`
 #### Description
