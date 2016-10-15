@@ -107,10 +107,10 @@ Deletes the user with the given `id`.
 - Error Code: `{403: 'Forbidden', 404: 'NotFoundError'}`
 
 ## 2. Lists
-### 2.1 List all lists for a given user: [GET] `/v1/user/:userId/list/`
+### 2.1 List all lists for a given user: [GET] `/v1/user/:userId/lists/`
 #### Description
 Gets all the users. Only accepts admin tokens.
-- Endpoint: `/v1/user/:userId/list/`
+- Endpoint: `/v1/user/:userId/lists/`
     -- `userId` is the id of the user whose lists are being requested
 - Authentication: `[Admin, User]`
 

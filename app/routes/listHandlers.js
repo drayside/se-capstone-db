@@ -30,7 +30,11 @@ module.exports = function (listHelpers) {
         Failure:
     */
     var index = function index(req, res, next) {
-
+        var user = req.user;
+        listHelpers.getLists(user).then(function(lists){
+            res.json(lists);
+            next();
+        });
     };
 
     /*
