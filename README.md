@@ -1,5 +1,4 @@
 # API Documentation
-
 ## 1. Users
 ### 1.1 List all users: [GET] `/v1/users/`
 #### Description
@@ -89,3 +88,20 @@ Creates a new user.
 #### Response Status Codes:
 - Success Code: `{201: 'Created'}`
 - Error Code: `{403: 'Forbidden', 409: 'ConflictError'}`
+
+### 1.4 View a user: [DEL] `/v1/user/delete/:id`
+#### Description
+Deletes the user with the given `id`.
+- Endpoint: `/v1/user/delete/:id`
+- Authentication: `[Admin, User]`
+
+#### Request:
+- Header: `{'Authorization': 'Bearer TOKEN'}`
+- Params: `id` of the user to be deleted.
+- Body: `{}`
+
+#### Response:
+- body: `{}`
+#### Response Status Codes:
+- Success Code: `{204: 'NoContent'}`
+- Error Code: `{403: 'Forbidden', 404: 'NotFoundError'}`

@@ -10,8 +10,13 @@ var _ = require('lodash');
 // Security layer
 var authenticationHelpers = require('./app/common/authentication')(config);
 
+// User handlers and helpers
 var userHelpers = require('./app/helpers/userHelpers')(models, authenticationHelpers);
 var userHandlers = require('./app/routes/userHandlers')(userHelpers);
+
+// List handlers and helpers
+var listHelpers = require('./app/helpers/listHelpers')(models, authenticationHelpers);
+var listHandlers = require('./app/routes/listHandlers')(listHelpers);
 
 var passport = require('passport');
 
@@ -67,9 +72,15 @@ server.use(function (req, res, next) {
 // Routes
 // User
 server.get('/v1/users/', passport.authenticate(['basic', 'bearer'], {session: false}), userHandlers.index); // User route: get all the users
-server.get('/v1/user/:id', userHandlers.view); // User route: get user by the id
-server.post('/v1/user/create/', userHandlers.createUser); // User route: create a user
-server.del('/v1/user/delete/:id', userHandlers.del); // User route: create a user
+server.get('/v1/user/:id', passport.authenticate(['basic', 'bearer'], {sessions: false}), userHandlers.view); // User route: get user by the id
+server.post('/v1/user/create/', passport.authenticate(['basic', 'bearer'], {sessions: false}), userHandlers.createUser); // User route: create a user
+server.del('/v1/user/delete/:id', passport.authenticate(['basic', 'bearer'], {sessions: false}), userHandlers.del); // User route: create a user
+
+// List
+server.get('/v1/user/:userId/list/', passport.authenticate(['basic', 'bearer'], {sessions: false}), listHandlers.index);
+server.get('/v1/user/:userId/list/:listId', passport.authenticate(['basic', 'bearer'], {sessions: false}), listHandlers.view);
+server.post('/v1/user/:userId/list/create', passport.authenticate(['basic', 'bearer'], {sessions: false}), listHandlers.createList);
+server.del('/v1/user/:userId/list/:listId', passport.authenticate(['basic', 'bearer'], {sessions: false}), listHandlers.del);
 
 sequelize.authenticate().then(function () {
     console.log('Connection has been established successfully');

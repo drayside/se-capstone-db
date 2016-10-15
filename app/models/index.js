@@ -3,6 +3,7 @@
 module.exports = function (sequelize) {
     var models = {
         User: sequelize.import(__dirname + "/user"),
+        List: sequelize.import(__dirname + "/list"),
     };
 
     Object.keys(models).forEach(function (modelName) {
