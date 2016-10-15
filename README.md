@@ -53,7 +53,7 @@ Get the user with the specified `id`.
 #### Response Status Codes:
 - Success Code: `{200: 'Success'}`
 - Error Code: `{403: 'Forbidden', 404: 'NotFoundError'}`
--
+
 ### 1.3 View a user: [POST] `/v1/user/create`
 #### Description
 Creates a new user.
