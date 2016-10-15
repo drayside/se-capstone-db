@@ -13,6 +13,11 @@ function UserNotFound(username) {
 }
 util.inherits(UserNotFound, Error);
 
+function DuplicateList(listname) {
+    this.message = "List name exists: " + listname;
+}
+util.inherits(DuplicateList, Error);
+
 function Validation(errs) {
     this.message = _.pluck(errs, "message").join("; ");
 }
@@ -26,6 +31,7 @@ util.inherits(MissingArgument, Error);
 module.exports = {
     UserExistsError: UserExists,
     UserNotFoundError: UserNotFound,
+    DuplicateListError: DuplicateList,
     ValidationError: Validation,
     MissingArgumentError: MissingArgument,
 };

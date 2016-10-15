@@ -78,7 +78,7 @@ module.exports = function (userHelpers) {
         }
     Response:
         Success:
-        200 - Success
+        201 - Success
         body: {
             "id": [INTEGER],
             "first_name": [STRING],

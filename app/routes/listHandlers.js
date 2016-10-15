@@ -24,7 +24,21 @@ module.exports = function (listHelpers) {
     };
 
     var createList = function createList(req, res, next) {
-
+        validateParams([
+            {name: 'name', in: req.body, required: true},
+            {name: 'description', in: req.body, required: true},
+        ]).then(function () {
+            var listInfo = _.pick(
+                req.body,
+                'name',
+                'description'
+            );
+            listHelpers.createList(req.user, listInfo)
+                .then(function(list){
+                    res.json(201, list);
+                    next();
+                }).catch(errors.DuplicateListError, sendError(httpErrors.ConflictError, next));
+        });
     };
 
     var del = function del(req, res, next) {
