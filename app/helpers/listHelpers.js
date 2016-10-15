@@ -8,8 +8,8 @@ module.exports = function (models, authenticationHelpers) {
 
     // Returns lists for the given user
     var getLists = function getLists(user) {
-        return new Promise(function(resolve){
-            resolve(user.lists);
+        return user.getLists(function(lists){
+            return lists;
         });
     };
 

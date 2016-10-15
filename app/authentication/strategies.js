@@ -13,7 +13,7 @@ module.exports = function (userHelpers, authenticationHelpers) {
 
     var BasicStrategyLogic = function (username, password, done) {
         // TODO: instead of getUserByFilter, make it getUserByName. Expose less functionality
-        userHelpers.getUserByFilter({name: username})
+        userHelpers.getUserByFilter({username: username})
             .then(function (user) {
                 if (authenticationHelpers.isValidPassword(password, user.password)) {
                     done(null, user);
