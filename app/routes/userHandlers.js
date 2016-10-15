@@ -89,7 +89,6 @@ module.exports = function (userHelpers) {
             "createdAt": [STRING]
         }
         Failure:
-        404 - NotFoundError
         409 - ConflictError
     */
     var createUser = function createUser(req, res, next) {
@@ -110,7 +109,7 @@ module.exports = function (userHelpers) {
             );
             userHelpers.createUser(userInfo)
                 .then(function (user) {
-                    res.json(200, user);
+                    res.json(201, user);
                     next();
                 })
                 .catch(errors.UserExistsError, sendError(httpErrors.ConflictError, next));

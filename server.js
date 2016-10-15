@@ -65,6 +65,7 @@ server.use(function (req, res, next) {
 });
 
 // Routes
+// User
 server.get('/v1/users/', passport.authenticate(['basic', 'bearer'], {session: false}), userHandlers.index); // User route: get all the users
 server.get('/v1/user/:id', userHandlers.view); // User route: get user by the id
 server.post('/v1/user/create/', userHandlers.createUser); // User route: create a user
