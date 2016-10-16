@@ -4,7 +4,6 @@
 #### Description
 Gets all the users. Only accepts admin tokens.
 - Endpoint: `/v1/users/`
-- Authentication: `[Admin]`
 
 #### Request:
 - Header: `{'Authorization': 'Bearer TOKEN'}`

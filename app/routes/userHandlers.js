@@ -6,7 +6,7 @@ var errors = require('../common/errors');
 var sendError = require('../common/sendError');
 var validateParams = require('../common/validateParams');
 
-module.exports = function (userHelpers) {
+module.exports = function (userHelpers, authenticationHelpers) {
 
     /*
     Request:
@@ -58,11 +58,8 @@ module.exports = function (userHelpers) {
         // req.user would have had a value but authentication is turned off. Thus that cb is not
         // hit.
         // TODO: Validate params
-        userHelpers.getUserByFilter({id: req.params.id}).then(function(user){
-            console.log("user", user);
-            res.json(200, user);
-            next();
-        }).catch(errors.UserNotFoundError, sendError(httpErrors.NotFoundError, next));
+        res.json(200, req.user);
+        next();
     };
 
     /*
@@ -116,6 +113,23 @@ module.exports = function (userHelpers) {
         }).catch(errors.ValidationError, sendError(httpErrors.NotFoundError, next));
     };
 
+    var login = function login(req, res, next){
+        validateParams([
+            {name: 'username', in: req.body, required: true},
+            {name: 'password', in: req.body, required: true},
+        ]).then(function () {
+            userHelpers.getUserByFilter({username: req.body.username})
+                .then(function(user){
+                    if (authenticationHelpers.isValidPassword(req.body.password, user.password)){
+                        res.json(200, user);
+                        next();
+                    } else {
+                        throw new errors.UserNotFoundError(user.name);
+                    }
+                }).catch(errors.UserNotFoundError, sendError(httpErrors.InvalidCredentialsError, next));
+        }).catch(errors.ValidationError, sendError(httpErrors.NotFoundError, next));
+    }
+
     /*
     Request:
         params: id of user to be deleted
@@ -140,6 +154,7 @@ module.exports = function (userHelpers) {
     return {
         index: index,
         view: view,
+        login: login,
         createUser: createUser,
         del: del
     };
