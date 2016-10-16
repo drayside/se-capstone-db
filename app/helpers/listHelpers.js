@@ -13,6 +13,18 @@ module.exports = function (models, authenticationHelpers) {
         });
     };
 
+    // Gets a list by the id
+    var getListById = function getListById(user, listId){
+        return user.getLists({
+            where: {
+                id: listId
+            },
+            include: [
+                { model: models.Item }
+            ]
+        });
+    };
+
     // Expects a list where the name is not already existing:
     // {
     //     "list": {
@@ -38,6 +50,7 @@ module.exports = function (models, authenticationHelpers) {
 
     return {
         getLists: getLists,
+        getListById: getListById,
         createList: createList
     };
 };

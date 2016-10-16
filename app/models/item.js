@@ -1,16 +1,16 @@
 "use strict";
 
 module.exports = function (sequelize, DataTypes) {
-    return sequelize.define('list', {
+    return sequelize.define('item', {
         id: {type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true},
         name: {type: DataTypes.STRING},
-        description: {type: DataTypes.STRING},
+        quantity: {type: DataTypes.INTEGER},
+        price: {type: DataTypes.INTEGER},
     }, {
         timestamps: true,
         classMethods: {
             associate: function (sequelize, models) {
-                models.List.belongsTo(models.User);
-                models.List.hasMany(models.Item);
+                models.Item.belongsTo(models.List);
             }
         },
         indexes: [

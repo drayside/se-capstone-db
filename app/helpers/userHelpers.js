@@ -50,7 +50,6 @@ module.exports = function (models, authenticationHelpers) {
             }).catch(errors.UserNotFoundError, function () {
                 userInfo.token = authenticationHelpers.encodePayload(userInfo);
                 userInfo.password = authenticationHelpers.generateHashedPassword(userInfo.password);
-                console.log("Creating user: ", userInfo);
                 return models.User.create({
                     first_name: userInfo.first_name,
                     last_name: userInfo.last_name,
