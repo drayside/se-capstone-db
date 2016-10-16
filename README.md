@@ -69,7 +69,7 @@ Creates a new user.
     "last_name": [STRING],
     "email": [STRING],
     "username": [STRING],
-    "password": [STRING],
+    "password": [STRING]
 }
 ```
 
@@ -125,8 +125,8 @@ Gets all the users. Only accepts admin tokens.
         {
             "id": [INTEGER],
             "name": [STRING],
-            "description": [STRING],
-        },
+            "description": [STRING]
+        }
     ]
 }
 ```
@@ -155,8 +155,8 @@ Get the user with the specified `id`.
     "items": [
         {
             "id": [INTEGER],
-            "name": [STRING],
-        },
+            "name": [STRING]
+        }
     ]
 }
 ```
@@ -177,7 +177,7 @@ Creates a new user.
 ```javascript
 {
     "name": [STRING],
-    "description": [STRING],
+    "description": [STRING]
 }
 ```
 
