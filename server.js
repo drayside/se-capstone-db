@@ -77,16 +77,16 @@ server.post('/v1/user/create/', userHandlers.createUser); // User route: create 
 server.del('/v1/user/delete/:id', passport.authenticate(['basic', 'bearer'], {session: false}), userHandlers.del); // User route: create a user
 
 // List
-server.get('/v1/user/:userId/lists/', passport.authenticate(['basic', 'bearer'], {session: false}), listHandlers.index);
-server.get('/v1/user/:userId/list/:listId', passport.authenticate(['basic', 'bearer'], {session: false}), listHandlers.view);
-server.post('/v1/user/:userId/list/create', passport.authenticate(['basic', 'bearer'], {session: false}), listHandlers.createList);
-server.del('/v1/user/:userId/list/:listId', passport.authenticate(['basic', 'bearer'], {session: false}), listHandlers.del);
+server.get('/v1/lists/', passport.authenticate(['basic', 'bearer'], {session: false}), listHandlers.index);
+server.get('/v1/list/:listId', passport.authenticate(['basic', 'bearer'], {session: false}), listHandlers.view);
+server.post('/v1/list/create', passport.authenticate(['basic', 'bearer'], {session: false}), listHandlers.createList);
+server.del('/v1/list/:listId', passport.authenticate(['basic', 'bearer'], {session: false}), listHandlers.del);
 
 sequelize.authenticate().then(function () {
     console.log('Connection has been established successfully');
     // use .sync{ force: true } to drop the db and make a new db from the schema
-    // sequelize.sync().then(function () {
-    sequelize.sync({force: true}).then(function () {
+    sequelize.sync().then(function () {
+    // sequelize.sync({force: true}).then(function () {
         server.listen(config.port, function () {
             console.log(' --- Listening to %s --- ', server.url);
         });

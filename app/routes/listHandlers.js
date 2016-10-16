@@ -16,11 +16,18 @@ module.exports = function (listHelpers) {
                 });
                 next();
             });
-
     };
 
     var view = function view(req, res, next) {
-
+        req.user.getLists({where: {id: req.params.listId}})
+            .then(function(lists){
+                if (lists.length == 0){
+                    throw new errors.ListNotFoundError(req.params.listId);
+                } else {
+                    res.json(200, {"list": lists[0]});
+                    next();
+                }
+            }).catch(errors.ListNotFoundError, sendError(httpErrors.NotFoundError, next));
     };
 
     var createList = function createList(req, res, next) {
@@ -42,7 +49,18 @@ module.exports = function (listHelpers) {
     };
 
     var del = function del(req, res, next) {
-
+        req.user.getLists({where: {id: req.params.listId}})
+            .then(function(lists){
+                if (lists.length == 0){
+                    throw new errors.ListNotFoundError(req.params.listId);
+                } else {
+                    lists[0].destroy()
+                        .then(function(){
+                            res.json(204);
+                            next();
+                        });
+                }
+            }).catch(errors.ListNotFoundError, sendError(httpErrors.NotFoundError, next));
     };
 
     return {

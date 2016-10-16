@@ -18,6 +18,11 @@ function DuplicateList(listname) {
 }
 util.inherits(DuplicateList, Error);
 
+function ListNotFound(listId) {
+    this.message = "List id not found: " + listId;
+}
+util.inherits(ListNotFound, Error);
+
 function Validation(errs) {
     this.message = _.pluck(errs, "message").join("; ");
 }
@@ -32,6 +37,7 @@ module.exports = {
     UserExistsError: UserExists,
     UserNotFoundError: UserNotFound,
     DuplicateListError: DuplicateList,
+    ListNotFoundError: ListNotFound,
     ValidationError: Validation,
     MissingArgumentError: MissingArgument,
 };

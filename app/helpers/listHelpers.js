@@ -24,7 +24,7 @@ module.exports = function (models, authenticationHelpers) {
         return user.getLists({where: {name: listInfo.name}})
             .then(function(list){
                 if (!_.isEmpty(list)){
-                    throw new error.DuplicateListError(listInfo.name);
+                    throw new errors.DuplicateListError(listInfo.name);
                 }
                 return models.List.create({
                     name: listInfo.name,
