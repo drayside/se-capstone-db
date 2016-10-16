@@ -6,7 +6,7 @@ var errors = require('../common/errors');
 var sendError = require('../common/sendError');
 var validateParams = require('../common/validateParams');
 
-module.exports = function (userHelpers, authenticationHelpers) {
+module.exports = function (userHelpers, listHelpers, authenticationHelpers) {
 
     /*
     Request:
@@ -106,10 +106,15 @@ module.exports = function (userHelpers, authenticationHelpers) {
             );
             userHelpers.createUser(userInfo)
                 .then(function (user) {
-                    res.json(201, user);
-                    next();
-                })
-                .catch(errors.UserExistsError, sendError(httpErrors.ConflictError, next));
+                    listHelpers.createList(user, {
+                        "name": "Grocery List",
+                        "description": "Default shopping list.",
+                    }).then(function(list){
+                        user.addList(list);
+                        res.json(201, user);
+                        next();
+                    });
+                }).catch(errors.UserExistsError, sendError(httpErrors.ConflictError, next));
         }).catch(errors.ValidationError, sendError(httpErrors.NotFoundError, next));
     };
 

@@ -10,16 +10,12 @@ var _ = require('lodash');
 // Security layer
 var authenticationHelpers = require('./app/common/authentication')(config);
 
-// User handlers and helpers
 var userHelpers = require('./app/helpers/userHelpers')(models, authenticationHelpers);
-var userHandlers = require('./app/routes/userHandlers')(userHelpers, authenticationHelpers);
-
-// List handlers and helpers
 var listHelpers = require('./app/helpers/listHelpers')(models, authenticationHelpers);
-var listHandlers = require('./app/routes/listHandlers')(listHelpers);
-
-// List handlers and helpers
 var itemHelpers = require('./app/helpers/itemHelpers')(models, authenticationHelpers);
+
+var userHandlers = require('./app/routes/userHandlers')(userHelpers, listHelpers, authenticationHelpers);
+var listHandlers = require('./app/routes/listHandlers')(listHelpers);
 var itemHandlers = require('./app/routes/itemHandlers')(listHelpers, itemHelpers);
 
 var passport = require('passport');
