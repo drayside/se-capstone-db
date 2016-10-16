@@ -15,11 +15,11 @@ module.exports = function (models, authenticationHelpers) {
         });
     };
 
-    var getItemByName = function getItemByName(list, itemName){
+    var getItemById = function getItemById(list, itemId){
         return list.getItems(
             {
                 where: {
-                    name: itemName
+                    id: itemId
                 }
             }
         );
@@ -27,6 +27,6 @@ module.exports = function (models, authenticationHelpers) {
 
     return {
         createItem: createItem,
-        getItemByName: getItemByName
+        getItemById: getItemById
     };
 };

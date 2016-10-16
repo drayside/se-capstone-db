@@ -12,28 +12,32 @@ module.exports = function (listHelpers, itemHelpers) {
         validateParams([
             {name: 'item', in: req.body, required: true},
         ]).then(function () {
-            listHelpers.getListById(req.user, req.params.listId)
-                .then(function(lists) {
-                    if (lists.length == 0){
-                        throw new errors.ListNotFoundError(req.body.listId);
-                    } else {
-                        var list = lists[0];
-                        var itemInfo = req.body.item;
-                        itemHelpers.getItemByName(list, itemInfo.name)
-                            .then(function(items){
-                                if (items.length != 0){
-                                    throw new errors.DuplicateItemError(itemInfo.name);
-                                } else {
-                                    itemHelpers.createItem(itemInfo)
-                                        .then(function(item){
-                                            lists[0].addItem(item);
-                                            res.json(201, item);
+            listHelpers.getListById(req.user, req.params.listId).then(function(lists) {
+                if (lists.length == 0) {
+                    throw new errors.ListNotFoundError(req.params.listId);
+                } else {
+                    var list = lists[0];
+                    var itemInfo = req.body.item;
+                    itemHelpers.getItemByName(list, itemInfo.name).then(function(items){
+                        if (items.length != 0){
+                            throw new errors.DuplicateItemError(itemInfo.name);
+                        } else {
+                            itemHelpers.createItem(itemInfo).then(function(item){
+                                list.addItem(item).then(function(){
+                                    listHelpers.getListById(req.user, req.params.listId).then(function(lists){
+                                        if (lists.length == 0){
+                                            throw new errors.ListNotFoundError(req.params.listId);
+                                        } else {
+                                            res.json(200, {"list": lists[0]});
                                             next();
-                                        });
-                                }
-                            }).catch(errors.DuplicateItemError, sendError(httpErrors.NotFoundError, next));
-                    }
-                }).catch(errors.ListNotFoundError, sendError(httpErrors.NotFoundError, next));
+                                        }
+                                    }).catch(errors.ListNotFoundError, sendError(httpErrors.NotFoundError, next));
+                                });
+                            });
+                        }
+                    }).catch(errors.DuplicateItemError, sendError(httpErrors.NotFoundError, next));
+                }
+            }).catch(errors.ListNotFoundError, sendError(httpErrors.NotFoundError, next));
         });
     };
 
@@ -43,14 +47,17 @@ module.exports = function (listHelpers, itemHelpers) {
                 if (lists.length == 0){
                     throw new errors.ListNotFoundError(req.params.listId);
                 } else {
-                    itemHelpers.getItemByName(lists[0], req.params.itemId)
+                    itemHelpers.getItemById(lists[0], req.params.itemId)
                         .then(function(items){
                             if (items.length == 0){
                                 throw new errors.ItemNotFoundError(req.params.itemId);
                             } else {
-                                items[0].destroy();
-                                res.json(204);
-                                next();
+                                items[0].destroy().then(function(){
+                                    listHelpers.getListById(req.user, req.params.listId).then(function(lists){
+                                        res.json(200, {"list": lists[0]});
+                                        next();
+                                    });
+                                });
                             }
                         }).catch(errors.ItemNotFoundError, sendError(httpErrors.NotFoundError, next));
                 }
