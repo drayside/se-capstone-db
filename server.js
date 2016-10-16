@@ -18,6 +18,10 @@ var userHandlers = require('./app/routes/userHandlers')(userHelpers);
 var listHelpers = require('./app/helpers/listHelpers')(models, authenticationHelpers);
 var listHandlers = require('./app/routes/listHandlers')(listHelpers);
 
+// List handlers and helpers
+var itemHelpers = require('./app/helpers/itemHelpers')(models, authenticationHelpers);
+var itemHandlers = require('./app/routes/itemHandlers')(listHelpers, itemHelpers);
+
 var passport = require('passport');
 
 // Authentication methods
@@ -61,6 +65,11 @@ server.use(restify.queryParser());
 server.use(restify.bodyParser());
 server.use(passport.initialize());
 
+server.opts(/\.*/, function (req, res, next) {
+    res.send(200);
+    next();
+});
+
 server.pre(restify.sanitizePath());
 server.use(function (req, res, next) {
     if ((req.method === "PUT" || req.method === "POST") && _.isUndefined(req.body)) {
@@ -81,6 +90,10 @@ server.get('/v1/lists/', passport.authenticate(['basic', 'bearer'], {session: fa
 server.get('/v1/list/:listId', passport.authenticate(['basic', 'bearer'], {session: false}), listHandlers.view);
 server.post('/v1/list/create', passport.authenticate(['basic', 'bearer'], {session: false}), listHandlers.createList);
 server.del('/v1/list/:listId', passport.authenticate(['basic', 'bearer'], {session: false}), listHandlers.del);
+
+// Item
+server.post('/v1/list/:listId/item/add', passport.authenticate(['basic', 'bearer'], {session: false}), itemHandlers.addItem);
+server.del('/v1/list/:listId/item/:itemId', passport.authenticate(['basic', 'bearer'], {session: false}), itemHandlers.deleteItem);
 
 sequelize.authenticate().then(function () {
     console.log('Connection has been established successfully');

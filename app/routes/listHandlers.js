@@ -19,7 +19,7 @@ module.exports = function (listHelpers) {
     };
 
     var view = function view(req, res, next) {
-        req.user.getLists({where: {id: req.params.listId}})
+        listHelpers.getListById(req.user, req.params.listId)
             .then(function(lists){
                 if (lists.length == 0){
                     throw new errors.ListNotFoundError(req.params.listId);
