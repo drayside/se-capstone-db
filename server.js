@@ -12,7 +12,7 @@ var authenticationHelpers = require('./app/common/authentication')(config);
 
 // User handlers and helpers
 var userHelpers = require('./app/helpers/userHelpers')(models, authenticationHelpers);
-var userHandlers = require('./app/routes/userHandlers')(userHelpers);
+var userHandlers = require('./app/routes/userHandlers')(userHelpers, authenticationHelpers);
 
 // List handlers and helpers
 var listHelpers = require('./app/helpers/listHelpers')(models, authenticationHelpers);
@@ -81,7 +81,8 @@ server.use(function (req, res, next) {
 // Routes
 // User
 server.get('/v1/users/', passport.authenticate(['basic', 'bearer'], {session: false}), userHandlers.index); // User route: get all the users
-server.get('/v1/user/:id', passport.authenticate(['basic', 'bearer'], {session: false}), userHandlers.view); // User route: get user by the id
+server.get('/v1/user/login', passport.authenticate(['basic', 'bearer'], {session: false}), userHandlers.view); // User route: get user by the id
+server.post('/v1/user/', userHandlers.login); // User route: get user by the id
 server.post('/v1/user/create/', userHandlers.createUser); // User route: create a user
 server.del('/v1/user/delete/:id', passport.authenticate(['basic', 'bearer'], {session: false}), userHandlers.del); // User route: create a user
 
