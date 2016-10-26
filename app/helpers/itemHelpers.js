@@ -25,8 +25,19 @@ module.exports = function (models, authenticationHelpers) {
         );
     }
 
+    var getItemByName = function getItemByName(list, itemName){
+        return list.getItems(
+            {
+                where: {
+                    name: itemName
+                }
+            }
+        );
+    }
+
     return {
         createItem: createItem,
-        getItemById: getItemById
+        getItemById: getItemById,
+        getItemByName: getItemByName
     };
 };
