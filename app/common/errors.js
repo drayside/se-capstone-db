@@ -3,15 +3,15 @@
 var util = require("util");
 var _ = require("lodash");
 
-function UserExists(username) {
-    this.message = "Username exists: " + username;
+function ProjectExists(projname) {
+    this.message = "Project name exists: " + projname;
 }
-util.inherits(UserExists, Error);
+util.inherits(ProjectExists, Error);
 
-function UserNotFound(username) {
-    this.message = "Username does not exist: " + username;
+function ProjectNotFound(projname) {
+    this.message = "Project name does not exist: " + projname;
 }
-util.inherits(UserNotFound, Error);
+util.inherits(ProjectNotFound, Error);
 
 function ItemNotFound(itemId) {
     this.message = "Item not found with id: " + itemId;
@@ -44,8 +44,8 @@ function MissingArgument(argName) {
 util.inherits(MissingArgument, Error);
 
 module.exports = {
-    UserExistsError: UserExists,
-    UserNotFoundError: UserNotFound,
+    ProjectExistsError: ProjectExists,
+    ProjectNotFoundError: ProjectNotFound,
     ItemNotFoundError: ItemNotFound,
     DuplicateListError: DuplicateList,
     DuplicateItemError: DuplicateItem,

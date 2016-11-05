@@ -3,21 +3,21 @@
     "host": "localhost",
     "user": "root",
     "password": "",
-    "database": "sourMilqDb",
+    "database": "capstoneDb",
     "driver": "mysql"
   },
   "test": {
     "host": "localhost",
     "user": "root",
     "password": "",
-    "database": "sourMilqDbTest",
+    "database": "capstoneDbTest",
     "driver": "mysql"
   },
   "travis": {
     "host": "localhost",
     "user": "root",
     "password": "",
-    "database": "sourMilqDbTest",
+    "database": "capstoneDbTest",
     "driver": "mysql"
   }
 }

@@ -7,13 +7,13 @@ var errors = require('../common/errors');
 var httpErrors = require('restify').errors;
 var _ = require('lodash');
 
-module.exports = function (userHelpers, authenticationHelpers) {
+module.exports = function (projectHelpers, authenticationHelpers) {
 
     // Separated the logic because it will be easier to test
 
     var BasicStrategyLogic = function (username, password, done) {
         // TODO: instead of getUserByFilter, make it getUserByName. Expose less functionality
-        userHelpers.getUserByFilter({username: username})
+        projectHelpers.getUserByFilter({username: username})
             .then(function (user) {
                 if (authenticationHelpers.isValidPassword(password, user.password)) {
                     done(null, user);
@@ -28,7 +28,7 @@ module.exports = function (userHelpers, authenticationHelpers) {
 
     var BearerStrategyLogic = function (token, done) {
         // TODO: instead of getUserByFilter, make it getUserByToken. Expose less functionality
-        userHelpers.getUserByFilter({token: token})
+        projectHelpers.getUserByFilter({token: token})
             .then(function (user) {
                 if (_.isNull(user)) {
                     done(null, false);
