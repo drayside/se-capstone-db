@@ -61,7 +61,7 @@ module.exports = function (projectHelpers) {
         projectHelpers.getProjectById(req.params.id).then(function (project) {
             res.json({ project });
             next();
-        }).catch(errors.UserNotFoundError, sendError(httpErrors.ConflictError, next));
+        }).catch(errors.ProjectNotFoundError, sendError(httpErrors.NotFoundError, next));
     };
 
     /*

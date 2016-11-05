@@ -18,7 +18,8 @@ Includes: Name, Project ID, Year, Abstract.
             "name": [STRING],
             "year": [STRING],
             "abstract": [STRING],
-            "pid": [INT]
+            "pid": [INT],
+            "program": [STRING]
         },
     ]
 }
@@ -47,7 +48,8 @@ Get project details for the specified project id.
     "status" : [STRING],
     "tags" : [STRING],
     "abstract" : [STRING],
-    "external_partners" : [STRING]
+    "external_partners" : [STRING],
+    "program": [STRING]
 }
 ```
 #### Response Status Codes:
@@ -80,7 +82,8 @@ For now, the API supports searching by name, status, tags and year.
             "name": [STRING],
             "year": [STRING],
             "abstract": [STRING],
-            "pid": [INT]
+            "pid": [INT],
+            "program": [STRING]
         },
     ]
 }

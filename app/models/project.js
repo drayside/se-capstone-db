@@ -9,7 +9,8 @@ module.exports = function (sequelize, DataTypes) {
         abstract: {type: DataTypes.STRING},
         status: {type: DataTypes.STRING},
         tags: {type: DataTypes.STRING},
-        year: {type: DataTypes.INTEGER}
+        year: {type: DataTypes.INTEGER},
+        program: {type: DataTypes.STRING}
     }, {
         timestamps: true,
         indexes: [

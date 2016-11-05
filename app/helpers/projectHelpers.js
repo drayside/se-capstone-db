@@ -34,9 +34,10 @@ module.exports = function (models) {
     // };
 
     var getProjectById = function getProjectById(id) {
-        return models.Project.findById(id).then(function (project) {
+        console.log("project: ", models.Project);
+        return models.Project.find({where: {id: id}}).then(function (project) {
             if (project === null) {
-                throw new errors.ProjectNotFoundError(filter);
+                throw new errors.ProjectNotFoundError(id);
             } else {
                 return project;
             }
