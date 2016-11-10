@@ -44,6 +44,13 @@ module.exports = function (models) {
         });
     };
 
+    var getProjectsByFilters = function getProjectsByFilters(filters) {
+        // console.log("filters: ", filters);
+        return models.Project.findAll({where: filters});
+    }
+
+// Post.findAll({ where: {deletedAt: null, topicId: req.params.id} })
+
     // var createUser = function createUser(userInfo) {
     //     return getUserByFilter({username: userInfo.username})
     //         .then(function () {
@@ -76,6 +83,7 @@ module.exports = function (models) {
         // getProject: getProject,
         // getUserByFilter: getUserByFilter,
         getProjectById: getProjectById,
+        getProjectsByFilters: getProjectsByFilters,
         // createUser: createUser,
         // deleteUser: deleteUser
     };

@@ -91,37 +91,42 @@ module.exports = function (projectHelpers) {
         400 - BadRequest
     */
 
-    // TODO
-
     var search = function search(req, res, next) {
-        validateParams([
-            {name: 'first_name', in: req.body, required: true},
-            {name: 'last_name', in: req.body, required: true},
-            {name: 'email', in: req.body, required: true},
-            {name: 'username', in: req.body, required: true},
-            {name: 'password', in: req.body, required: true},
-        ]).then(function () {
-            var userInfo = _.pick(
-                req.body,
-                'first_name',
-                'last_name',
-                'email',
-                'username',
-                'password'
-            );
-            projectHelpers.createUser(userInfo)
-                .then(function (user) {
-                    listHelpers.createList(user, {
-                        "name": "Grocery List",
-                        "description": "Default shopping list.",
-                    }).then(function(list){
-                        user.addList(list);
-                        res.json(201, user);
-                        next();
-                    });
-                }).catch(errors.UserExistsError, sendError(httpErrors.ConflictError, next));
-        }).catch(errors.ValidationError, sendError(httpErrors.NotFoundError, next));
+        var filters = JSON.parse(req.body);
+        projectHelpers.getProjectsByFilters(filters).then(function (projects) {
+            res.json({"projects": projects});
+            next();
+        });
     };
+
+        // validateParams([
+        //     {name: 'first_name', in: req.body, required: true},
+        //     {name: 'last_name', in: req.body, required: true},
+        //     {name: 'email', in: req.body, required: true},
+        //     {name: 'username', in: req.body, required: true},
+        //     {name: 'password', in: req.body, required: true},
+        // ]).then(function () {
+        //     var userInfo = _.pick(
+        //         req.body,
+        //         'first_name',
+        //         'last_name',
+        //         'email',
+        //         'username',
+        //         'password'
+        //     );
+        //     projectHelpers.createUser(userInfo)
+        //         .then(function (user) {
+        //             listHelpers.createList(user, {
+        //                 "name": "Grocery List",
+        //                 "description": "Default shopping list.",
+        //             }).then(function(list){
+        //                 user.addList(list);
+        //                 res.json(201, user);
+        //                 next();
+        //             });
+        //         }).catch(errors.UserExistsError, sendError(httpErrors.ConflictError, next));
+        // }).catch(errors.ValidationError, sendError(httpErrors.NotFoundError, next));
+    // };
 
     return {
         allProjects: allProjects,
