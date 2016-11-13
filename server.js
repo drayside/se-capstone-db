@@ -3,12 +3,10 @@
 var restify = require('restify');
 var config = require('./config/default');
 var parse = require('./config/parse');
-var sequelize = require('./config/db')(config);
-var models = require('./app/models')(sequelize);
 var _ = require('lodash');
 
 var graphGenerator = require('./app/graph/graphGenerator')(parse);
-var projectHelpers = require('./app/helpers/projectHelpers')(models);
+var projectHelpers = require('./app/helpers/projectHelpers')(parse);
 var projectHandlers = require('./app/routes/projectHandlers')(projectHelpers);
 
 // graphGenerator.generateGraph();
@@ -49,7 +47,4 @@ server.listen(config.port, function () {
     console.log(' --- Listening to %s --- ', server.url);
 });
 
-server.db = {};
-server.db.sequelize = sequelize;
-server.db.models = models;
 module.exports = server;
