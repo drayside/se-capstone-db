@@ -6,7 +6,6 @@ var _ = require('lodash');
 var glob = require('glob');
 
 function beginsWith(str, prefix){
-    console.log("STRING, PREFIX" , str, prefix);
     if (str.length > prefix.length && str.substring(0, prefix.length) === prefix){
         return true;
     }
@@ -26,7 +25,7 @@ var parse = function (fileName) {
     result[fileName] = {};
 
     // Parse the Blob
-    for (var i in fileContent) { console.log (":", fileContent[i]); }
+    // for (var i in fileContent) { console.log (":", fileContent[i]); }
 
     var indexBlurb = fileContent.indexOf("## Blurb") + 1;
     var blurb = "";
@@ -75,7 +74,7 @@ var parse = function (fileName) {
 
 function initParse(){
     var files = fs.readdirSync(path.join(__dirname, '/markdown/'));
-    console.log(files);
+    // console.log(files);
     var res = {};
     for (var i = 0; i < files.length; i++){
         var t = files[i];
@@ -86,5 +85,5 @@ function initParse(){
 
 var res = initParse();
 // console.log('Parsed contents: ' + contentJson);
-console.log("FINAL: ", JSON.stringify(res, null, 2));
+// console.log("FINAL: ", JSON.stringify(res, null, 2));
 module.exports = res;
