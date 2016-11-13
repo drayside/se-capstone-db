@@ -1,41 +1,17 @@
 "use strict";
 
 var restify = require('restify');
-var bunyan = require('bunyan');
 var config = require('./config/default');
 var parse = require('./config/parse');
-var sequelize = require('./config/db')(config);
-var models = require('./app/models')(sequelize);
 var _ = require('lodash');
 
 var graphGenerator = require('./app/graph/graphGenerator')(parse);
-var projectHelpers = require('./app/helpers/projectHelpers')(models);
+var projectHelpers = require('./app/helpers/projectHelpers')(parse);
 var projectHandlers = require('./app/routes/projectHandlers')(projectHelpers);
 
-graphGenerator.generateGraph();
+// graphGenerator.generateGraph();
 
-var restifyLogger = new bunyan({
-    name: 'restify',
-    streams: [
-        {
-            level: 'error',
-            stream: process.stdout
-        },
-        {
-            level: 'info',
-            stream: process.stdout
-        }
-    ]
-});
-
-var server = restify.createServer({
-    log: restifyLogger,
-});
-
-// Add audit logging
-server.on('after', restify.auditLogger({
-    log: restifyLogger
-}));
+var server = restify.createServer();
 
 // Log uncaught exceptions
 server.on('uncaughtException', function (req, res, route, error) {
@@ -67,20 +43,8 @@ server.get('/project/all', projectHandlers.allProjects); // Project route: get a
 server.get('/project/:id', projectHandlers.userById); // Project route: get project by the id
 server.post('/search', projectHandlers.search); // Search route
 
-sequelize.authenticate().then(function () {
-    console.log('Connection has been established successfully');
-    // use .sync{ force: true } to drop the db and make a new db from the schema
-    sequelize.sync().then(function () {
-    // sequelize.sync({force: true}).then(function () {
-        server.listen(config.port, function () {
-            console.log(' --- Listening to %s --- ', server.url);
-        });
-    });
-}).catch(function (err) {
-    console.log('Unable to connect to db: ', err);
+server.listen(config.port, function () {
+    console.log(' --- Listening to %s --- ', server.url);
 });
 
-server.db = {};
-server.db.sequelize = sequelize;
-server.db.models = models;
 module.exports = server;
