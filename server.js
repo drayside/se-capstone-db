@@ -45,17 +45,8 @@ server.get('/project/all', projectHandlers.allProjects); // Project route: get a
 server.get('/project/:id', projectHandlers.userById); // Project route: get project by the id
 server.post('/search', projectHandlers.search); // Search route
 
-sequelize.authenticate().then(function () {
-    console.log('Connection has been established successfully');
-    // use .sync{ force: true } to drop the db and make a new db from the schema
-    sequelize.sync().then(function () {
-    // sequelize.sync({force: true}).then(function () {
-        server.listen(config.port, function () {
-            console.log(' --- Listening to %s --- ', server.url);
-        });
-    });
-}).catch(function (err) {
-    console.log('Unable to connect to db: ', err);
+server.listen(config.port, function () {
+    console.log(' --- Listening to %s --- ', server.url);
 });
 
 server.db = {};
