@@ -40,7 +40,7 @@ server.use(function (req, res, next) {
 // Routes
 // User
 server.get('/project/all', projectHandlers.allProjects); // Project route: get all projects
-server.get('/project/:id', projectHandlers.userById); // Project route: get project by the id
+server.get('/project/:projectName', projectHandlers.viewProject); // Project route: get project by the id
 server.post('/search', projectHandlers.search); // Search route
 
 server.listen(config.port, function () {
