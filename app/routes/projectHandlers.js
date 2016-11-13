@@ -11,7 +11,7 @@ module.exports = function (projectHelpers) {
 
     var allProjects = function allProjects(req, res, next) {
         var p = projectHelpers.getProjects();
-        res.json({"projects": [p]});
+        res.json({"projects": p});
         next();
     };
 
