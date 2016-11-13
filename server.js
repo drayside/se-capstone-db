@@ -1,7 +1,6 @@
 "use strict";
 
 var restify = require('restify');
-var bunyan = require('bunyan');
 var config = require('./config/default');
 var parse = require('./config/parse');
 var sequelize = require('./config/db')(config);
@@ -12,30 +11,9 @@ var graphGenerator = require('./app/graph/graphGenerator')(parse);
 var projectHelpers = require('./app/helpers/projectHelpers')(models);
 var projectHandlers = require('./app/routes/projectHandlers')(projectHelpers);
 
-graphGenerator.generateGraph();
+// graphGenerator.generateGraph();
 
-var restifyLogger = new bunyan({
-    name: 'restify',
-    streams: [
-        {
-            level: 'error',
-            stream: process.stdout
-        },
-        {
-            level: 'info',
-            stream: process.stdout
-        }
-    ]
-});
-
-var server = restify.createServer({
-    log: restifyLogger,
-});
-
-// Add audit logging
-server.on('after', restify.auditLogger({
-    log: restifyLogger
-}));
+var server = restify.createServer();
 
 // Log uncaught exceptions
 server.on('uncaughtException', function (req, res, route, error) {
