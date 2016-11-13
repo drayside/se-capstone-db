@@ -3,12 +3,12 @@
 var restify = require('restify');
 var bunyan = require('bunyan');
 var config = require('./config/default');
+var parse = require('./config/parse');
 var sequelize = require('./config/db')(config);
 var models = require('./app/models')(sequelize);
 var _ = require('lodash');
 
 var projectHelpers = require('./app/helpers/projectHelpers')(models);
-
 var projectHandlers = require('./app/routes/projectHandlers')(projectHelpers);
 
 var restifyLogger = new bunyan({

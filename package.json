@@ -38,6 +38,7 @@
     "config": "^1.12.0",
     "jwt-simple": "^0.3.0",
     "lodash": "^3.6.0",
+    "markdown-to-json": "^0.4.2",
     "mysql": "^2.6.1",
     "passport": "^0.2.1",
     "passport-facebook": "^2.0.0",
