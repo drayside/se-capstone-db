@@ -47,6 +47,10 @@ Get a new feature reviewed and deployed by the end of the project!
 * c8hoang
 * jsacbibi
 
+## Tags
+* open source
+* UW
+
 ## Questions & Comments
 
 Q1

@@ -38,6 +38,10 @@ time to get involved with the external world.
 * c4lang
 * c22gu
 
+## Tags
+* Vim
+* Palette
+
 ## Questions & Comments
 
 Q1
@@ -45,4 +49,3 @@ Q1
 C1 drayside: see VimAwesome, an SE499 project by David Hu SE2014:
 https://ecesvn.uwaterloo.ca/courses/se_capstone/handbook/docs/499/VimAwesome-DavidHu-SE499.pdf
 http://vimawesome.com/
-

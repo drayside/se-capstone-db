@@ -41,7 +41,7 @@ important?".
 ### Doing Something Else
 * e24wang
 * arajeev
-* mwrahman	
+* mwrahman
 * lsivasot
 * m2khowaj
 * sy2zhao
@@ -49,6 +49,13 @@ important?".
 * a2hariha
 * hwjiang
 * j449li
+
+## Tags
+* Capco
+* meetings
+* notes
+* moment
+* UW alums
 
 ## Questions & Comments
 

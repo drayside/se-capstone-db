@@ -19,7 +19,7 @@ We want to extend the site with proper Microframework, add a database, add an ad
 
 ### Related
 
-There is a team in SE2017 currently pursuing this idea. 
+There is a team in SE2017 currently pursuing this idea.
 The SE2018 student who proposed this idea is aware of that.
 Competition is permissible.
 
@@ -43,6 +43,14 @@ Competition is permissible.
 * rj2olear
 * w4di
 * hjdszost
+
+## Tags
+* Wattools
+* Microframework
+* UW
+* database
+* admin
+* UI
 
 ## Questions & Comments
 

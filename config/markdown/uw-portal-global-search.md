@@ -51,6 +51,12 @@ such as global search.
 * skoushan
 * rk2wong
 
+## Tags
+* UW
+* Portal
+* SDK
+* global search
+
 ## Questions & Comments
 
 Q1

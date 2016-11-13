@@ -35,15 +35,19 @@ granular as functions and as coarse as entire binaries.
 
 ## Interested Students
 ### Doing Something Else
-* mdrtait 
+* mdrtait
 * ejcwalls
 * njjewers
 * rj2olear
+
+## Tags
+* Mining
+* github
+* architecture
+* software
 
 ## Questions & Comments
 
 Q1
 
 C1
-
-

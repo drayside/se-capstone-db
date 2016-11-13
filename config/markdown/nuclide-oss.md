@@ -59,3 +59,11 @@ But other teams could make other contributions to Nuclide.
 * c22gu
 * rj2olear
 * jsacbibi
+
+## Tags
+* Nuclide
+* open-source
+* JavaScript
+* Facebook
+* IDE
+* New Project

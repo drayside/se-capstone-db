@@ -40,12 +40,16 @@ https://en.wikipedia.org/wiki/Blockchain_(database)
 ## Interested Students
 ### Doing Something Else
 * s6chawla
-* mdrtait 
+* mdrtait
+
+## Tags
+* Capco
+* Blockchain
+* Compliance
+# UW alums
 
 ## Questions & Comments
 
 Q1
 
 C1
-
-

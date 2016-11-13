@@ -81,6 +81,14 @@ Database engine options include:
 * dysu
 * m85liu
 
+## Tags
+* research
+* Google Maps
+* database
+* underground rivers
+* UW
+* School of Urban Planning
+
 ## Questions & Comments
 
 Q1

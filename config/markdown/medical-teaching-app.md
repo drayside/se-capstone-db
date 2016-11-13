@@ -32,7 +32,7 @@ Please email me directly at: avarshney1@partners.org if you are interested
 or have further questions. Funding is currently being obtained, and we
 could work out financial compensation and also consider having this project
 count towards academic credit if there is interest.
- 
+
 
 ### Future: continuing
 ### Size: single
@@ -49,6 +49,12 @@ count towards academic credit if there is interest.
 * jpatrici
 * lsivasot
 
+## Tags
+* education
+* health care
+* Hospital
+* medical students
+* physical exam
 
 ## Questions & Comments
 
@@ -56,6 +62,4 @@ Q1 Would the application be developed for desktop or mobile?
 
 A1 drayside: my guess is tablet, but I'm not 100% sure.
 
-C1 
-
-
+C1

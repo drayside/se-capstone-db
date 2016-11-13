@@ -11,7 +11,7 @@ contributions to some UofT student projects in the past.
 This is a new kind of direction for us. Let's see how it works if you
 are interested. Individual employees of Flipp.com have expressed
 interest in mentoring your projects in areas of their expertise.
-That's a bit more open-ended than we are usually targetting for
+That's a bit more open-ended than we are usually targeting for
 October, but maybe it will work well.
 
 
@@ -55,6 +55,11 @@ Betty is a software engineer on the Android app team.  Betty can provide mentors
 * rj2olear
 * c8hoang
 * rk2wong
+
+## Tags
+* Flipp
+* UW Alums
+* online flyers
 
 ## Questions & Comments
 

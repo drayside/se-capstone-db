@@ -44,6 +44,11 @@ ways in which software can contribute to nutrition and public health.
 * x335chen
 * yjou
 
+## Tags
+* health care
+* nutrition
+* software
+
 ## Questions & Comments
 
 Q1

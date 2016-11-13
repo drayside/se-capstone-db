@@ -118,8 +118,8 @@ module.exports = function (models) {
             }
         }
 
-        // Generate SVG output
-        g.output( "svg", "projects.svg" );
+        // Generate PNG output
+        g.output( "png", "projects.png" );
     };
 
     return {

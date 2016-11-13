@@ -19,7 +19,7 @@ University of Waterloo
 
 ## Blurb
 
-Mega-construction projects, costing billions of dollars and 
+Mega-construction projects, costing billions of dollars and
 thousands of people, require intricate planning and coordination.
 A trend in industry has been to describe the steps that some people
 take for some tasks as _workflows_ (flowcharts).
@@ -67,17 +67,24 @@ that be from physical location on campus or VPN.)
 ### Doing Something Else
 * rj2olear
 
+## Tags
+* Alloy first-order relational logic
+* Alloy Analyzer
+* Alloy
+* workflow
+* deadlock
+
 
 ## Questions & Comments
 
-Q1 
+Q1
 
 C1
 
-Q2 
+Q2
 
 C2
 
-Q3 
+Q3
 
 C3

@@ -47,6 +47,14 @@ https://ohmlang.github.io/pubs/live2016/
 ### Doing Something Else
 * d87zhang
 
+## Tags
+* parser
+* JavaScript
+* interpreter
+* domain-specific
+* Ohm
+* language
+
 ## Questions & Comments
 
 Q1 From looking at the demo webpage the project seems pretty well setup,

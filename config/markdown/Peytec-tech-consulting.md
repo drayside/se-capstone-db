@@ -12,6 +12,14 @@ The project involves helping the company track its competitive beagles interms o
 * Martin Lai
 * Ahzam Ahmed
 
+## Tags
+* Peytec
+* wireless
+* connectivity
+* IoT
+* sensors
+* statistical
+* analysis
+
 
 ## Questions?
-

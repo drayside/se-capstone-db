@@ -53,6 +53,13 @@ convenience.
 * j449li
 * rk2wong
 
+## Tags
+* Banking
+* Capco
+* consulting
+* Bot
+* UW alums
+
 ## Questions & Comments
 
 Q1

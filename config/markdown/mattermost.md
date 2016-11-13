@@ -26,6 +26,9 @@ As previously mentioned, Mattermost is an open source alternative to Slack. This
 * skoushan
 * rk2wong
 
+## Tags
+* Mattermost
+
 ## Questions & Comments
 
 Q1
