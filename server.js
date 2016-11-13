@@ -3,13 +3,16 @@
 var restify = require('restify');
 var bunyan = require('bunyan');
 var config = require('./config/default');
+var parse = require('./config/parse');
 var sequelize = require('./config/db')(config);
 var models = require('./app/models')(sequelize);
 var _ = require('lodash');
 
+var graphGenerator = require('./app/graph/graphGenerator')(parse);
 var projectHelpers = require('./app/helpers/projectHelpers')(models);
-
 var projectHandlers = require('./app/routes/projectHandlers')(projectHelpers);
+
+graphGenerator.generateGraph();
 
 var restifyLogger = new bunyan({
     name: 'restify',
