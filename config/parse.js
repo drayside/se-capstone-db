@@ -14,48 +14,6 @@ function beginsWith(str, prefix){
     return false;
 }
 
-// var contents = fs.readFileSync(path.join(__dirname, '/markdown/flipp.md'));
-
-//
-// Recursive Parser. Takes in a level of # and appends # each time to build the levels
-// Only recurses if there is a line in the array that begins with the new level of level + "#";
-var parseUtil = function(currentLevel, fileContent) {
-    var result = {};
-    var newLevel = currentLevel + "#";
-    var newLevelFound = false;
-
-    // see if there is a new level
-    for (var i in fileContent){
-        if (beginsWith(fileContent[i], newLevelFound + " ") ){
-            console.log("new level found: " + newLevel);
-            newLevelFound = true;
-        }
-    }
-
-    for (var i = 0; i < fileContent.length; i++){
-        console.log("LINE: ", fileContent[i]);
-        if (beginsWith(fileContent[i], currentLevel + " ")){
-            console.log("HERE");
-            var line = fileContent[i];
-            var key = line.substring(currentLevel.length - 1, line.length);
-            result[key] = [];
-            console.log("Line, key: ", line, key);
-            for (; i < fileContent.length && !beginsWith(fileContent[i], "#"); i++){
-                console.log("Pushing: ", fileContent[i]);
-                result[key].push(fileContent[i]);
-            }
-        }
-    }
-
-    console.log("RESULT for level: " + currentLevel, JSON.stringify(result, null, 2));
-
-    if (newLevelFound){
-        var deepContent = parseUtil(newLevelFound, fileContent);
-        result = _.merge(result, deepContent);
-    }
-
-    return result;
-}
 var parse = function (fileName) {
     var result = {};
     var fileContent = fs.readFileSync(path.join(__dirname, '/markdown/' + fileName)).toString().split("\n");
