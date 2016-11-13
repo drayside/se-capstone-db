@@ -43,6 +43,12 @@ server.get('/project/all', projectHandlers.allProjects); // Project route: get a
 server.get('/project/:projectName', projectHandlers.viewProject); // Project route: get project by the id
 server.post('/search', projectHandlers.search); // Search route
 
+// Route to get the SVG
+server.get('/', restify.serveStatic({
+    'directory': '.',
+    'default': 'index.html'
+}));
+
 server.listen(config.port, function () {
     console.log(' --- Listening to %s --- ', server.url);
 });

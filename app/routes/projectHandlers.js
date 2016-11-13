@@ -5,6 +5,7 @@ var httpErrors = require('restify').errors;
 var errors = require('../common/errors');
 var sendError = require('../common/sendError');
 var validateParams = require('../common/validateParams');
+var fs = require('fs');
 
 module.exports = function (projectHelpers) {
 
@@ -52,7 +53,15 @@ module.exports = function (projectHelpers) {
         }).catch(errors.ValidationError, sendError(httpErrors.NotFoundError, next));
     };
 
+    var graph = function graph(req, res, next) {
+        var img = fs.readFileSync(__dirname + '/temp.svg');
+        res.writeHead(200, {'Content-Type': 'image/svg'});
+        res.end(img, 'binary');
+        next();
+    };
+
     return {
+        graph: graph,
         allProjects: allProjects,
         search: search,
         viewProject: viewProject
