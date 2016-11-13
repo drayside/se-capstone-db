@@ -29,6 +29,13 @@ might be a good fit for us.
 * lsivasot
 * jahanta
 
+## Tags
+* FocusONCare
+* cancer treatment
+* ChemoTracker
+* mobile
+* health care
+
 ## Questions & Comments
 
 Q1

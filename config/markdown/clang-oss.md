@@ -41,6 +41,12 @@ Potential ideas include:
 * rj2olear
 * j4hassan
 
+## Tags
+* LLVM
+* oss
+* clang
+* C
+
 ## Questions & Comments
 
 Q1

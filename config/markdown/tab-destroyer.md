@@ -40,6 +40,9 @@ time to get involved with the external world.
  * c8hoang
  * j4hassan
 
+## Tags
+* Google Chrome
+
 ## Questions & Comments
 
  Q1

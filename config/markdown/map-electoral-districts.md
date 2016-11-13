@@ -52,6 +52,12 @@ Database engine options include:
 * prashbourne
 * hjdszost
 
+## Tags
+* Government of Canada
+* Geographic Information System
+* computational
+* electoral district
+
 ## Questions & Comments
 
 Q1

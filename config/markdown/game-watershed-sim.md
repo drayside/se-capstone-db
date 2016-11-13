@@ -65,6 +65,12 @@ actual cities), or on fictional geography.
 * c8hoang
 * hjdszost
 
+## Tags
+* watershed
+* game
+* city planning
+* geography
+
 ## Questions & Comments
 
 Q1

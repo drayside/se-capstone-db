@@ -43,12 +43,16 @@ note: will not look exactly like this
 * x335chen
 * cgvander
 * s57zhao
-* m85liu
+*
+
+## Tags
+* webcomics
+* art
+* server
+* artwork
 
 ## Questions & Comments
 
 Q1
 
 C1
-
-

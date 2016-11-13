@@ -24,9 +24,11 @@ It would be nice if the PDF input plugin were improved.
 
 ## Interested Students
 
+# Tags
+* PDF
+
 ## Questions & Comments
 
 Q1
 
 Q2
-

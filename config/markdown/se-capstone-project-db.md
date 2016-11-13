@@ -17,7 +17,7 @@ from LaTeX files. Tag projects.
 
 This is just an external mini-project for one team. There is no possibility to
 continue this on for a full capstone project. There isn't enough work
-to do. 
+to do.
 
 ### Size: single team
 ### Status: coding
@@ -40,6 +40,13 @@ There is only enough work for one team.
 * jachorlt
 * a2hariha
 * j449li
+
+## Tags
+* database
+* online
+* LaTeX
+* tags
+* SE
 
 ## Questions & Comments
 

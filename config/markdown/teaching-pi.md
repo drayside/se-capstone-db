@@ -24,7 +24,7 @@ This is not about the decimal expansion of Pi but, rather, about the
 geometric concept. Children this age do not know about decimals and
 fractions, and anyway some prefix of the decimal expansion is not
 intellectually important. For these children, 3 is a reasonable
-approximation of Pi. 
+approximation of Pi.
 
 Educational material available online (at least what Derek has found),
 including Khan Academy, is inadequate for teaching Pi to children this
@@ -39,7 +39,7 @@ of the celebratory pie as a reward for making progress in the app.
 1. Squares. How much longer is the distance around the square than the
 length of one of the sides? (They don't know the word "perimeter", but
 could be introduced to it in a sidebar.) Form a hypothesis. Write it
-down in the app. Now do experiments: 
+down in the app. Now do experiments:
 
     - Allow the user take a picture of a square object.
     - Then they cut a string that wraps around the object. Take a picture of that string laid out straight.
@@ -74,7 +74,7 @@ homophones: same sound but different spelling and different meaning.
 
 4. Eat the celebratory pie! Take a picture of the child eating the
 pie.
- 
+
 
 ### Future: continuing
 ### Size: single
@@ -86,10 +86,14 @@ pie.
 * cgvander
 * j449li
 
+## Tags
+* tablet
+* pi
+* grade one
+* education
+
 ## Questions & Comments
 
 Q1
 
 C1 This is a cool way to teach Pi!(skoushan)
-
-

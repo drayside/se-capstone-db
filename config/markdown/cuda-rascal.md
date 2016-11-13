@@ -68,6 +68,16 @@ https://github.com/CNugteren/cltune
 * ikazeran
 * mdrtait
 
+## Tags
+* CUDA
+* Nvidia
+* GPU
+* kernels
+* data abstraction
+* automatic performance tuning
+* OpenCL
+* multi-dimensional array access
+
 ## Questions & Comments
 
 Q1

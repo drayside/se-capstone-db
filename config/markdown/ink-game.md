@@ -32,6 +32,9 @@ See the Awards section of the Handbook and the videos linked to from there:
 - wcakeize
 - ikazeran
 
+## Tags
+* game
+* Typescript
 
 ## Questions & Comments
 

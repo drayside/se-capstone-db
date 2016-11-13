@@ -22,12 +22,16 @@ Potential ideas include:
 ### Status: coding
 
 ## Interested Students
-* t2ying 
-* s292kim 
-* j39jiang 
-* c25du 
+* t2ying
+* s292kim
+* j39jiang
+* c25du
 * wj2ma
 * d3woo
+
+## Tags
+* oss
+* FFmpeg
 
 ## Questions & Comments
 

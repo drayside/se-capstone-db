@@ -51,6 +51,11 @@ Help improve, expand, architect, and test the new Portal SDK.
 * sy2zhao
 * saminpou
 
+## Tags
+* UW
+* Portal
+* SDK
+
 ## Questions & Comments
 
 Q1

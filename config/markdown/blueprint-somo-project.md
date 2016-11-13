@@ -36,6 +36,13 @@ that allows them to conduct SMS surveys. We're looking into a React, Rails and P
 * lsanmart
 * tqshi
 
+## Tags
+* Somo
+* non-profits
+* entrepeneurs
+* Afria
+
+
 ## Questions & Comments
 
 Q1

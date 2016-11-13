@@ -57,6 +57,14 @@ a voice-actived mobile app...  let's build something we all could use!
 * j86zhang
 * c8hoang
 * w62wu
+
+## Tags
+* knowledge graph
+* UW
+* website
+* natural language
+* voice
+
 ## Questions & Comments
 
 Q1

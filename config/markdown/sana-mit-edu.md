@@ -68,6 +68,14 @@ We would be glad to arrange a follow up call to detail what the features and fun
 * j23xue
 * jahanta
 
+## Tags
+* Sana
+* Android
+* Web
+* protocol
+* open source
+* health care
+
 ## Questions & Comments
 
 Q1

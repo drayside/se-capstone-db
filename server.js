@@ -9,7 +9,7 @@ var graphGenerator = require('./app/graph/graphGenerator')(parse);
 var projectHelpers = require('./app/helpers/projectHelpers')(parse);
 var projectHandlers = require('./app/routes/projectHandlers')(projectHelpers);
 
-// graphGenerator.generateGraph();
+graphGenerator.generateGraph();
 
 var server = restify.createServer();
 

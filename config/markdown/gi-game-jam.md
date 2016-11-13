@@ -52,3 +52,13 @@ See the Awards section of the Handbook and the videos linked to from there:
 * jgreenan
 * a25zhou
 
+## Tags
+* game
+* Unity3D
+* itch.io
+
+## Questions & Comments
+
+Q1
+
+C1

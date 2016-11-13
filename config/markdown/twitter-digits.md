@@ -20,10 +20,13 @@ Contribute to a project that makes login seamless through phone verification.
 * s2bhutan
 * hwjiang
 
+## Tags
+* Twitter
+* phone verification
+* login
+
 ## Questions & Comments
 
-Q1 
+Q1
 
-C1 
-
-
+C1

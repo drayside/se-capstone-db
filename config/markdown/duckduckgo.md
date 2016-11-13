@@ -27,4 +27,8 @@ The team is generally quite responsive and open to new pull requests.
 * xz2yu
 * w62wu
 
+## Tags
+* open-source
+* Instant Answer
+
 ## Questions & Comments

@@ -60,6 +60,13 @@ project on this enhanced system, beyond improving these error reports.
 * yjou
 * h76huang
 
+## Tags
+* degree audit
+* SE Advisor
+* Domain Specific Language
+* Alloy Analyzer logic engine
+* error reports
+
 ## Questions & Comments
 
 Q1 How would you handle the case where students in the same year might follow a different graduation calendar? say, software 2018 can now follow 2020's graduation requirements.
