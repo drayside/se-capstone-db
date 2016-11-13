@@ -8,90 +8,19 @@ var validateParams = require('../common/validateParams');
 
 module.exports = function (projectHelpers) {
 
-    /*
-    Request:
-        params: all
-        header:
-        body: {}
-    Response:
-        Success:
-        200 - Success
-        body: {
-                projects: [
-                    {
-                        "name": [STRING],
-                        "year": [STRING],
-                        "abstract": [STRING],
-                        "pid": [INT]
-                    },
-                ]
-            }
-        Failure: {404: 'NotFoundError'}
-    */
     var allProjects = function allProjects(req, res, next) {
-        projectHelpers.getProjects().then(function (projects) {
-            res.json({"projects": projects});
-            next();
-        });
+        var p = projectHelpers.getProjects();
+        res.json({"projects": [p]});
+        next();
     };
 
-    /*
-    Request:
-        params: id of the required project
-        header:
-        body: {}
-    Response:
-        Success:
-        200 - Success
-        body: {
-            "id": [INTEGER],
-            "name": [STRING],
-            "students": [STRING],
-            "year" : [INTEGER],
-            "status" : [STRING],
-            "tags" : [STRING],
-            "abstract" : [STRING],
-            "external_partners" : [STRING]
-        }
-        Failure:
-        404 - NotFoundError
-    */
-
-    var userById = function userById(req, res, next) {
-        projectHelpers.getProjectById(req.params.id).then(function (project) {
-            res.json({ project });
-            next();
-        }).catch(errors.ProjectNotFoundError, sendError(httpErrors.NotFoundError, next));
+    var viewProject = function viewProject(req, res, next){
+        var project = projectHelpers.getProject(req.params.projectName);
+        var result = {};
+        result[req.params.projectName] = project;
+        res.json(result);
+        next();
     };
-
-    /*
-    Request:
-        params:
-        header:
-        body: {
-            "name": [STRING],
-            "status": [STRING],
-            "tags": [STRING],
-            "year": [STRING]
-        }
-    Response:
-        Success:
-        201 - Success
-        body: {
-            projects: [
-                {
-                    "name": [STRING],
-                    "year": [STRING],
-                    "abstract": [STRING],
-                    "pid": [INT]
-                },
-            ]
-        }
-        Failure:
-        400 - BadRequest
-    */
-
-    // TODO
 
     var search = function search(req, res, next) {
         validateParams([
@@ -125,7 +54,7 @@ module.exports = function (projectHelpers) {
 
     return {
         allProjects: allProjects,
-        userById: userById,
         search: search,
+        viewProject: viewProject
     };
 };
