@@ -1,11 +1,13 @@
 "use strict";
 
 var _ = require('lodash');
+var marked = require('marked');
 var httpErrors = require('restify').errors;
 var errors = require('../common/errors');
 var sendError = require('../common/sendError');
 var validateParams = require('../common/validateParams');
 var fs = require('fs');
+var path = require('path');
 
 module.exports = function (projectHelpers) {
 
@@ -21,6 +23,22 @@ module.exports = function (projectHelpers) {
         result[req.params.projectName] = project;
         res.json(result);
         next();
+    };
+
+    var compileMarkdown = function compileMarkdown(req, res, next){
+        var projectName = req.params.projectName;
+        fs.readFile(path.join(__dirname, '../../config/markdown/' + projectName), 'utf8', function (err, data) {
+            if (err) {
+                return res.send(500, "Unable to open project file.");
+            }
+            var body = marked(data);
+            res.writeHead(200, {
+                'Content-Length': Buffer.byteLength(body),
+                'Content-Type': 'text/html'
+            });
+            res.write(body);
+            next();
+        });
     };
 
     var search = function search(req, res, next) {
@@ -64,6 +82,7 @@ module.exports = function (projectHelpers) {
         graph: graph,
         allProjects: allProjects,
         search: search,
-        viewProject: viewProject
+        viewProject: viewProject,
+        compileMarkdown: compileMarkdown
     };
 };

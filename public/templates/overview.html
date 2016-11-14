@@ -1,0 +1,24 @@
+<h1 class="page-header">Overview</h1>
+
+<div class="table-responsive">
+    <table class="table table-striped" ts-wrapper>
+        <thead>
+            <tr>
+                <th ts-criteria="id" ts-default>id</th>
+                <th ts-criteria="interested_students_count">Interested Students</th>
+                <th ts-criteria="future">Future</th>
+                <th ts-criteria="size">Size</th>
+                <th ts-criteria="status">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+        	<tr ng-repeat="project in projects" ts-repeat ts-hide-no-data>
+        	    <td><a ui-sref="project({id: project.id})">{{project.id}}</td>
+        	    <td>{{project.interested_students_count}}</td>
+        	    <td>{{project.future}}</td>
+        	    <td>{{project.size}}</td>
+        	    <td>{{project.status}}</td>
+        	</tr>
+        </tbody>
+    </table>
+</div>

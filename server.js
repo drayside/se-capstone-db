@@ -4,6 +4,8 @@ var restify = require('restify');
 var config = require('./config/default');
 var parse = require('./config/parse');
 var _ = require('lodash');
+var fs = require('fs');
+var path = require('path');
 
 var graphGenerator = require('./app/graph/graphGenerator')(parse);
 var projectHelpers = require('./app/helpers/projectHelpers')(parse);
@@ -20,7 +22,6 @@ server.on('uncaughtException', function (req, res, route, error) {
 });
 
 // Restify config
-server.use(restify.acceptParser(server.acceptable));
 server.use(restify.queryParser());
 server.use(restify.bodyParser());
 
@@ -40,10 +41,21 @@ server.use(function (req, res, next) {
 // Routes
 // User
 server.get('/project/all', projectHandlers.allProjects); // Project route: get all projects
-server.get('/project/:projectName', projectHandlers.viewProject); // Project route: get project by the id
+server.get('/project/html/:projectName', projectHandlers.compileMarkdown); // Project route: get project html file by id
+// server.get('/project/:projectName', projectHandlers.viewProject); // Project route: get project by the id
 server.post('/search', projectHandlers.search); // Search route
 
-// Route to get the SVG
+// Route to get the public files
+server.get('/project/:projectName', function(req, res, next) {
+    fs.readFile(path.join(__dirname, 'public/index.html'), 'utf8', function (err, data) {
+        res.writeHead(200, {
+            'Content-Length': Buffer.byteLength(data),
+            'Content-Type': 'text/html'
+        });
+        res.write(data);
+        next();
+    });
+});
 server.get(/\.*/, restify.serveStatic({
     'directory': 'public',
     'default': 'index.html'
