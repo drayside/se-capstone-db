@@ -44,8 +44,8 @@ server.get('/project/:projectName', projectHandlers.viewProject); // Project rou
 server.post('/search', projectHandlers.search); // Search route
 
 // Route to get the SVG
-server.get('/', restify.serveStatic({
-    'directory': '.',
+server.get(/\.*/, restify.serveStatic({
+    'directory': 'public',
     'default': 'index.html'
 }));
 

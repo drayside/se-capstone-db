@@ -32,3 +32,6 @@ ngrok
 
 # web storm .idea 
 .idea
+
+# project graph
+public/projects.png

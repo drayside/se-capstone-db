@@ -119,7 +119,7 @@ module.exports = function (models) {
         }
 
         // Generate PNG output
-        g.output( "png", "projects.png" );
+        g.output( "png", "public/projects.png" );
     };
 
     return {
