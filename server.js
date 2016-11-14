@@ -46,7 +46,7 @@ server.get('/project/html/:projectName', projectHandlers.compileMarkdown); // Pr
 server.post('/search', projectHandlers.search); // Search route
 
 // Route to get the public files
-server.get('/project/:projectName', function(req, res, next) {
+var serveIndex = function(req, res, next) {
     fs.readFile(path.join(__dirname, 'public/index.html'), 'utf8', function (err, data) {
         res.writeHead(200, {
             'Content-Length': Buffer.byteLength(data),
@@ -55,7 +55,9 @@ server.get('/project/:projectName', function(req, res, next) {
         res.write(data);
         next();
     });
-});
+};
+server.get('/project/:projectName', serveIndex);
+server.get('/graph', serveIndex);
 server.get(/\.*/, restify.serveStatic({
     'directory': 'public',
     'default': 'index.html'

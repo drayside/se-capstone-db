@@ -11,6 +11,10 @@ app.config([
       url: "/project/:id",
       templateUrl: "/templates/project.html",
       controller: "projectController"
+    }).state('graph', {
+      url: "/graph",
+      templateUrl: "/templates/graph.html",
+      controller: "graphController"
     });
   }
 ]);
@@ -23,7 +27,6 @@ app.controller("overviewController", ["$scope", "$http", function($scope, $http)
   $http.get("/project/all").then(function(response) {
     _.each(response.data.projects, function(project, filename) {
       project.id = filename.match(/(.*).md/)[1];
-      console.log(project.id);
       project.interested_students_count = project.interested_students.length || 0;
       $scope.projects.push(project);
     });
@@ -33,3 +36,18 @@ app.controller("overviewController", ["$scope", "$http", function($scope, $http)
 app.controller("projectController", ["$scope", "$stateParams", function($scope, $stateParams) {
   $scope.htmlUrl = "/project/html/" + $stateParams.id + ".md";
 }]);
+
+app.controller("graphController", ["$scope", function($scope) {
+}]);
+
+app.directive('viewer', function() {
+  return function(scope, element, attrs) {
+    element.hide();
+    var viewer = new Viewer(element[0], {
+      inline: true,
+      minHeight: 700,
+      zoomRatio: 0.1,
+      navbar: false
+    });
+  };
+});
