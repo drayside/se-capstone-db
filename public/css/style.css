@@ -58,12 +58,14 @@ body {
 .nav-sidebar > li > a {
   padding-right: 20px;
   padding-left: 20px;
+  background-color: #f5f5f5;
+  transition: background-color 0.2s;
 }
 .nav-sidebar a.active,
 .nav-sidebar a.active:hover,
 .nav-sidebar a.active:focus {
   color: #fff;
-  background-color: #428bca;
+  background-color: #3bafda;
 }
 
 
@@ -108,4 +110,23 @@ body {
   #navbar {
     margin-right: 10px;
   }
+}
+
+th.sortable {
+  cursor: pointer;
+}
+
+.sortorder {
+  color: #ccc;
+}
+
+.sortorder:after {
+  content: '\25b2';   // BLACK UP-POINTING TRIANGLE
+}
+.sortorder.reverse:after {
+  content: '\25bc';   // BLACK DOWN-POINTING TRIANGLE
+}
+
+a {
+  transition: color 0.2s;
 }

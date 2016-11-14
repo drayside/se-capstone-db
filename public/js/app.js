@@ -1,4 +1,4 @@
-app = angular.module('app', ["ui.router", "tableSort"]);
+app = angular.module('app', ["ui.router"]);
 
 app.config([
   "$stateProvider", '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -31,6 +31,14 @@ app.controller("overviewController", ["$scope", "$http", function($scope, $http)
       $scope.projects.push(project);
     });
   });
+
+  $scope.propertyName = 'id';
+  $scope.reverse = false;
+
+  $scope.sortBy = function(propertyName) {
+    $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
+    $scope.propertyName = propertyName;
+  };
 }]);
 
 app.controller("projectController", ["$scope", "$stateParams", function($scope, $stateParams) {

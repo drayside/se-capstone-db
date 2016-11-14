@@ -1,23 +1,63 @@
 <h1 class="page-header">Overview</h1>
 
 <div class="table-responsive">
-    <table class="table table-striped" ts-wrapper>
+    <table class="table table-striped">
         <thead>
             <tr>
-                <th ts-criteria="id" ts-default>id</th>
-                <th ts-criteria="interested_students_count">Interested Students</th>
-                <th ts-criteria="future">Future</th>
-                <th ts-criteria="size">Size</th>
-                <th ts-criteria="status">Status</th>
+                <th class="sortable" ng-click="sortBy('id')">
+                    id
+                    <span class="sortorder" ng-show="propertyName === 'id'" ng-class="{reverse: reverse}"></span>
+                </th>
+                <th class="sortable" ng-click="sortBy('interested_students_count')">
+                    Interested Students
+                    <span class="sortorder" ng-show="propertyName === 'interested_students_count'" ng-class="{reverse: reverse}"></span>
+                </th>
+                <th class="sortable" ng-click="sortBy('future')">
+                    Future
+                    <span class="sortorder" ng-show="propertyName === 'future'" ng-class="{reverse: reverse}"></span>
+                </th>
+                <th class="sortable" ng-click="sortBy('size')">
+                    Size
+                    <span class="sortorder" ng-show="propertyName === 'size'" ng-class="{reverse: reverse}"></span>
+                </th>
+                <th class="sortable" ng-click="sortBy('status')">
+                    Status
+                    <span class="sortorder" ng-show="propertyName === 'status'" ng-class="{reverse: reverse}"></span>
+                </th>
             </tr>
         </thead>
         <tbody>
-        	<tr ng-repeat="project in projects" ts-repeat ts-hide-no-data>
+        	<tr ng-repeat="project in projects | orderBy:propertyName:reverse">
         	    <td><a ui-sref="project({id: project.id})">{{project.id}}</td>
         	    <td>{{project.interested_students_count}}</td>
-        	    <td>{{project.future}}</td>
-        	    <td>{{project.size}}</td>
-        	    <td>{{project.status}}</td>
+        	    <td>
+                    <span ng-class="{
+                            'label': project.future,
+                            'label-success': project.future=='continuing',
+                            'label-warning': project.future=='terminal'
+                        }">
+                        {{project.future}}
+                    </span>
+                </td>
+        	    <td>
+                    <span ng-class="{
+                            'label': project.size,
+                            'label-success': project.size=='multi',
+                            'label-primary': project.size=='single'
+                        }">
+                        {{project.size}}
+                    </span>
+                </td>
+        	    <td>
+                    <span ng-class="{
+                            'label': project.status,
+                            'label-primary': project.status=='coding',
+                            'label-warning': project.status=='abandoned',
+                            'label-danger': project.status=='rejected'
+                        }">
+                        {{project.status}}
+                    </span>
+                </td>
         	</tr>
         </tbody>
     </table>
