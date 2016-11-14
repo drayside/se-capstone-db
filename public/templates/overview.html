@@ -1,5 +1,12 @@
-<h1 class="page-header">Overview</h1>
+<h2 class="page-header">Overview</h2>
 
+<!-- Tags -->
+<h4>Tags</h4>
+<div class="tags">
+    <a href="#" class="label label-primary" ng-repeat="tag in tags | orderBy" ng-click="setTag(tag)">{{tag}}</a>
+</div>
+
+<!-- Projects -->
 <div class="table-responsive">
     <table class="table table-striped">
         <thead>
@@ -27,7 +34,7 @@
             </tr>
         </thead>
         <tbody>
-        	<tr ng-repeat="project in projects | orderBy:propertyName:reverse">
+        	<tr ng-repeat="project in projects | filter: tagFilter | orderBy:propertyName:reverse">
         	    <td><a ui-sref="project({id: project.id})">{{project.id}}</td>
         	    <td>{{project.interested_students_count}}</td>
         	    <td>

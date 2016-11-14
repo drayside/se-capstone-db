@@ -130,3 +130,12 @@ th.sortable {
 a {
   transition: color 0.2s;
 }
+
+.tags {
+  margin-bottom: 15px;
+}
+
+.tags .label {
+  display: inline-block;
+  margin-right: 5px;
+}
