@@ -57,7 +57,7 @@ driving to Toronto on 401 by the end of 2018.
 * rk2wong
 
 ## Tags
-* open-source
+* open source
 * dashcam
 * self-driving
 * Autonomous Driving

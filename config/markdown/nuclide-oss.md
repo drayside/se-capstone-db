@@ -62,8 +62,7 @@ But other teams could make other contributions to Nuclide.
 
 ## Tags
 * Nuclide
-* open-source
+* open source
 * JavaScript
 * Facebook
 * IDE
-* New Project

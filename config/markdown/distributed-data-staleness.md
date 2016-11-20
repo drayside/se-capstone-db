@@ -37,7 +37,7 @@ https://github.com/wgolab/WatCA/graphs/traffic
 ## Tags
 * fast storage
 * distributed storage systems
-* open-source
+* open source
 * WatCA
 
 ## Questions & Comments
