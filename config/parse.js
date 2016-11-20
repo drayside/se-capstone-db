@@ -105,5 +105,5 @@ function initParse(){
 
 var res = initParse();
 // console.log('Parsed contents: ' + contentJson);
-console.log("FINAL: ", JSON.stringify(res, null, 2));
+// console.log("FINAL: ", JSON.stringify(res, null, 2));
 module.exports = res;
