@@ -4,34 +4,51 @@ var _ = require('lodash');
 var errors = require('../common/errors');
 var graphviz = require('graphviz');
 
-let rejectedIdeas = new Set();
-let assignedIdeas = new Set();
-let decidedIdeas = new Set();
-let decidedStudents = new Set();
-
-// adds ideas to the respective sets, based on the current status of the project
-function addToSets(models) {
-    // go through every project
-    for(var projectName in models) {
-        var project = models[projectName];
-        // add the ideas to the respective idea sets
-        if(project["status"] == "rejected") {
-            rejectedIdeas.add(projectName);
-        } else if(project["status"] == "coding" || project["status"] == "abandoned") {
-            decidedIdeas.add(projectName);
-        } else {
-            assignedIdeas.add(projectName);
-            decidedIdeas.add(projectName);
-        }
-    }
-}
+var rejectedIdeas = new Set();
+var assignedIdeas = new Set();
+var decidedIdeas = new Set();
+var decidedStudents = new Set();
 
 module.exports = function (models) {
-    var generateGraph = function generateGraph() {
-        addToSets(models);
+    // returns false if the graph does not contain either of the project ideas
+    function isPresent(g, idea1, idea2) {
+        return (g[idea1] !== undefined && g[idea2] !== undefined);
+    }
+
+    // adds ideas to the respective sets, based on the current status of the project
+    function addToSets() {
+        rejectedIdeas.add("index.md");
+        rejectedIdeas.add("index-body.md");
+        rejectedIdeas.add("index-header.md");
+
+        // go through every project
+        for(var projectName in models) {
+            var project = models[projectName];
+            // add the ideas to the respective idea sets
+            if(project["status"] === "rejected") {
+                rejectedIdeas.add(projectName);
+            } else if(project["status"] === "coding" || project["status"] === "abandoned") {
+                decidedIdeas.add(projectName);
+            } else if(project["status"] === "assigned") {
+                assignedIdeas.add(projectName);
+                decidedIdeas.add(projectName);
+            }
+        }
+    }
+
+    var generateGraph = function generateGraph(min, max) {
+        min = min || 0;
+        max = max || Number.MAX_SAFE_INTEGER;
+
+        addToSets();
 
         // creating the graph
         var g = graphviz.graph("Projects");
+        g.set("splines", "true");
+        g.set("concentrate", "true");
+        g.set("overlap", "false");
+        g.set("ranksep", "0.5");
+
         var map = {};
 
         for(var idea in models) {
@@ -49,46 +66,55 @@ module.exports = function (models) {
             }
         }
 
+        var graphIdeas = {};
+
+        // add interested students to the map
         for(var idea in map) {
             var project = models[idea];
-            var labelSize;
             var students = project["interested_students"];
 
-            if(decidedIdeas.has(idea)) {
-                labelSize = map[idea];
-            } else {
-                // set difference
-                labelSize = students.filter(x => decidedStudents.indexOf(x) < 0 );
+            var labelSize = decidedIdeas.has(idea) ? map[idea].length
+                                                   : _.difference(Array.from(students), Array.from(decidedStudents)).length;
+                                                   // get the students that have not decided on another project
+
+            var displayIdea = idea.replace("-", " ").substring(0, idea.length - 3).concat(" " + labelSize);
+
+            if( labelSize < min || labelSize > max ) {
+                continue;
             }
-            // TODO - add labelSize to graph using library
+
+            graphIdeas[idea] = {};
 
             var node = g.addNode( idea, {"color" : "blue"} );
 
+            node.set("label", displayIdea);
+            // TODO: fix URL depending on how we clone the REPO
+            node.set("URL", './' + idea);
+
+            // assigned idea
             if(assignedIdeas.has(idea)) {
                 node.set("style", "bold");
                 node.set("color", "purple");
             }
-
+            // decided idea
             else if(decidedIdeas.has(idea)) {
                 node.set("style", "bold");
-                if(labelSize == 0) { // abandoned idea
+
+                if(labelSize === 0) { // abandoned idea
                     node.set("shape", "rectangle");
                     node.set("color", "grey");
                 } else {    // coding idea
                     node.set("color", "green");
                 }
-            } else {
-                if(labelSize < 6) {
-                    node.set("style", "bold");
-                    node.set("shape", "rectangle");
-                    if(labelSize < 3) {
-                        node.set("color", "red");
-                    }
-                    else {
-                        node.set("color", "blue");
-                    }
-                } // TODO - tooltip
+            // no status yet
+            } else if(labelSize < 6) {
+                node.set("style", "bold");
+                node.set("shape", "rectangle");
+
+                var color = labelSize < 3 ? "red" : "blue";
+                node.set("color", color);
             }
+            node.set("tooltip", _.join(students, " "));
         }
 
         for(var idea1 in map) {
@@ -97,30 +123,26 @@ module.exports = function (models) {
                     var students1 = models[idea1]["interested_students"];
                     var students2 = models[idea2]["interested_students"];
 
+                    // get the common interested students between both projects
                     var intersection = _.intersection(students1, students2);
 
-                    if(! _.isEmpty(intersection)) {
-                        var e = g.addEdge( idea1, idea2 );
-                        // TODO - tooltip
+                    if(! _.isEmpty(intersection) && isPresent(graphIdeas, idea1, idea2)) {
+                        var e = g.addEdge(idea1, idea2);
+
+                        e.set("tooltip", _.join(intersection, " "));
                         var size = intersection.length;
 
-                        if(size <= 1) {
-                            // edges of size one are dotted
-                            e.set("style", "dotted");
-                        } else {
-                            if(size >= 4) {
-                                e.set("style", "bold");
-                                e.set("style", "bold");
-                            }
-                        }
+                        // edges of size 1 are dotted
+                        var style = size <= 1 ? "dotted" : "bold";
+                        e.set("style", style);
                     }
                 }
             }
         }
 
-        // Generate PNG output
-        g.output( "png", "public/projects.png" );
-    };
+        // Generate SVG output
+        g.output( "svg", "public/projects.svg" );
+    }
 
     return {
         generateGraph: generateGraph
