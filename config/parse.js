@@ -39,10 +39,21 @@ var parse = function (fileName) {
     // Parse Partners
     result[fileName]["interested_students"] = [];
     var indexIS = fileContent.indexOf("## Interested Students") + 1;
-    while (indexIS < fileContent.length && !beginsWith(fileContent[indexIS], "## ")){
+    while (indexIS < fileContent.length && !beginsWith(fileContent[indexIS], "## ") && !beginsWith(fileContent[indexIS], "### Doing")){
         var line = fileContent[indexIS];
         if (beginsWith(line, "* ")){
             result[fileName]["interested_students"].push(line.substring(2, line.length));
+        }
+        indexIS++;
+    }
+
+    // Parse Partners
+    result[fileName]["doing_something_else"] = [];
+    var indexIS = fileContent.indexOf("### Doing Something Else") + 1;
+    while (indexIS < fileContent.length && !beginsWith(fileContent[indexIS], "## ") && !beginsWith(fileContent[indexIS], "### ")){
+        var line = fileContent[indexIS];
+        if (beginsWith(line, "* ")){
+            result[fileName]["doing_something_else"].push(line.substring(2, line.length));
         }
         indexIS++;
     }
@@ -94,5 +105,5 @@ function initParse(){
 
 var res = initParse();
 // console.log('Parsed contents: ' + contentJson);
-// console.log("FINAL: ", JSON.stringify(res, null, 2));
+console.log("FINAL: ", JSON.stringify(res, null, 2));
 module.exports = res;
