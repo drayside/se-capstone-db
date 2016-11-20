@@ -4,10 +4,10 @@ var _ = require('lodash');
 var errors = require('../common/errors');
 var graphviz = require('graphviz');
 
-let rejectedIdeas = new Set();
-let assignedIdeas = new Set();
-let decidedIdeas = new Set();
-let decidedStudents = new Set();
+var rejectedIdeas = new Set();
+var assignedIdeas = new Set();
+var decidedIdeas = new Set();
+var decidedStudents = new Set();
 
 module.exports = function (models) {
     // returns false if the graph does not contain either of the project ideas
@@ -25,11 +25,11 @@ module.exports = function (models) {
         for(var projectName in models) {
             var project = models[projectName];
             // add the ideas to the respective idea sets
-            if(project["status"] == "rejected") {
+            if(project["status"] === "rejected") {
                 rejectedIdeas.add(projectName);
-            } else if(project["status"] == "coding" || project["status"] == "abandoned") {
+            } else if(project["status"] === "coding" || project["status"] === "abandoned") {
                 decidedIdeas.add(projectName);
-            } else if(project["status"] == "assigned") {
+            } else if(project["status"] === "assigned") {
                 assignedIdeas.add(projectName);
                 decidedIdeas.add(projectName);
             }
@@ -100,7 +100,7 @@ module.exports = function (models) {
             else if(decidedIdeas.has(idea)) {
                 node.set("style", "bold");
 
-                if(labelSize == 0) { // abandoned idea
+                if(labelSize === 0) { // abandoned idea
                     node.set("shape", "rectangle");
                     node.set("color", "grey");
                 } else {    // coding idea
