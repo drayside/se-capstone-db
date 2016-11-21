@@ -1,3 +1,12 @@
-<div>
-	<img src="/projects.png" alt="Graph" viewer>
+<div class="form-inline">
+  <div class="form-group">
+    <label for="min">Minimum Students</label>
+    <input class="form-control" id="min" type="number" ng-model="min">
+  </div>
+  <div class="form-group">
+    <label for="max">Maximum Students</label>
+	<input class="form-control" id="max" type="number" ng-model="max">
+  </div>
+  <button class="btn btn-default" ng-click="generate()">Generate</button>
 </div>
+<embed class="graph" type="image/svg+xml" embed-src="{{graphUrl}}"/>

@@ -72,10 +72,18 @@ module.exports = function (projectHelpers) {
     };
 
     var graph = function graph(req, res, next) {
-        var img = fs.readFileSync(__dirname + '/temp.svg');
-        res.writeHead(200, {'Content-Type': 'image/svg'});
-        res.end(img, 'binary');
-        next();
+        var min, max;
+        if (parseInt(req.query.min) != NaN) {
+            min = parseInt(req.query.min);
+        }
+        if (parseInt(req.query.max) != NaN) {
+            max = parseInt(req.query.max);
+        }
+        projectHelpers.getGraph(function(graph) {
+            res.writeHead(200, {'Content-Type': 'image/svg+xml'});
+            res.end(graph);
+            next();
+        }, min, max);
     };
 
     return {

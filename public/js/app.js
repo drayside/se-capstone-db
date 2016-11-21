@@ -55,16 +55,44 @@ app.controller("projectController", ["$scope", "$stateParams", function($scope, 
 }]);
 
 app.controller("graphController", ["$scope", function($scope) {
+  $scope.min = 0;
+  $scope.max = 100;
+
+  $scope.generate = function() {
+    $scope.graphUrl = "/graph/generate?min=" + $scope.min + "&max=" + $scope.max;
+  }
+  $scope.generate();
 }]);
 
-app.directive('viewer', function() {
-  return function(scope, element, attrs) {
-    element.hide();
-    var viewer = new Viewer(element[0], {
-      inline: true,
-      minHeight: 700,
-      zoomRatio: 0.1,
-      navbar: false
-    });
+app.directive('embedSrc', function () {
+  return {
+    restrict: 'A',
+    scope: {
+      embedSrc: "@"
+    },
+    link: function (scope, element, attrs) {
+      var current = element;
+      scope.$watch("embedSrc", function () {
+        var clone = element
+                      .clone()
+                      .attr('src', scope.embedSrc);
+        current.replaceWith(clone);
+        current = clone;
+        current[0].addEventListener('load', function(){
+          var panZoom = svgPanZoom(current[0], {
+            zoomEnabled: true,
+            controlIconsEnabled: true,
+            fit: 1,
+            center: 1
+          });
+
+          $(window).resize(function(){
+            panZoom.resize();
+            panZoom.fit();
+            panZoom.center();
+          });
+        });
+      });
+    }
   };
 });
