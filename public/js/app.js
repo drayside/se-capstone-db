@@ -26,7 +26,12 @@ app.controller("overviewController", ["$scope", "$http", function($scope, $http)
   $scope.projects = [];
   $http.get("/project/all").then(function(response) {
     _.each(response.data.projects, function(project, filename) {
-      project.id = filename.match(/(.*).md/)[1];
+      if (filename.match(/(.*).md/)) {
+        project.id = filename.match(/(.*).md/)[1];
+      }
+      else {
+        return;
+      }
       project.interested_students_count = project.interested_students.length || 0;
       $scope.projects.push(project);
     });
