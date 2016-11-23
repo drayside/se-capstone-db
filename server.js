@@ -11,8 +11,6 @@ var graphGenerator = require('./app/graph/graphGenerator')(parse);
 var projectHelpers = require('./app/helpers/projectHelpers')(parse);
 var projectHandlers = require('./app/routes/projectHandlers')(projectHelpers);
 
-graphGenerator.generateGraph();
-
 var server = restify.createServer();
 
 // Log uncaught exceptions
@@ -42,6 +40,7 @@ server.use(function (req, res, next) {
 // User
 server.get('/project/all', projectHandlers.allProjects); // Project route: get all projects
 server.get('/project/html/:projectName', projectHandlers.compileMarkdown); // Project route: get project html file by id
+server.get('/graph/generate', projectHandlers.graph); // Project route: get the graph
 // server.get('/project/:projectName', projectHandlers.viewProject); // Project route: get project by the id
 server.post('/search', projectHandlers.search); // Search route
 

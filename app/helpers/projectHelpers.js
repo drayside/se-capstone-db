@@ -1,7 +1,10 @@
 "use strict";
 
 var _ = require('lodash');
+var shortid = require('shortid');
+var fs = require('fs');
 var errors = require('../common/errors');
+var graphGenerator = require('../graph/graphGenerator');
 
 module.exports = function (models) {
 
@@ -25,9 +28,16 @@ module.exports = function (models) {
         });
     };
 
+    var getGraph = function getGraph(callback, min, max) {
+        var generator = graphGenerator(models);
+        var filename = __dirname + "/../../temp/" + shortid.generate() + ".svg";
+        generator.generateGraph(callback, min, max);
+    }
+
     return {
         getProjects: getProjects,
         getProject: getProject,
         getProjectById: getProjectById,
+        getGraph: getGraph
     };
 };

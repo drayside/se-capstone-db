@@ -36,7 +36,7 @@ module.exports = function (models) {
         }
     }
 
-    var generateGraph = function generateGraph(min, max) {
+    var generateGraph = function generateGraph(callback, min, max) {
         min = min || 0;
         max = max || Number.MAX_SAFE_INTEGER;
 
@@ -89,7 +89,8 @@ module.exports = function (models) {
 
             node.set("label", displayIdea);
             // TODO: fix URL depending on how we clone the REPO
-            node.set("URL", './' + idea);
+            // Links cannot be set since it will be opened in the SVG viewer and will not work
+            // node.set("URL", '/project/' + idea);
 
             // assigned idea
             if(assignedIdeas.has(idea)) {
@@ -141,7 +142,9 @@ module.exports = function (models) {
         }
 
         // Generate SVG output
-        g.output( "svg", "public/projects.svg" );
+        g.output( "svg", function(svg) {
+            callback(svg.toString());
+        });
     }
 
     return {
