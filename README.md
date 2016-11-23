@@ -1,3 +1,15 @@
+# Deployment
+## Requirements:
+- Node v4.1.0
+- Node Package Manager (npm)
+- [GraphViz CLI](http://www.graphviz.org/Download..php)
+
+## Installation
+1. Checkout https://github.com/arajeev/se-capstone-db.git
+2. From the root folder, run `npm install`
+3. After installation, run `nodemon server.js`
+4. Point your browser to `localhost:3000`
+
 # API Documentation
 ## 1. Users
 ### 1.1 List all projects: [GET] `/project/all`
