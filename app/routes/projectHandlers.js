@@ -36,7 +36,7 @@ module.exports = function (projectHelpers) {
                 'Content-Length': Buffer.byteLength(body),
                 'Content-Type': 'text/html'
             });
-            res.write(body);
+            res.end(body);
             next();
         });
     };

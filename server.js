@@ -51,7 +51,7 @@ var serveIndex = function(req, res, next) {
             'Content-Length': Buffer.byteLength(data),
             'Content-Type': 'text/html'
         });
-        res.write(data);
+        res.end(data);
         next();
     });
 };
