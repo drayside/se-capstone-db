@@ -26,8 +26,8 @@ app.controller("overviewController", ["$scope", "$http", function($scope, $http)
   $scope.projects = [];
   $http.get("/project/all").then(function(response) {
     _.each(response.data.projects, function(project, filename) {
-      if (filename.match(/(.*).md/)) {
-        project.id = filename.match(/(.*).md/)[1];
+      if (filename.match(/(.*).md$/)) {
+        project.id = filename.match(/(.*).md$/)[1];
       }
       else {
         return;
