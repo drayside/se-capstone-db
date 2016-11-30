@@ -46,7 +46,6 @@ var parse = function (fileName) {
     var indexIS = -1;
     fileContent.forEach(function (d,i) {
         if (indexIS < 0 && d.match(/^## +Interested +Students/)) {indexIS=i+1;}});
-    console.log("indexIS: " + indexIS + " " + fileName + " " + fileContent[indexIS]);
     if (indexIS < 1) {
         console.log("no interested students header in : " + fileName);
     }
