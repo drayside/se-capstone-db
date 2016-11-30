@@ -43,7 +43,8 @@ function levelRegex(level) {
  * @desc extract a list of values from Markdown
  * @param array a - array of strings that is the input file
  * @param regex header - to match the header
- * @return array - the values of the list
+ * @param emtpyStructure - either [] or {}, depending on desired return type
+ * @return regular array or associative array - the values of the list
  */
 function extractList(a, level, header, emptyStructure) {
     if (typeof emptyStructure === 'undefined') { emptyStructure = []; }
