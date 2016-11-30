@@ -41,7 +41,15 @@ var parse = function (fileName) {
 
     // Parse Partners
     result[fileName]["interested_students"] = [];
-    var indexIS = fileContent.indexOf("## Interested Students") + 1;
+    // this old code is too fragile --- need a regex
+    //var indexIS = fileContent.indexOf("## Interested Students") + 1;
+    var indexIS = -1;
+    fileContent.forEach(function (d,i) {
+        if (indexIS < 0 && d.match(/^## +Interested +Students/)) {indexIS=i+1;}});
+    console.log("indexIS: " + indexIS + " " + fileName + " " + fileContent[indexIS]);
+    if (indexIS < 1) {
+        console.log("no interested students header in : " + fileName);
+    }
     while (indexIS > 0 && indexIS < fileContent.length && !beginsWith(fileContent[indexIS], "## ") && !beginsWith(fileContent[indexIS], "### Doing")){
         var line = fileContent[indexIS];
         if (beginsWith(line, "* ")){
