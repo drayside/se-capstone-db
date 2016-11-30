@@ -15,7 +15,10 @@ function beginsWith(str, prefix){
 
 var parse = function (fileName) {
     var result = {};
-    var fileContent = fs.readFileSync(path.join(__dirname, '/markdown/' + fileName)).toString().split("\n");
+    var fileContent = fs.readFileSync(path.join(__dirname, '/markdown/' + fileName));
+    // this split pattern will work for both unix and windows text files
+    // http://www.2ality.com/2011/12/nodejs-shell-scripting.html
+    fileContent = fileContent.toString().split(/\r?\n/);
 
     // Remove garbage
     fileContent = _.filter(fileContent, function(n){
