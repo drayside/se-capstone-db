@@ -57,7 +57,20 @@ function extractList(a, level, header, emptyStructure) {
     } else {
         // found the header
         // now see where the list ends
-        var end = firstMatch(a, levelRegex(level), start+1);
+        // another heading of the same or greater level?
+        var end = -1;
+        for (var i = 0; i < level; i++) {
+            end = firstMatch(a, levelRegex(level-i), start+1);
+            if (end > 0) {
+                //console.log("found end: " + start + " " + end);
+                break;
+            }
+        }
+        // didn't find another heading, so end of file then
+        if (end < 0) {
+            end = a.length
+            //console.log("setting end to end of file: " + start + " " + end);
+        }
         // extract each datum
         var list = emptyStructure;
         for (var i = 1; i < (end-start); i++) {
@@ -76,6 +89,7 @@ function extractList(a, level, header, emptyStructure) {
                 //console.log("extractList key+value: " + key + " " + value);
             }
         }
+        //console.log("returning data: " + list);
         return list;
     }
 }
