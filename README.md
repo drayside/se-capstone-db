@@ -5,7 +5,7 @@
 - [GraphViz CLI](http://www.graphviz.org/Download..php)
 
 ## Installation
-1. Checkout https://github.com/arajeev/se-capstone-db.git
+1. Checkout https://github.com/drayside/se-capstone-db.git
 2. From the root folder, run `npm install`
 3. After installation, run `nodemon server.js`
 4. Point your browser to `localhost:3000`
