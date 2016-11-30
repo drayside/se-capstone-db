@@ -13,6 +13,72 @@ function beginsWith(str, prefix){
     return false;
 }
 
+/**
+ * @desc return the index of the first element in an array of strings
+ *       that matches the regex
+ * @param array a - input array of strings
+ * @param regex r - regular expression to match
+ * @param int offset - index to start search at (default is zero)
+ * @return int - index if found; -1 otherwise
+ */
+function firstMatch(a, r, offset) {
+    if (typeof offset === 'undefined') { offset = 0; }
+    var first = -1;
+    a.forEach(function (d,i) {
+        if (first < 0 && i >= offset && d.match(r)) {first=i;}});
+    return first;
+}
+
+function levelRegex(level) {
+    switch (level) {
+        case 1 : return /^#/;
+        case 2 : return /^##/;
+        case 3 : return /^###/;
+        case 4 : return /^####/;
+        default: throw ("unknown level" + level);
+    }
+}
+
+/** 
+ * @desc extract a list of values from Markdown
+ * @param array a - array of strings that is the input file
+ * @param regex header - to match the header
+ * @return array - the values of the list
+ */
+function extractList(a, level, header, emptyStructure) {
+    if (typeof emptyStructure === 'undefined') { emptyStructure = []; }
+    var start = firstMatch(a, header);
+    if (start < 0) {
+        // didn't find the header
+        // return an empty list
+        //console.log("header not found: " + header);
+        return [];
+    } else {
+        // found the header
+        // now see where the list ends
+        var end = firstMatch(a, levelRegex(level), start+1);
+        // extract each datum
+        var list = emptyStructure;
+        for (var i = 1; i < (end-start); i++) {
+            // strip out bullet
+            var line = a[i+start].replace(/\s*\*\s*/, "");
+            // is this key+value or just a value?
+            var pair = line.split(":");
+            if (pair.length == 1) {
+                // we expect emptyStructure is a regular array
+                list.push(pair[0].trim());
+            } else {
+                // we expect emptyStructure is an associative array
+                var key = pair[0].trim().toLowerCase();
+                var value = pair[1].trim();
+                list[key] = value;
+                //console.log("extractList key+value: " + key + " " + value);
+            }
+        }
+        return list;
+    }
+}
+
 var parse = function (fileName) {
     var result = {};
     var fileContent = fs.readFileSync(path.join(__dirname, '/markdown/' + fileName));
@@ -83,6 +149,13 @@ var parse = function (fileName) {
         }
     }
 
+    // extract metadata
+    var metadata = extractList(fileContent, 2, /^##\s*Metadata/, {});
+    Object.keys(metadata).forEach(function (key) {
+        var value = metadata[key];
+        result[fileName][key] = value;
+    });
+
     // Parse Questions and Comments
     var indexQC = fileContent.indexOf("## Questions & Comments") + 1;
     var qc = "";
@@ -94,12 +167,14 @@ var parse = function (fileName) {
     result[fileName]["questions_and_comments"] = qc;
 
     // Parse Tags
+    result[fileName]["tags"] = extractList(fileContent, 2, /^##\s*Tags/);
+    /*
     var indexTags = fileContent.indexOf("## Tags") + 1;
-    result[fileName]["tags"] = [];
     while (indexTags > 0 && indexTags < fileContent.length && !beginsWith(fileContent[indexTags], "#")){
         result[fileName]["tags"].push(fileContent[indexTags].substring(2, fileContent[indexTags].length).trim());
         indexTags++;
     }
+    */
 
     return result;
 };
