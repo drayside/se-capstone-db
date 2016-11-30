@@ -28,7 +28,6 @@ var parse = function (fileName) {
     result[fileName] = {};
 
     // Parse the Blob
-    // for (var i in fileContent) { console.log (":", fileContent[i]); }
 
     var indexBlurb = fileContent.indexOf("## Blurb") + 1;
     var blurb = "";
