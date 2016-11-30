@@ -84,7 +84,7 @@ var parse = function (fileName) {
     // Parse Tags
     var indexTags = fileContent.indexOf("## Tags") + 1;
     result[fileName]["tags"] = [];
-    while (indexTags < fileContent.length && !beginsWith(fileContent[indexTags], "#")){
+    while (indexTags > 0 && indexTags < fileContent.length && !beginsWith(fileContent[indexTags], "#")){
         result[fileName]["tags"].push(fileContent[indexTags].substring(2, fileContent[indexTags].length).trim());
         indexTags++;
     }
