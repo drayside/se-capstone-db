@@ -102,7 +102,7 @@ function initParse(){
     for (var i = 0; i < files.length; i++){
         var t = files[i];
         // only parse markdown files; ignore other files in directory
-        if (t.match(/(.*).md$/)) {
+        if (t.match(/(.*).md$/) && !t.match(/^index/)) {
             res = _.merge(res, parse(t.substring(t.lastIndexOf('/'), t.length)));
         }
     }
