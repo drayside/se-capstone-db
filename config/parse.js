@@ -43,6 +43,9 @@ var parse = function (fileName) {
         var line = fileContent[indexIS];
         if (beginsWith(line, "* ")){
             result[fileName]["interested_students"].push(line.substring(2, line.length));
+        } else {
+            // debugging output
+            console.log("student? " + fileName + ": " + line);
         }
         indexIS++;
     }
