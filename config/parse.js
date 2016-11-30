@@ -168,13 +168,6 @@ var parse = function (fileName) {
 
     // Parse Tags
     result[fileName]["tags"] = extractList(fileContent, 2, /^##\s*Tags/);
-    /*
-    var indexTags = fileContent.indexOf("## Tags") + 1;
-    while (indexTags > 0 && indexTags < fileContent.length && !beginsWith(fileContent[indexTags], "#")){
-        result[fileName]["tags"].push(fileContent[indexTags].substring(2, fileContent[indexTags].length).trim());
-        indexTags++;
-    }
-    */
 
     return result;
 };
