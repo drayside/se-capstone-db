@@ -86,14 +86,14 @@ var parse = function (fileName) {
     // http://www.2ality.com/2011/12/nodejs-shell-scripting.html
     fileContent = fileContent.toString().split(/\r?\n/);
 
-    // Remove garbage
+    // Remove empty lines
     fileContent = _.filter(fileContent, function(n){
         return n !== undefined && n !== "";
     });
 
     result[fileName] = {};
 
-    // Parse the Blob
+    // Parse the Markdown
 
     var indexBlurb = fileContent.indexOf("## Blurb") + 1;
     var blurb = "";
