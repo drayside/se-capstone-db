@@ -39,7 +39,7 @@ var parse = function (fileName) {
     // Parse Partners
     result[fileName]["interested_students"] = [];
     var indexIS = fileContent.indexOf("## Interested Students") + 1;
-    while (indexIS < fileContent.length && !beginsWith(fileContent[indexIS], "## ") && !beginsWith(fileContent[indexIS], "### Doing")){
+    while (indexIS > 0 && indexIS < fileContent.length && !beginsWith(fileContent[indexIS], "## ") && !beginsWith(fileContent[indexIS], "### Doing")){
         var line = fileContent[indexIS];
         if (beginsWith(line, "* ")){
             result[fileName]["interested_students"].push(line.substring(2, line.length));
