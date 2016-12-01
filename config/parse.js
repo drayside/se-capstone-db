@@ -90,108 +90,108 @@ function extractList(a, level, header, emptyStructure, expectDeep) {
         // return an empty list
         console.log("list header not found: " + header);
         return emptyStructure;
-    } else {
-        // found the header
-        // now see where the list ends
-        // this initial determination might get tightened later,
-        // depending on whether we are expecting a deep list and what we observe
-        // another heading of the same or greater level?
-        var end = -1;
-        for (var i = 0; i < level; i++) {
-            end = firstMatch(a, levelRegex(level-i), start+1);
-            if (end > 0) {
-                //console.log("found end: " + start + " " + end + " " + level + " " + i);
-                break;
-            }
+    }
+
+    // found the header
+    // now see where the list ends
+    // this initial determination might get tightened later,
+    // depending on whether we are expecting a deep list and what we observe
+    // another heading of the same or greater level?
+    var end = -1;
+    for (var i = 0; i < level; i++) {
+        end = firstMatch(a, levelRegex(level-i), start+1);
+        if (end > 0) {
+            //console.log("found end: " + start + " " + end + " " + level + " " + i);
+            break;
         }
-        // didn't find another heading, so end of file then
-        if (end < 0) {
-            end = a.length
-            //console.log("setting end to end of file: " + start + " " + end);
-        }
+    }
+    // didn't find another heading, so end of file then
+    if (end < 0) {
+        end = a.length
+        //console.log("setting end to end of file: " + start + " " + end);
+    }
 
 
-        // is this a deep list?
-        // extract the named sublists (each of which is itself flat) ...
-        var substart = start;
-        var substarts = [];
-        var deep = {};
-        //console.log("--");
-        do {
-            var sublevel = level + 1;
-            substart = firstMatch(a, levelRegex(sublevel), substart+1);
-            //console.log("substart: " + substart + " " + end);
-            if (substart > 0 && substart <= end) {
-                // there is a subheading within bounds
-                substarts.push(substart);
-                var subhead = a[substart];
-                //console.log("recurse: " + subhead);
-                var sublist = extractFlatList(a, sublevel, subhead);
-                //console.log("returned from " + subhead);
-                subhead = subhead.replace(levelRegex(sublevel), "").trim();
-                deep[subhead] = sublist;
+    // is this a deep list?
+    // extract the named sublists (each of which is itself flat) ...
+    var substart = start;
+    var substarts = [];
+    var deep = {};
+    //console.log("--");
+    do {
+        var sublevel = level + 1;
+        substart = firstMatch(a, levelRegex(sublevel), substart+1);
+        //console.log("substart: " + substart + " " + end);
+        if (substart > 0 && substart <= end) {
+            // there is a subheading within bounds
+            substarts.push(substart);
+            var subhead = a[substart];
+            //console.log("recurse: " + subhead);
+            var sublist = extractFlatList(a, sublevel, subhead);
+            //console.log("returned from " + subhead);
+            subhead = subhead.replace(levelRegex(sublevel), "").trim();
+            deep[subhead] = sublist;
+        } else {
+            substart = -1;
+        }
+    } while (substart > 0 && substart <= end);
+   
+    // if we expected a deep list, we are going to return that structure
+    if (expectDeep) {
+        // did we find a deep list?
+        if (Object.keys(deep).length > 0) {
+            // we found a deep list
+            // did it have an implicit initial sublist?
+            if (start != substarts[0]) {
+                console.log("implicit initial sublist: " + start + " " + substarts[0]);
+                var implicit = extractFlatList(a, level, header);
+                deep["implicit"] = implicit;
+                console.log("implicit: " + implicit);
+                return deep;
             } else {
-                substart = -1;
-            }
-        } while (substart > 0 && substart <= end);
-       
-        // if we expected a deep list, we are going to return that structure
-        if (expectDeep) {
-            // did we find a deep list?
-            if (Object.keys(deep).length > 0) {
-                // we found a deep list
-                // did it have an implicit initial sublist?
-                if (start != substarts[0]) {
-                    console.log("implicit initial sublist: " + start + " " + substarts[0]);
-                    var implicit = extractFlatList(a, level, header);
-                    deep["implicit"] = implicit;
-                    console.log("implicit: " + implicit);
-                    return deep;
-                } else {
-                    // the normal case: expected a deep list and found it
-                    return deep;
-                }
-            } else {
-                // we did not find a deep list: make the structure
-                // inject a sublist heading
-                deep["sublist"] = extractFlatList(a, level, header);
+                // the normal case: expected a deep list and found it
                 return deep;
             }
+        } else {
+            // we did not find a deep list: make the structure
+            // inject a sublist heading
+            deep["sublist"] = extractFlatList(a, level, header);
+            return deep;
         }
-        // else we did not expect a deep list: keep going flat
-        
-       
-        // might need to tighten the end
-        if (substarts.length > 0) {
-            // there are sublists, but we aren't expecting them
-            // so tighten the end to the first sublist
-            end = substarts[0];
-        }
+    }
+    // else we did not expect a deep list: keep going flat
+    
+   
+    // might need to tighten the end
+    if (substarts.length > 0) {
+        // there are sublists, but we aren't expecting them
+        // so tighten the end to the first sublist
+        end = substarts[0];
+    }
 
-        // extract each datum
-        var list = emptyStructure;
-        for (var i = 1; i < (end-start); i++) {
-            // strip out bullet
-            var line = a[i+start].replace(/\s*\*\s*/, "").trim();
-            if (Array.isArray(emptyStructure)) {
-                // numeric indices
-                list.push(line);
+    // extract each datum
+    var list = emptyStructure;
+    for (var i = 1; i < (end-start); i++) {
+        // strip out bullet
+        var line = a[i+start].replace(/\s*\*\s*/, "").trim();
+        if (Array.isArray(emptyStructure)) {
+            // numeric indices
+            list.push(line);
+        } else {
+            // associative indices
+            var pair = line.split(":");
+            if (pair.length < 2) {
+                console.log("bad named value line: " + line);
             } else {
-                // associative indices
-                var pair = line.split(":");
-                if (pair.length < 2) {
-                    console.log("bad named value line: " + line);
-                } else {
-                    var key = pair[0].trim().toLowerCase();
-                    var value = pair[1].trim();
-                    list[key] = value;
-                    //console.log("extractList key+value: " + key + " " + value);
-                }
+                var key = pair[0].trim().toLowerCase();
+                var value = pair[1].trim();
+                list[key] = value;
+                //console.log("extractList key+value: " + key + " " + value);
             }
         }
-        //console.log("returning data: " + list);
-        return list;
     }
+    //console.log("returning data: " + list);
+    return list;
 }
 
 var parse = function (fileName) {
