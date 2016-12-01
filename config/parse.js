@@ -29,37 +29,52 @@ function firstMatch(a, r, offset) {
     return first;
 }
 
+/**
+ * @desc Return a regular expression for Markdown headings at different levels.
+ */
 function levelRegex(level) {
     switch (level) {
         case 1 : return /^# /;
         case 2 : return /^## /;
         case 3 : return /^### /;
         case 4 : return /^#### /;
-        default: throw ("unknown level" + level);
+        default: throw ("unknown Markdown level " + level);
     }
 }
 
+/**
+ * @desc Extract a flat list with numeric indices.
+ * @return array
+ */
 function extractFlatList(a, level, header) {
-    return extractList(a, level, header, []);
+    return extractList(a, level, header, [], false);
 }
 
+/**
+ * @desc Extract a flat key list with associative indices.
+ * @return associative array
+ */
 function extractKeyList(a, level, header) {
-    return extractList(a, level, header, {});
+    return extractList(a, level, header, {}, false);
 }
 
+/**
+ * @desc Extract a deep list, comprised of flat lists.
+ * @return an associative array of regular arrays
+ */
 function extractDeepList(a, level, header) {
     return extractList(a, level, header, {}, true);
 }
 
 
 /** 
- * @desc extract a list of values from Markdown
+ * @desc Extract a list of values from Markdown. 
+ *       Use one of the API helper functions above instead of this one.
  * @param array a - array of strings that is the input file
  * @param regex header - to match the header
  * @param emtpyStructure - either [] or {}, depending on desired return type
  * @return regular array or associative array - the values of the list
  */
-// TODO: hierarchical lists ...
 function extractList(a, level, header, emptyStructure, expectDeep) {
     // default is flat list
     if (typeof emptyStructure === 'undefined') { emptyStructure = []; }
@@ -74,10 +89,12 @@ function extractList(a, level, header, emptyStructure, expectDeep) {
         // didn't find the header
         // return an empty list
         console.log("list header not found: " + header);
-        return [];
+        return emptyStructure;
     } else {
         // found the header
         // now see where the list ends
+        // this initial determination might get tightened later,
+        // depending on whether we are expecting a deep list and what we observe
         // another heading of the same or greater level?
         var end = -1;
         for (var i = 0; i < level; i++) {
@@ -150,33 +167,6 @@ function extractList(a, level, header, emptyStructure, expectDeep) {
             // so tighten the end to the first sublist
             end = substarts[0];
         }
-
-/*
-        // was it a deep list?
-        if (Object.keys(deep).length > 0) {
-            if (!expectDeep) {
-                console.log("found a deep list but was not expecting one: " + subhead);
-            } else {
-                // expected a deep list and found one
-                // but was there an implicit, unnamed sublist at top?
-                if (start != substarts[0]) {
-                    console.log("implicit initial sublist: " + start + " " + substarts[0]);
-                    var foo = extractFlatList(a, level, header);
-                    console.log("foo: " + foo);
-                } else {
-                    console.log("no implicit initial sublist");
-                }
-            }
-            //console.log(deep);
-            return deep;
-        } else if (expectDeep) {
-            // we did not observe subheadings, but a deep list is expected
-            // so inject a sublist heading in order to return the proper structure
-            deep["sublist"] = extractFlatList(a, level, header);
-            //console.log(deep);
-            return deep;
-        }
-*/
 
         // extract each datum
         var list = emptyStructure;
