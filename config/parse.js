@@ -172,18 +172,21 @@ function extractList(a, level, header, emptyStructure, expectDeep) {
         var list = emptyStructure;
         for (var i = 1; i < (end-start); i++) {
             // strip out bullet
-            var line = a[i+start].replace(/\s*\*\s*/, "");
-            // is this key+value or just a value?
-            var pair = line.split(":");
-            if (pair.length == 1) {
-                // we expect emptyStructure is a regular array
-                list.push(pair[0].trim());
+            var line = a[i+start].replace(/\s*\*\s*/, "").trim();
+            if (Array.isArray(emptyStructure)) {
+                // numeric indices
+                list.push(line);
             } else {
-                // we expect emptyStructure is an associative array
-                var key = pair[0].trim().toLowerCase();
-                var value = pair[1].trim();
-                list[key] = value;
-                //console.log("extractList key+value: " + key + " " + value);
+                // associative indices
+                var pair = line.split(":");
+                if (pair.length < 2) {
+                    console.log("bad named value line: " + line);
+                } else {
+                    var key = pair[0].trim().toLowerCase();
+                    var value = pair[1].trim();
+                    list[key] = value;
+                    //console.log("extractList key+value: " + key + " " + value);
+                }
             }
         }
         //console.log("returning data: " + list);
