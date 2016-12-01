@@ -39,6 +39,19 @@ function levelRegex(level) {
     }
 }
 
+function extractFlatList(a, level, header) {
+    return extractList(a, level, header, []);
+}
+
+function extractKeyList(a, level, header) {
+    return extractList(a, level, header, {});
+}
+
+function extractDeepList(a, level, header) {
+    return extractList(a, level, header, {}, true);
+}
+
+
 /** 
  * @desc extract a list of values from Markdown
  * @param array a - array of strings that is the input file
@@ -46,8 +59,16 @@ function levelRegex(level) {
  * @param emtpyStructure - either [] or {}, depending on desired return type
  * @return regular array or associative array - the values of the list
  */
-function extractList(a, level, header, emptyStructure) {
+// TODO: hierarchical lists ...
+function extractList(a, level, header, emptyStructure, expectDeep) {
+    // default is flat list
     if (typeof emptyStructure === 'undefined') { emptyStructure = []; }
+    // default is shallow list
+    if (typeof expectDeep === 'undefined') { expectDeep = false; }
+    // defensive copy of emptyStructure
+    emptyStructure = Array.isArray(emptyStructure) ? [] : {};
+    
+    // where does the list start?
     var start = firstMatch(a, header);
     if (start < 0) {
         // didn't find the header
@@ -71,6 +92,39 @@ function extractList(a, level, header, emptyStructure) {
             end = a.length
             //console.log("setting end to end of file: " + start + " " + end);
         }
+        // is this a deep list?
+        // extract the named sublists (each of which is itself flat) ...
+        var substart = start;
+        var deep = {};
+        //console.log("--");
+        do {
+            //console.log("substart: " + substart);
+            var sublevel = level + 1;
+            substart = firstMatch(a, levelRegex(sublevel), substart+1);
+            if (substart > 0 && substart <= end) {
+                // there is a subheading
+                var subhead = a[substart];
+                var sublist = extractFlatList(a, sublevel, subhead);
+                subhead = subhead.replace(levelRegex(sublevel), "").trim();
+                deep[subhead] = sublist;
+            } else {
+                substart = -1;
+            }
+        } while (substart > 0 && substart <= end);
+        // was it a deep list?
+        if (Object.keys(deep).length > 0) {
+            if (!expectDeep) {
+                console.log("found a deep list but was not expecting one: " + subhead);
+            }
+            //console.log(deep);
+            return deep;
+        } else if (expectDeep) {
+            // we did not observe subheadings, but a deep list is expected
+            deep["sublist"] = extractFlatList(a, level, header);
+            //console.log(deep);
+            return deep;
+        }
+
         // extract each datum
         var list = emptyStructure;
         for (var i = 1; i < (end-start); i++) {
@@ -119,6 +173,8 @@ var parse = function (fileName) {
 
     result[fileName]["blurb"] = blurb;
 
+
+    extractDeepList(fileContent, 2, /^##\s*Interested\s+Students/);
     // Parse Partners
     result[fileName]["interested_students"] = [];
     // this old code is too fragile --- need a regex
@@ -165,7 +221,7 @@ var parse = function (fileName) {
     }
 
     // extract metadata
-    var metadata = extractList(fileContent, 2, /^##\s*Metadata/, {});
+    var metadata = extractKeyList(fileContent, 2, /^##\s*Metadata/);
     Object.keys(metadata).forEach(function (key) {
         var value = metadata[key];
         result[fileName][key] = value;
@@ -182,7 +238,7 @@ var parse = function (fileName) {
     result[fileName]["questions_and_comments"] = qc;
 
     // Parse Tags
-    result[fileName]["tags"] = extractList(fileContent, 2, /^##\s*Tags/);
+    result[fileName]["tags"] = extractFlatList(fileContent, 2, /^##\s*Tags/);
 
     return result;
 };
