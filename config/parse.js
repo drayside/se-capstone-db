@@ -243,59 +243,12 @@ var parse = function (fileName) {
         result[fileName]["doing_something_else"] = [];
     }
 
-    // Parse Partners
-/*
-    result[fileName]["interested_students"] = [];
-    // this old code is too fragile --- need a regex
-    //var indexIS = fileContent.indexOf("## Interested Students") + 1;
-    var indexIS = -1;
-    fileContent.forEach(function (d,i) {
-        if (indexIS < 0 && d.match(/^## +Interested +Students/)) {indexIS=i+1;}});
-    if (indexIS < 1) {
-        console.log("no interested students header in : " + fileName);
-    }
-    while (indexIS > 0 && indexIS < fileContent.length && !beginsWith(fileContent[indexIS], "## ") && !beginsWith(fileContent[indexIS], "### Doing")){
-        var line = fileContent[indexIS];
-        if (beginsWith(line, "* ")){
-            result[fileName]["interested_students"].push(line.substring(2, line.length));
-        } else {
-            // debugging output
-            console.log("student? " + fileName + ": " + line);
-        }
-        indexIS++;
-    }
-
-    // Parse Partners
-    result[fileName]["doing_something_else"] = [];
-    var indexIS = fileContent.indexOf("### Doing Something Else") + 1;
-    while (indexIS > 0 && indexIS < fileContent.length && !beginsWith(fileContent[indexIS], "## ") && !beginsWith(fileContent[indexIS], "### ")){
-        var line = fileContent[indexIS];
-        if (beginsWith(line, "* ")){
-            result[fileName]["doing_something_else"].push(line.substring(2, line.length));
-        }
-        indexIS++;
-    }
-*/
-
-    // Parse Future, Size, Status
-    for ( var i = 0; i < fileContent.length; i++){
-        var line = fileContent[i];
-        var prefixs = ["### Future:", "### Size:", "### Status:"];
-
-        for (var j = 0; j < prefixs.length; j++){
-            var pref = prefixs[j];
-            if (beginsWith(line, pref)){
-                result[fileName][pref.substring(4, pref.length-1).toLowerCase()] = line.split(":")[1].trim();
-            }
-        }
-    }
-
+    
     // extract metadata
     //console.log(fileName + " metadata  ------------------------");
     var metadata = extractKeyList(fileContent, 2, /^##\s*Metadata/);
     Object.keys(metadata).forEach(function (key) {
-        var value = metadata[key];
-        result[fileName][key] = value;
+        result[fileName][key] = metadata[key];
     });
 
     // Parse Questions and Comments
