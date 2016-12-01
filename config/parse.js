@@ -88,7 +88,7 @@ function extractList(a, level, header, emptyStructure, expectDeep) {
     if (start < 0) {
         // didn't find the header
         // return an empty list
-        console.log("list header not found: " + header);
+        //console.log("list header not found: " + header);
         return emptyStructure;
     }
 
@@ -143,10 +143,10 @@ function extractList(a, level, header, emptyStructure, expectDeep) {
             // we found a deep list
             // did it have an implicit initial sublist?
             if (start != substarts[0]) {
-                console.log("implicit initial sublist: " + start + " " + substarts[0]);
+                //console.log("implicit initial sublist: " + start + " " + substarts[0]);
                 var implicit = extractFlatList(a, level, header);
                 deep["implicit"] = implicit;
-                console.log("implicit: " + implicit);
+                //console.log("implicit: " + implicit);
                 return deep;
             } else {
                 // the normal case: expected a deep list and found it
@@ -221,14 +221,14 @@ var parse = function (fileName) {
 
 
     // extract students
-    console.log(fileName + " students  ------------------------");
+    //console.log(fileName + " students  ------------------------");
     var students = extractDeepList(fileContent, 2, /^##\s*Interested\s+Students/);
     // interested and not otherwise obliged
     result[fileName]["interested_students"] = [];
     var interested = [];
     Object.keys(students).forEach(function (key) {
         if (key != "Doing Something Else") {
-            console.log(fileName + " " + key + " " + students[key]);
+            //console.log(fileName + " " + key + " " + students[key]);
             students[key].forEach(function (userid) {
                 interested.push(userid);
             });
