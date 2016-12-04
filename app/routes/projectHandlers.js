@@ -31,6 +31,7 @@ module.exports = function (projectHelpers) {
             if (err) {
                 return res.send(500, "Unable to open project file.");
             }
+            // TODO: inject mailto links into Markdown file here
             var body = marked(data);
             res.writeHead(200, {
                 'Content-Length': Buffer.byteLength(body),
