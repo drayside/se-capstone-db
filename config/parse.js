@@ -172,8 +172,16 @@ function extractList(a, level, header, emptyStructure, expectDeep) {
     // extract each datum
     var list = emptyStructure;
     for (var i = 1; i < (end-start); i++) {
+        var line = a[i+start];
+        // skip blank lines
+        if (line == undefined || line.match(/^\s*$/)) continue;
+        // skip lines that do not start with a bullet
+        if (!line.match(/^\s*\*/)) {
+            console.log("Non-bullet line: " + line);
+            continue;
+        }
         // strip out bullet
-        var line = a[i+start].replace(/\s*\*\s*/, "").trim();
+        line = line.replace(/\s*\*\s*/, "").trim();
         if (Array.isArray(emptyStructure)) {
             // numeric indices
             list.push(line);
@@ -200,11 +208,6 @@ var parse = function (fileName) {
     // this split pattern will work for both unix and windows text files
     // http://www.2ality.com/2011/12/nodejs-shell-scripting.html
     fileContent = fileContent.toString().split(/\r?\n/);
-
-    // Remove empty lines
-    fileContent = _.filter(fileContent, function(n){
-        return n !== undefined && n !== "";
-    });
 
     result[fileName] = {};
 
