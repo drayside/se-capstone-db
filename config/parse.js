@@ -213,18 +213,6 @@ var parse = function (fileName) {
 
     // Parse the Markdown
 
-    // we aren't actually using the blurb, so suppress for now
-/*
-    var indexBlurb = fileContent.indexOf("## Blurb") + 1;
-    var blurb = "";
-    while (indexBlurb < fileContent.length && !beginsWith(fileContent[indexBlurb], "#")){
-        blurb += fileContent[indexBlurb];
-        indexBlurb++;
-    }
-
-    result[fileName]["blurb"] = blurb;
-*/
-
     // extract students
     //console.log(fileName + " students  ------------------------");
     var students = extractDeepList(fileContent, 2, /^##\s*Interested\s+Students/);
@@ -256,20 +244,7 @@ var parse = function (fileName) {
         result[fileName][key] = metadata[key];
     });
 
-    // Parse Questions and Comments
-    // we aren't using the questions and comments, so suppress now
-/*
-    var indexQC = fileContent.indexOf("## Questions & Comments") + 1;
-    var qc = "";
-
-    for (; indexQC < fileContent.length; indexQC++){
-        qc += fileContent[indexQC];
-    }
-
-    result[fileName]["questions_and_comments"] = qc;
-*/
-
-    // Parse Tags
+    // extract tags
     result[fileName]["tags"] = extractFlatList(fileContent, 2, /^##\s*Tags/);
 
     return result;
