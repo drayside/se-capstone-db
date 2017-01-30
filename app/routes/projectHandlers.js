@@ -27,7 +27,7 @@ module.exports = function (projectHelpers, markdownDirectory) {
 
     var compileMarkdown = function compileMarkdown(req, res, next){
         var projectName = req.params.projectName;
-        var fpath = path.join(markdownDirectory, projectName + '.md'); //fname = ${projectName}.md TODO - confirm this is always true
+        var fpath = path.join(markdownDirectory, projectName);
         fs.readFile(fpath, 'utf8', function (err, data) {
             if (err) {
                 return res.send(500, "Unable to open project file: " + fpath);
