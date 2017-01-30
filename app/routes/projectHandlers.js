@@ -9,8 +9,8 @@ var validateParams = require('../common/validateParams');
 var fs = require('fs');
 var path = require('path');
 
-module.exports = function (projectHelpers) {
-
+module.exports = function (projectHelpers, markdownDirectory) {
+    var markdownDirectory = markdownDirectory;//TODO create init function to set this
     var allProjects = function allProjects(req, res, next) {
         var p = projectHelpers.getProjects();
         res.json({"projects": p});
@@ -27,9 +27,10 @@ module.exports = function (projectHelpers) {
 
     var compileMarkdown = function compileMarkdown(req, res, next){
         var projectName = req.params.projectName;
-        fs.readFile(path.join(__dirname, '../../config/markdown/' + projectName), 'utf8', function (err, data) {
+        var fpath = path.join(markdownDirectory, projectName + '.md'); //fname = ${projectName}.md TODO - confirm this is always true
+        fs.readFile(fpath, 'utf8', function (err, data) {
             if (err) {
-                return res.send(500, "Unable to open project file.");
+                return res.send(500, "Unable to open project file: " + fpath);
             }
             // TODO: inject mailto links into Markdown file here
             var body = marked(data);

@@ -9,8 +9,27 @@ var path = require('path');
 
 var graphGenerator = require('./app/graph/graphGenerator')(parse);
 var projectHelpers = require('./app/helpers/projectHelpers')(parse);
-var projectHandlers = require('./app/routes/projectHandlers')(projectHelpers);
 
+const commandLineArgs = require('command-line-args');
+const options = commandLineArgs([
+    {name: 'markdown-directory', type: String}
+]);
+
+var mdDirAbsPath;//markdown directory absolute path
+if (options['markdown-directory'] == undefined) {
+  if(config.markdownDirectory == undefined) {//no default specified, exit
+    console.error("No default found for 'markdown directory' in './config/config.json'!");
+    console.error("No '--markdown-directory' option passed to script!");
+    //TODO: print usage
+    process.exit(1);
+  }
+  mdDirAbsPath = path.resolve(__dirname, config.markdownDirectory);
+  console.log("--- Using default markdown directory path: '%s' ---", mdDirAbsPath);
+} else {
+  mdDirAbsPath = path.resolve(__dirname, options['markdown-directory']);
+}
+
+var projectHandlers = require('./app/routes/projectHandlers')(projectHelpers, mdDirAbsPath);//constructor sets markdown directory
 var server = restify.createServer();
 
 // Log uncaught exceptions
