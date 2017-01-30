@@ -27,6 +27,7 @@ if (options['markdown-directory'] == undefined) {
   console.log("--- Using default markdown directory path: '%s' ---", mdDirAbsPath);
 } else {
   mdDirAbsPath = path.resolve(__dirname, options['markdown-directory']);
+  console.log("--- Using specified markdown directory path: '%s' ---", mdDirAbsPath);
 }
 
 var projectHandlers = require('./app/routes/projectHandlers')(projectHelpers, mdDirAbsPath);//constructor sets markdown directory
