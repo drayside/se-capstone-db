@@ -1,6 +1,7 @@
 {
   "local": {
     "name": "Local Dev",
-    "port": 3000
+    "port": 3000,
+    "markdownDirectory": "config/markdown/"
   }
 }
