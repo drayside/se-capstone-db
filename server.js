@@ -2,13 +2,10 @@
 
 var restify = require('restify');
 var config = require('./config/default');
-var parse = require('./config/parse');
+
 var _ = require('lodash');
 var fs = require('fs');
 var path = require('path');
-
-var graphGenerator = require('./app/graph/graphGenerator')(parse);
-var projectHelpers = require('./app/helpers/projectHelpers')(parse);
 
 const commandLineArgs = require('command-line-args');
 const options = commandLineArgs([
@@ -29,6 +26,10 @@ if (options['markdown-directory'] == undefined) {
   mdDirAbsPath = path.resolve(__dirname, options['markdown-directory']);
   console.log("--- Using specified markdown directory path: '%s' ---", mdDirAbsPath);
 }
+
+var parse = require('./config/parse')(mdDirAbsPath);//parse module uses markdown directory
+var graphGenerator = require('./app/graph/graphGenerator')(parse);
+var projectHelpers = require('./app/helpers/projectHelpers')(parse);
 
 var projectHandlers = require('./app/routes/projectHandlers')(projectHelpers, mdDirAbsPath);//constructor sets markdown directory
 var server = restify.createServer();
