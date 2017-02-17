@@ -33,7 +33,11 @@ if (options['markdown-directory'] == undefined) {
 if (options['referee-schedule-directory'] == undefined) {
   console.log("No '--referee-schedule-directory' option passed to script!");
   //this option is optional
+} else {
+  refScheduleDirAbsPath = path.resolve(__dirname, options['referee-schedule-directory']);
+  var parseRefSchedules = require('./config/script')(refScheduleDirAbsPath);
 }
+
 
 
 var parse = require('./config/parse')(mdDirAbsPath);//parse module uses markdown directory
