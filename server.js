@@ -10,9 +10,12 @@ var path = require('path');
 const commandLineArgs = require('command-line-args');
 const options = commandLineArgs([
     {name: 'markdown-directory', type: String}
+    {name: 'referee-schedule-directory', type: String}
 ]);
 
 var mdDirAbsPath;//markdown directory absolute path
+var refScheduleDirAbsPath; //directory containing referee schedule markdown files
+
 if (options['markdown-directory'] == undefined) {
   if(config.markdownDirectory == undefined) {//no default specified, exit
     console.error("No default found for 'markdown directory' in './config/config.json'!");
@@ -26,6 +29,12 @@ if (options['markdown-directory'] == undefined) {
   mdDirAbsPath = path.resolve(__dirname, options['markdown-directory']);
   console.log("--- Using specified markdown directory path: '%s' ---", mdDirAbsPath);
 }
+
+if (options['referee-schedule-directory'] == undefined) {
+  console.log("No '--referee-schedule-directory' option passed to script!");
+  //this option is optional
+}
+
 
 var parse = require('./config/parse')(mdDirAbsPath);//parse module uses markdown directory
 var graphGenerator = require('./app/graph/graphGenerator')(parse);
@@ -60,7 +69,7 @@ server.use(function (req, res, next) {
 // Routes
 // User
 server.get('/project/all', projectHandlers.allProjects); // Project route: get all projects
-server.get('/project/html/:projectName', projectHandlers.compileMarkdown); // Project route: get project html file by id
+//server.get('/project/html/:projectName', projectHandlers.compileMarkdown); // Project route: get project html file by id
 server.get('/graph/generate', projectHandlers.graph); // Project route: get the graph
 // server.get('/project/:projectName', projectHandlers.viewProject); // Project route: get project by the id
 server.post('/search', projectHandlers.search); // Search route
