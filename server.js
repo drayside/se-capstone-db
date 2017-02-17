@@ -9,7 +9,7 @@ var path = require('path');
 
 const commandLineArgs = require('command-line-args');
 const options = commandLineArgs([
-    {name: 'markdown-directory', type: String}
+    {name: 'markdown-directory', type: String},
     {name: 'referee-schedule-directory', type: String}
 ]);
 
@@ -32,15 +32,16 @@ if (options['markdown-directory'] == undefined) {
 
 if (options['referee-schedule-directory'] == undefined) {
   console.log("No '--referee-schedule-directory' option passed to script!");
-  //this option is optional
+  
+  // always parse the mdDirAbsPath files.
+  var parse = require('./config/parse')(mdDirAbsPath, false);//parse module uses markdown dir
 } else {
   refScheduleDirAbsPath = path.resolve(__dirname, options['referee-schedule-directory']);
-  var parseRefSchedules = require('./config/script')(refScheduleDirAbsPath);
+  // parse the mdDirAbsPath files and the optional refScheduleDirAbsPath files
+  var parse = require('./config/parse')(mdDirAbsPath, true, refScheduleDirAbsPath);
 }
 
-
-
-var parse = require('./config/parse')(mdDirAbsPath);//parse module uses markdown directory
+//var parse = require('./config/parse')(mdDirAbsPath);//parse module uses markdown directory
 var graphGenerator = require('./app/graph/graphGenerator')(parse);
 var projectHelpers = require('./app/helpers/projectHelpers')(parse);
 
@@ -73,7 +74,7 @@ server.use(function (req, res, next) {
 // Routes
 // User
 server.get('/project/all', projectHandlers.allProjects); // Project route: get all projects
-//server.get('/project/html/:projectName', projectHandlers.compileMarkdown); // Project route: get project html file by id
+server.get('/project/html/:projectName', projectHandlers.compileMarkdown); // Project route: get project html file by id
 server.get('/graph/generate', projectHandlers.graph); // Project route: get the graph
 // server.get('/project/:projectName', projectHandlers.viewProject); // Project route: get project by the id
 server.post('/search', projectHandlers.search); // Search route

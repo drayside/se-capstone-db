@@ -4,8 +4,32 @@ var fs = require('fs');
 var path = require('path');
 var _ = require('lodash');
 var glob = require('glob');
+var assert = require('assert');
 
-module.exports = function(mdDirAbsPath) {//passed in markdown directory path
+module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) {
+    //passed in markdown directory paths
+
+  const lookup = {
+    9 : 'Nine',
+    9.5 : 'NineThirty',
+    10 : 'Ten',
+    10.5 : 'TenThirty',
+    11 : 'Eleven',
+    11.5 : 'ElevenThirty',
+    12 : 'Twelve',
+    12.5 : 'TwelveThirty',
+    13 : 'One',
+    13.5 : 'OneThirty',
+    14 : 'Two',
+    14.5 : 'TwoThirty',
+    15 : 'Three',
+    15.5 : 'ThreeThirty',
+    16 : 'Four',
+    16.5 : 'FourThirty',
+    17 : 'Five'
+  };
+
+  const NUMBER_OF_REFEREES = 3;
 
   function beginsWith(str, prefix){
     if (str.length > prefix.length && str.substring(0, prefix.length) === prefix){
@@ -254,7 +278,152 @@ module.exports = function(mdDirAbsPath) {//passed in markdown directory path
     return result;
   };
 
-  function initParse(mdDirAbsPath){
+  const parse_time_interval = function(start, end) {
+    assert(start < end, 'start < end - constraint violated');
+    assert((start>= 9.0 && start <= 16.5), 
+            'Symposium Day start time  [9-16.5] range violated');
+    assert((end>= 9.5 && end <= 17) || (end >= 1.0 && end <= 5.0), 
+            'Symposium Day end time [9.5-5] range violated');
+
+    var list  = [];
+    var t = start;
+    for (;;) {
+        assert(t in lookup, 'time out of range for symposium day');
+        list.push(lookup[t]);
+
+        var next = t + 0.5;
+
+        if ( end > next ) {
+            t = next;
+        } else {
+            break;
+        }
+    }
+    return list.toString().replace(/,/g," + ");
+  }
+
+  const parseTimes = function(timeStr) {
+    var rawTimes = timeStr.split('-');
+    
+    var rawStartTime = rawTimes[0].split(':');
+    var startTime = parseInt(rawStartTime[0]);
+    if (rawStartTime[1] == '30') {
+        startTime = startTime + 0.5;
+    }
+
+    var rawEndTime = rawTimes[1].split(':');
+    var endTime = parseInt(rawEndTime[0]);
+    if (rawEndTime[1] == '30') {
+        endTime = endTime + 0.5;
+    }
+
+    return parse_time_interval(startTime, endTime);
+  } 
+
+  const parseRefereesAndTeams = function(fpath, dump) {
+    const fileName = path.basename(fpath);
+    const result = {};
+    let fileContent = fs.readFileSync(fpath);
+    fileContent = fileContent.toString().split(/\r?\n/);
+
+    result[fileName] = {};
+
+    // Parse
+    
+    // extract referees
+    const refs = {};
+    let teamRefs = [];
+    for (let i = 0; i < NUMBER_OF_REFEREES; i++) {
+        const refRegExp = new RegExp('^###\\s*Referee\\s+' + (i + 1));
+        const refKeys = extractKeyList(fileContent, 2, refRegExp);
+        refs['ref' + i] = _.pick(refKeys, ['full name', 'email', 'attending']);
+    
+        const flatList = extractFlatList(fileContent, 2, refRegExp);
+        const index = flatList.indexOf('Available Times (24 hr format):');
+        // all bullets following this will be time intervals [HH:MM - HH:MM];
+        let availableTimes = [];
+        for (let j = index + 1, k = 0; j < flatList.length; j++, k++) {
+            availableTimes[k] = parseTimes(flatList[j]);
+        }
+        availableTimes = availableTimes.join(' + ');
+
+        const uniqueIdentifier = refs['ref' + i]['email'];
+        
+        teamRefs.push(uniqueIdentifier);
+
+        refs['ref' + i]['alloy_string'] = "one sig " + uniqueIdentifier + " extends Ref{}" +
+            "{AvailableTimes = " + availableTimes + "}";
+        dump.refDump += refs['ref' + i]['alloy_string'] + '\n';
+    }
+
+    //extract teams
+    
+    const team = {};
+    const teamNumberIndex = firstMatch(fileContent, /^####\s*Team#:/); 
+    if (teamNumberIndex > -1) { 
+        const rawTeamNumber = fileContent[teamNumberIndex].split(':');
+        if (rawTeamNumber.length > 1) {
+            team['team_number'] = parseInt(rawTeamNumber[1]);
+        }
+    }
+
+    const teamNameIndex = firstMatch(fileContent, /^####\s*Team\s+Name:/);
+    if (teamNameIndex > -1) {
+        const rawTeamName = fileContent[teamNameIndex].split(':');
+        if (rawTeamName.length > 1) {
+            team['team_name'] = rawTeamName[1]; 
+        }
+    }
+
+    const uniqueTeamIdentifier = "Team" + team.team_number;
+    team['alloy_string'] = "one sig " + uniqueTeamIdentifier + " extends Team {}{" +
+        "refs = (" + teamRefs.join(' + ') + ")}";
+    dump.teamDump += team['alloy_string'] + '\n';
+ 
+    result[fileName] = {
+        team: team,
+        refs: refs,
+    };
+    
+    //console.log(result[fileName]);
+    
+    return result;
+  }
+
+  function initParse(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath){
+    if (shouldParseRefs) {
+        const refFiles = fs.readdirSync(refScheduleDirAbsPath);
+        
+        let result = {};
+        
+        // can only pass objects by reference in js
+        let dump = {
+            refDump: "",
+            teamDump: "",
+        };
+
+        for (let i = 0; i < refFiles.length; i++) {
+            const t = refFiles[i];
+            if (t.match(/(.*).md$/) && !t.match(/^index/)) {
+                const fname = t.substring(t.lastIndexOf('/'), t.length);
+                const fpath = path.join(refScheduleDirAbsPath, fname);
+                result = _.merge(result, parseRefereesAndTeams(fpath, dump));
+            }
+        }
+    
+        // TODO: figure out a way to handle duplicates;
+        fs.writeFile('/tmp/alloy_code.txt', dump.refDump + '\n\n\n' + dump.teamDump,
+            function(err) {
+                if(err) {
+                    return console.log(err);
+                }
+                console.log("Successfully wrote alloy dump to: /tmp/alloy_code.txt");
+            }
+        );
+    }
+
+    /** original project markdowm parse code **/
+
     var files = fs.readdirSync(mdDirAbsPath); //here's the trouble TODO
     // console.log(files);
     var res = {};
@@ -273,6 +442,6 @@ module.exports = function(mdDirAbsPath) {//passed in markdown directory path
 
   // console.log('Parsed contents: ' + contentJson);
   // console.log("FINAL: ", JSON.stringify(res, null, 2));
-  return initParse(mdDirAbsPath);
+  return initParse(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath);
 };
 
