@@ -1,12 +1,10 @@
 "use strict";
-
 var restify = require('restify');
 var config = require('./config/default');
 
 var _ = require('lodash');
 var fs = require('fs');
 var path = require('path');
-
 const commandLineArgs = require('command-line-args');
 const options = commandLineArgs([
     {name: 'markdown-directory', type: String},
