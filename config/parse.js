@@ -347,7 +347,7 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
         }
         availableTimes = availableTimes.join(' + ');
 
-        const uniqueIdentifier = refs['ref' + i]['email'];
+        const uniqueIdentifier = refs['ref' + i]['email'].split('@')[0];
         
         teamRefs.push(uniqueIdentifier);
 
