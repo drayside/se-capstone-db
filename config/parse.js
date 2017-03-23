@@ -309,16 +309,18 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
     console.log('TIME:', rawTimes);
     var rawStartTime = rawTimes[0].split(':');
     var startTime = parseInt(rawStartTime[0]);
-    if (rawStartTime[1] == '30') {
+    var startMinutes = parseInt(rawStartTime[1]);
+    if (rawStartTime[1] == 30) {
         startTime = startTime + 0.5;
     }
 
     var rawEndTime = rawTimes[1].split(':');
     var endTime = parseInt(rawEndTime[0]);
-    if (rawEndTime[1] == '30') {
+    var endMinutes = parseInt(rawEndTime[1]);
+    if (rawEndTime[1] == 30) {
         endTime = endTime + 0.5;
     }
-
+    console.log('parseTimes: ' + startTime + '-' + endTime);
     return parse_time_interval(startTime, endTime);
   }
 
