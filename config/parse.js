@@ -373,8 +373,8 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
           //console.log(uniqueIdentifier);
           teamRefs.push(uniqueIdentifier);
           
-          refs['ref' + i]['alloy_string'] = "one sig " + uniqueIdentifier + " extends Ref{}" +
-            "{AvailableTimes = " + availableTimes + "}";
+          refs['ref' + i]['alloy_string'] = '\t' + uniqueIdentifier + " -> (" + availableTimes 
+              + ")";
 
           if (!uniqueRefs.hasOwnProperty(uniqueIdentifier)) {
             uniqueRefs[uniqueIdentifier] = {};
@@ -383,7 +383,7 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
             uniqueRefs[uniqueIdentifier].full_name = refKeys['full name'];
             uniqueRefs[uniqueIdentifier].email = refKeys['email'];
             uniqueRefs[uniqueIdentifier].attending = refKeys['attending'];
-            dump.refDump += refs['ref' + i]['alloy_string'] + '\n';
+            dump.refArray.push(refs['ref' + i]['alloy_string'] + '\n');
           } else {
             //duplicate!
             assert((uniqueRefs[uniqueIdentifier].availableTimes === availableTimes), 
@@ -413,9 +413,9 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
     }
 
     const uniqueTeamIdentifier = "Team" + team.team_number;
-    team['alloy_string'] = "one sig " + uniqueTeamIdentifier + " extends Team {}{" +
-        "refs = (" + teamRefs.join(' + ') + ")}";
-    dump.teamDump += team['alloy_string'] + '\n';
+    team['alloy_string'] = '\t' + uniqueTeamIdentifier + " -> (" +
+        teamRefs.join(' + ') + ")";
+    dump.teamArray.push(team['alloy_string'] + '\n');
 
     result[fileName] = {
         team: team,
@@ -435,8 +435,10 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
 
         // can only pass objects by reference in js
         let dump = {
-            refDump: "",
-            teamDump: "",
+            refDump: "Fun AvailableTimes : Ref -> Time {\n",
+            refArray: [],
+            teamDump: "Fun refs : Team -> Ref {\n ",
+            teamArray: [],
         };
 
         let uniqueRefs = {};
@@ -452,6 +454,8 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
             }
         }
 
+        dump.refDump += dump.refArray.join(' + ') + '}\n';
+        dump.teamDump += dump.teamArray.join(' + ') + '}\n';
         
         Object.keys(uniqueRefs).forEach(function(key) {
             refInfoDump += uniqueRefs[key].full_name + ' <' + uniqueRefs[key].email +
