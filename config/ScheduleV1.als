@@ -19,11 +19,8 @@ one sig One extends Time {}{One = TimeOrd/next[TwelveThirty]}
 one sig OneThirty extends Time {}{OneThirty = TimeOrd/next[One]}
 one sig Two extends Time {}{Two = TimeOrd/next[OneThirty]}
 one sig TwoThirty extends Time {}{TwoThirty = TimeOrd/next[Two]}
-one sig Three extends Time {}{Three = TimeOrd/next[TwoThirty]}
-one sig ThreeThirty extends Time {}{ThreeThirty = TimeOrd/next[Three]}
-one sig Four extends Time {}{Four = TimeOrd/next[ThreeThirty]}
-one sig FourThirty extends Time {}{FourThirty = TimeOrd/next[Four]}
-one sig Five extends Time {}{Five = TimeOrd/last[]}
+one sig Three extends Time {}{Three = TimeOrd/last[]}
+
 
 
 
@@ -55,22 +52,94 @@ abstract sig Team {
 }
 
 one sig badRefs {
-    refs: set Ref
+    refs1: set Ref,
+    refs2: set Ref
 }
-/* INSERT TEAMS HERE*/
+one sig tianyuyang658 extends Ref{}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three}
+one sig andrew_morton extends Ref{}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty}
+one sig tripunit extends Ref{}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three}
+one sig iivkovic extends Ref{}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty}
+one sig broehl extends Ref{}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One}
+one sig rs2dsouz extends Ref{}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three}
+one sig chantellegellert extends Ref{}{AvailableTimes = Nine + NineThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + Two + TwoThirty + Three}
+one sig ramelard extends Ref{}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One}
+one sig carlos_moreno extends Ref{}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three}
+one sig murphy_berzish extends Ref{}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three}
+one sig dhshin extends Ref{}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two}
+one sig wmcowan extends Ref{}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three}
+one sig wgolab extends Ref{}{AvailableTimes = Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three}
+one sig a3zaman extends Ref{}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three}
+one sig jeff_zarnett extends Ref{}{AvailableTimes = Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three}
+one sig floater1 extends Ref{}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three}
+one sig jimmylin extends Ref{}{AvailableTimes = Eleven + ElevenThirty + Three}
+one sig jmatlee extends Ref{}{AvailableTimes = Eleven + ElevenThirty + Twelve + TwelveThirty + One}
+one sig allyson_giannikouris extends Ref{}{AvailableTimes = One + OneThirty + Two + TwoThirty + Three}
+one sig winkler_em extends Ref{}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three}
+one sig kepaik extends Ref{}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three}
+one sig csk extends Ref{}{AvailableTimes = One + OneThirty}
+one sig drayside extends Ref{}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three}
+one sig se_director extends Ref{}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three}
+one sig kevin extends Ref{}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three}
+one sig whchang extends Ref{}{AvailableTimes = One + OneThirty + Two + TwoThirty}
+one sig pasward extends Ref{}{AvailableTimes = Two + TwoThirty + Three}
+one sig bwbecker extends Ref{}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three}
+one sig floater2 extends Ref{}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three}
+one sig floater3 extends Ref{}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three}
+one sig eric_bahn extends Ref{}{AvailableTimes = Ten + TenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three}
+one sig floater4 extends Ref{}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three}
+one sig dan_brown extends Ref{}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One}
+one sig s26stewa extends Ref{}{AvailableTimes = Eleven + ElevenThirty + Twelve + TwelveThirty}
+one sig gvgbaran extends Ref{}{AvailableTimes = Eleven + ElevenThirty + One + OneThirty + Two}
+one sig floater5 extends Ref{}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three}
+one sig idziak extends Ref{}{AvailableTimes = Ten + TenThirty}
+one sig mvucicev extends Ref{}{AvailableTimes = Ten + TenThirty}
 
-one sig Team1 extends Team {}{refs = (Ref1 + Ref2 + Ref3)}
+
+
+
+one sig Team2 extends Team {}{refs = (tianyuyang658 + andrew_morton + tripunit + iivkovic + broehl)}
+one sig Team3 extends Team {}{refs = (rs2dsouz + chantellegellert + ramelard)}
+one sig Team4 extends Team {}{refs = (andrew_morton + carlos_moreno + murphy_berzish + dhshin + wmcowan + wgolab)}
+one sig Team5 extends Team {}{refs = (a3zaman + jeff_zarnett + floater1)}
+one sig Team6 extends Team {}{refs = (jimmylin + tripunit + jmatlee + ramelard)}
+one sig Team7 extends Team {}{refs = (tianyuyang658 + rs2dsouz + allyson_giannikouris)}
+one sig Team9 extends Team {}{refs = (murphy_berzish + a3zaman + dhshin)}
+one sig Team11 extends Team {}{refs = (winkler_em + kepaik + a3zaman)}
+one sig Team12 extends Team {}{refs = (tianyuyang658 + rs2dsouz + csk)}
+one sig Team13 extends Team {}{refs = (a3zaman + drayside + se_director)}
+one sig Team14 extends Team {}{refs = (rs2dsouz + chantellegellert + jeff_zarnett)}
+one sig Team15 extends Team {}{refs = (kevin + tianyuyang658 + dhshin  + whchang)}
+one sig Team16 extends Team {}{refs = (chantellegellert + broehl + jeff_zarnett)}
+one sig Team17 extends Team {}{refs = (tianyuyang658 + pasward + wgolab)}
+one sig Team18 extends Team {}{refs = (murphy_berzish + bwbecker + a3zaman + chantellegellert)}
+one sig Team19 extends Team {}{refs = (kevin + se_director + allyson_giannikouris)}
+one sig Team20 extends Team {}{refs = (kevin + murphy_berzish + floater2)}
+one sig Team21 extends Team {}{refs = (tianyuyang658 + eric_bahn + jmatlee)}
+one sig Team23 extends Team {}{refs = (a3zaman + pasward + floater3)}
+one sig Team24 extends Team {}{refs = (dan_brown + ramelard + broehl)}
+one sig Team25 extends Team {}{refs = (winkler_em + kepaik + a3zaman)}
+one sig Team26 extends Team {}{refs = (s26stewa + murphy_berzish + dhshin)}
+one sig Team27 extends Team {}{refs = (kevin + dhshin + rs2dsouz + gvgbaran)}
+one sig Team28 extends Team {}{refs = (chantellegellert + allyson_giannikouris + floater4)}
+one sig Team29 extends Team {}{refs = (kevin + idziak + mvucicev)}
+one sig Team30 extends Team {}{refs = (kevin + s26stewa + murphy_berzish + dhshin)}
+
+
+
+/* INSERT TEAMS HERE
+
+one sig Team1 extends Team {}{refs = (Ref1 + Ref2 + Ref3 + Ref4)}
 one sig Team2 extends Team {}{refs = (Ref4 + Ref2 + Ref3)}
 one sig Team3 extends Team {}{refs = (Ref4 + Ref2 + Ref5)}
+*/
+/* INSERT REFS HERE
 
-/* INSERT REFS HERE*/
-
-one sig Ref1  extends Ref  {}{AvailableTimes =  Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three + ThreeThirty + Four + FourThirty + Five}
-one sig Ref2  extends Ref  {}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three + ThreeThirty + Four + FourThirty + Five}
-one sig Ref3  extends Ref  {}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three + ThreeThirty + Four + FourThirty + Five}
-one sig Ref4  extends Ref  {}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three + ThreeThirty + Four + FourThirty + Five}
-one sig Ref5  extends Ref  {}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three + ThreeThirty + Four + FourThirty + Five}
-
+one sig Ref1  extends Ref  {}{AvailableTimes =  Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three + ThreeThirty}
+one sig Ref2  extends Ref  {}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three + ThreeThirty }
+one sig Ref3  extends Ref  {}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three + ThreeThirty}
+one sig Ref4  extends Ref  {}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three + ThreeThirty }
+one sig Ref5  extends Ref  {}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three + ThreeThirty}
+*/
 
 
 
@@ -94,11 +163,7 @@ one sig Session9 extends SessionRoom1 {} { time = One Session9 = SessionRoom1Ord
 one sig Session10 extends SessionRoom1 {} { time = OneThirty  Session10 = SessionRoom1Ord/next[Session9]}
 one sig Session11 extends SessionRoom1 {} { time = Two  Session11 = SessionRoom1Ord/next[Session10]}
 one sig Session12 extends SessionRoom1 {} { time = TwoThirty  Session12 = SessionRoom1Ord/next[Session11]}
-one sig Session13 extends SessionRoom1 {} { time = Three Session13 = SessionRoom1Ord/next[Session12]}
-one sig Session14 extends SessionRoom1 {} { time = ThreeThirty  Session14 = SessionRoom1Ord/next[Session13]}
-one sig Session15 extends SessionRoom1 {} { time = Four Session15 = SessionRoom1Ord/next[Session14]}
-one sig Session16 extends SessionRoom1 {} { time = FourThirty  Session16 = SessionRoom1Ord/next[Session15]}
-one sig Session17 extends SessionRoom1 {} { time = Five Session17 = SessionRoom1Ord/last[]}
+one sig Session13 extends SessionRoom1 {} { time = Three Session13 = SessionRoom1Ord/last[]}
 
 one sig SessionR1 extends SessionRoom2 {} { time = Nine SessionR1 = SessionRoom2Ord/first[]}
 one sig SessionR2 extends SessionRoom2 {} { time = NineThirty  SessionR2 = SessionRoom2Ord/next[SessionR1]}
@@ -112,11 +177,7 @@ one sig SessionR9 extends SessionRoom2 {} { time = One SessionR9 = SessionRoom2O
 one sig SessionR10 extends SessionRoom2 {} { time = OneThirty  SessionR10 = SessionRoom2Ord/next[SessionR9]}
 one sig SessionR11 extends SessionRoom2 {} { time = Two  SessionR11 = SessionRoom2Ord/next[SessionR10]}
 one sig SessionR12 extends SessionRoom2 {} { time = TwoThirty  SessionR12 = SessionRoom2Ord/next[SessionR11]}
-one sig SessionR13 extends SessionRoom2 {} { time = Three SessionR13 = SessionRoom2Ord/next[SessionR12]}
-one sig SessionR14 extends SessionRoom2 {} { time = ThreeThirty  SessionR14 = SessionRoom2Ord/next[SessionR13]}
-one sig SessionR15 extends SessionRoom2 {} { time = Four SessionR15 = SessionRoom2Ord/next[SessionR14]}
-one sig SessionR16 extends SessionRoom2 {} { time = FourThirty  SessionR16 = SessionRoom2Ord/next[SessionR15]}
-one sig SessionR17 extends SessionRoom2 {} { time = Five  SessionR17 = SessionRoom2Ord/last[]}
+one sig SessionR13 extends SessionRoom2 {} { time = Three SessionR13 = SessionRoom2Ord/last[]}
 
 
 
@@ -160,11 +221,13 @@ fact schedule {
     all r: Ref | r.RefTime in r.AvailableTimes
     all r:Ref,  s1:SessionRoom1, s2: SessionRoom2 | (s1.time = s2.time and s1.time in r.RefTime) => (r in s1.team.refs || r in s2.team.refs)
     -- this is trying to optimize times based on reoccuring refs -- ideally run without these lines, make sure everything else is okay then try running with this for optimization   
-    all r:Ref, t:Time | (#(r.RefTime) > 1 && t in r.RefTime && (t.next not in r.RefTime) && (t.prev not in r.RefTime)  ) => (r in badRefs.refs) 
-    all r:Ref | (#(r.RefTime) > 1 && (Nine in r.RefTime && NineThirty not in r.RefTime) ||  (Five in r.RefTime && FourThirty not in r.RefTime)) => (r in badRefs.refs) 
-    -- optimizating parameter
-
-    #(badRefs.refs) < 1
+    all r:Ref, t:Time | (#(r.RefTime) = 2 && t in r.RefTime && (t.next not in r.RefTime) && (t.prev not in r.RefTime)  ) => (r in badRefs.refs1 || r in badRefs.refs2) 
+    all r:Ref | (#(r.RefTime) = 2 && (Nine in r.RefTime && NineThirty not in r.RefTime) ||  (Three in r.RefTime && TwoThirty not in r.RefTime)) => (r in badRefs.refs1 || r in badRefs.refs2) 
+    -- optimizating parameters -- we need two in order to solve bit depth issue
+    #(badRefs.refs2) < 2
+    #(badRefs.refs2) > 0
+    #(badRefs.refs1) < 3
+    #(badRefs.refs1) > 0
     --all t:Time, r:Ref, disjoint t1, t2:Team | (r in t1.refs && r in t2.refs && t in r.AvailableTimes && (t = t1.presRoom1.time || t = t1.presRoom2.time) &&  (t.next in r.AvailableTimes || t.prev in r.AvailableTimes)) =>   
     --(
         --(  r in t1.presRoom1.next.team.refs || r in t1.presRoom1.prev.team.refs ||  r in t1.presRoom2Equiv.next.team.refs ||  r in t1.presRoom2Equiv.prev.team.refs) ||
