@@ -30,6 +30,7 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
   };
 
   const NUMBER_OF_REFEREES = 10;
+  var FLOATER_COUNTER = 0;
 
   function beginsWith(str, prefix){
     if (str.length > prefix.length && str.substring(0, prefix.length) === prefix){
@@ -280,9 +281,9 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
 
   const parse_time_interval = function(start, end) {
     assert(start < end, 'start < end - constraint violated');
-    assert((start>= 9.0 && start <= 16.5), 
+    assert((start>= 9.0 && start <= 16.5),
             'Symposium Day start time  [9-16.5] range violated');
-    assert((end>= 9.5 && end <= 17) || (end >= 1.0 && end <= 5.0), 
+    assert((end>= 9.5 && end <= 17) || (end >= 1.0 && end <= 5.0),
             'Symposium Day end time [9.5-5] range violated');
 
     var list  = [];
@@ -319,7 +320,7 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
     }
 
     return parse_time_interval(startTime, endTime);
-  } 
+  }
 
   const parseRefereesAndTeams = function(fpath, dump) {
     const fileName = path.basename(fpath);
@@ -330,50 +331,58 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
     result[fileName] = {};
     console.log(fileName);
     // Parse
-    
+
     // extract referees
     const refs = {};
     let teamRefs = [];
     for (let i = 0; i < NUMBER_OF_REFEREES; i++) {
+        //console.log("filename: ", fileName);
         const refRegExp = new RegExp('^###\\s*Referee\\s+' + (i + 1));
         const refKeys = extractKeyList(fileContent, 2, refRegExp);
         //console.log(refKeys);
-        if (Object.keys(refKeys).length > 0 && refKeys['full name'] != '[First] [Last]') {
-            refs['ref' + i] = _.pick(refKeys, ['full name', 'email', 'attending']);
-        
-            const flatList = extractFlatList(fileContent, 2, refRegExp);
-            const index = flatList.indexOf('Available Times (24 hr format):');
-            // all bullets following this will be time intervals [HH:MM - HH:MM];
-            console.log(flatList);  
-            let availableTimes = [];
-            for (let j = index + 1, k = 0; j < flatList.length; j++, k++) {
-                if (flatList[j] != '[HH:MM] - [HH:MM]') {
-                    availableTimes[k] = parseTimes(flatList[j]);
-                } else {
-                    //TODO better
-                    availableTimes[0] = parseTimes('9:00 - 15:30');
-                    break;
-                }
-            }
-            availableTimes = availableTimes.join(' + ');
-            
-            console.log(refs['ref' + i]);   
-            const uniqueIdentifier = refs['ref' + i]['email'].split('@')[0].replace('.', '_');
-            //console.log(uniqueIdentifier);
-            teamRefs.push(uniqueIdentifier);
+        if (Object.keys(refKeys).length > 0) {
+          if(refKeys['full name'] == '[First] [Last]') {
+            //console.log("adding floater for ", fileName);
 
-            refs['ref' + i]['alloy_string'] = "one sig " + uniqueIdentifier + " extends Ref{}" +
-                "{AvailableTimes = " + availableTimes + "}";
-            dump.refDump += refs['ref' + i]['alloy_string'] + '\n';
-        
+            refKeys['full name'] = 'Floater Referee';
+            FLOATER_COUNTER++;
+            refKeys['email'] = 'floater' + FLOATER_COUNTER + '@testmail.com';
+          }
+
+          refs['ref' + i] = _.pick(refKeys, ['full name', 'email', 'attending']);
+          const flatList = extractFlatList(fileContent, 2, refRegExp);
+          const index = flatList.indexOf('Available Times (24 hr format):');
+          // all bullets following this will be time intervals [HH:MM - HH:MM];
+          console.log(flatList);
+          let availableTimes = [];
+          for (let j = index + 1, k = 0; j < flatList.length; j++, k++) {
+            if (flatList[j] != '[HH:MM] - [HH:MM]') {
+              availableTimes[k] = parseTimes(flatList[j]);
+            } else {
+              //TODO better
+              availableTimes[0] = parseTimes('9:00 - 15:30');
+              break;
+            }
+          }
+          availableTimes = availableTimes.join(' + ');
+
+          console.log(refs['ref' + i]);
+          const uniqueIdentifier = refs['ref' + i]['email'].split('@')[0].replace('.', '_');
+          //console.log(uniqueIdentifier);
+          teamRefs.push(uniqueIdentifier);
+
+          refs['ref' + i]['alloy_string'] = "one sig " + uniqueIdentifier + " extends Ref{}" +
+            "{AvailableTimes = " + availableTimes + "}";
+          dump.refDump += refs['ref' + i]['alloy_string'] + '\n';
+
         }
     }
 
     //extract teams
-    
+
     const team = {};
-    const teamNumberIndex = firstMatch(fileContent, /^#\s*Team#:/); 
-    if (teamNumberIndex > -1) { 
+    const teamNumberIndex = firstMatch(fileContent, /^#\s*Team#:/);
+    if (teamNumberIndex > -1) {
         const rawTeamNumber = fileContent[teamNumberIndex].split(':');
         if (rawTeamNumber.length > 1) {
             team['team_number'] = parseInt(rawTeamNumber[1]);
@@ -384,7 +393,7 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
     if (teamNameIndex > -1) {
         const rawTeamName = fileContent[teamNameIndex].split(':');
         if (rawTeamName.length > 1) {
-            team['team_name'] = rawTeamName[1]; 
+            team['team_name'] = rawTeamName[1];
         }
     }
 
@@ -392,23 +401,23 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
     team['alloy_string'] = "one sig " + uniqueTeamIdentifier + " extends Team {}{" +
         "refs = (" + teamRefs.join(' + ') + ")}";
     dump.teamDump += team['alloy_string'] + '\n';
- 
+
     result[fileName] = {
         team: team,
         refs: refs,
     };
-    
+
     //console.log(result[fileName]);
-    
+
     return result;
   }
 
   function initParse(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath){
     if (shouldParseRefs) {
         const refFiles = fs.readdirSync(refScheduleDirAbsPath);
-        
+
         let result = {};
-        
+
         // can only pass objects by reference in js
         let dump = {
             refDump: "",
@@ -423,7 +432,7 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
                 result = _.merge(result, parseRefereesAndTeams(fpath, dump));
             }
         }
-    
+
         // TODO: figure out a way to handle duplicates;
         fs.writeFile('/tmp/alloy_code.txt', dump.refDump + '\n\n\n' + dump.teamDump,
             function(err) {
