@@ -29,7 +29,7 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
     17 : 'Five'
   };
 
-  const NUMBER_OF_REFEREES = 3;
+  const NUMBER_OF_REFEREES = 10;
 
   function beginsWith(str, prefix){
     if (str.length > prefix.length && str.substring(0, prefix.length) === prefix){
@@ -304,7 +304,8 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
 
   const parseTimes = function(timeStr) {
     var rawTimes = timeStr.split('-');
-    
+
+    console.log('TIME:', rawTimes);
     var rawStartTime = rawTimes[0].split(':');
     var startTime = parseInt(rawStartTime[0]);
     if (rawStartTime[1] == '30') {
@@ -327,7 +328,7 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
     fileContent = fileContent.toString().split(/\r?\n/);
 
     result[fileName] = {};
-
+    console.log(fileName);
     // Parse
     
     // extract referees
@@ -336,30 +337,42 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
     for (let i = 0; i < NUMBER_OF_REFEREES; i++) {
         const refRegExp = new RegExp('^###\\s*Referee\\s+' + (i + 1));
         const refKeys = extractKeyList(fileContent, 2, refRegExp);
-        refs['ref' + i] = _.pick(refKeys, ['full name', 'email', 'attending']);
-    
-        const flatList = extractFlatList(fileContent, 2, refRegExp);
-        const index = flatList.indexOf('Available Times (24 hr format):');
-        // all bullets following this will be time intervals [HH:MM - HH:MM];
-        let availableTimes = [];
-        for (let j = index + 1, k = 0; j < flatList.length; j++, k++) {
-            availableTimes[k] = parseTimes(flatList[j]);
-        }
-        availableTimes = availableTimes.join(' + ');
-
-        const uniqueIdentifier = refs['ref' + i]['email'].split('@')[0];
+        //console.log(refKeys);
+        if (Object.keys(refKeys).length > 0 && refKeys['full name'] != '[First] [Last]') {
+            refs['ref' + i] = _.pick(refKeys, ['full name', 'email', 'attending']);
         
-        teamRefs.push(uniqueIdentifier);
+            const flatList = extractFlatList(fileContent, 2, refRegExp);
+            const index = flatList.indexOf('Available Times (24 hr format):');
+            // all bullets following this will be time intervals [HH:MM - HH:MM];
+            console.log(flatList);  
+            let availableTimes = [];
+            for (let j = index + 1, k = 0; j < flatList.length; j++, k++) {
+                if (flatList[j] != '[HH:MM] - [HH:MM]') {
+                    availableTimes[k] = parseTimes(flatList[j]);
+                } else {
+                    //TODO better
+                    availableTimes[0] = parseTimes('9:00 - 15:30');
+                    break;
+                }
+            }
+            availableTimes = availableTimes.join(' + ');
+            
+            console.log(refs['ref' + i]);   
+            const uniqueIdentifier = refs['ref' + i]['email'].split('@')[0].replace('.', '_');
+            //console.log(uniqueIdentifier);
+            teamRefs.push(uniqueIdentifier);
 
-        refs['ref' + i]['alloy_string'] = "one sig " + uniqueIdentifier + " extends Ref{}" +
-            "{AvailableTimes = " + availableTimes + "}";
-        dump.refDump += refs['ref' + i]['alloy_string'] + '\n';
+            refs['ref' + i]['alloy_string'] = "one sig " + uniqueIdentifier + " extends Ref{}" +
+                "{AvailableTimes = " + availableTimes + "}";
+            dump.refDump += refs['ref' + i]['alloy_string'] + '\n';
+        
+        }
     }
 
     //extract teams
     
     const team = {};
-    const teamNumberIndex = firstMatch(fileContent, /^####\s*Team#:/); 
+    const teamNumberIndex = firstMatch(fileContent, /^#\s*Team#:/); 
     if (teamNumberIndex > -1) { 
         const rawTeamNumber = fileContent[teamNumberIndex].split(':');
         if (rawTeamNumber.length > 1) {
@@ -367,7 +380,7 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
         }
     }
 
-    const teamNameIndex = firstMatch(fileContent, /^####\s*Team\s+Name:/);
+    const teamNameIndex = firstMatch(fileContent, /^#\s*Team\s+Name:/);
     if (teamNameIndex > -1) {
         const rawTeamName = fileContent[teamNameIndex].split(':');
         if (rawTeamName.length > 1) {
