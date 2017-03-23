@@ -310,21 +310,21 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
     var rawStartTime = rawTimes[0].split(':');
     var startTime = parseInt(rawStartTime[0]);
     var startMinutes = parseInt(rawStartTime[1]);
-    if (rawStartTime[1] == 30) {
+    if (startMinutes === 30) {
         startTime = startTime + 0.5;
     }
 
     var rawEndTime = rawTimes[1].split(':');
     var endTime = parseInt(rawEndTime[0]);
     var endMinutes = parseInt(rawEndTime[1]);
-    if (rawEndTime[1] == 30) {
+    if (endMinutes === 30) {
         endTime = endTime + 0.5;
     }
     console.log('parseTimes: ' + startTime + '-' + endTime);
     return parse_time_interval(startTime, endTime);
   }
 
-  const parseRefereesAndTeams = function(fpath, dump) {
+  const parseRefereesAndTeams = function(fpath, dump, uniqueRefs) {
     const fileName = path.basename(fpath);
     const result = {};
     let fileContent = fs.readFileSync(fpath);
@@ -355,7 +355,7 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
           const flatList = extractFlatList(fileContent, 2, refRegExp);
           const index = flatList.indexOf('Available Times (24 hr format):');
           // all bullets following this will be time intervals [HH:MM - HH:MM];
-          console.log(flatList);
+          // console.log(flatList);
           let availableTimes = [];
           for (let j = index + 1, k = 0; j < flatList.length; j++, k++) {
             if (flatList[j] != '[HH:MM] - [HH:MM]') {
@@ -368,15 +368,28 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
           }
           availableTimes = availableTimes.join(' + ');
 
-          console.log(refs['ref' + i]);
+          //console.log(refs['ref' + i]);
           const uniqueIdentifier = refs['ref' + i]['email'].split('@')[0].replace('.', '_').replace('-','_');
           //console.log(uniqueIdentifier);
           teamRefs.push(uniqueIdentifier);
-
+          
           refs['ref' + i]['alloy_string'] = "one sig " + uniqueIdentifier + " extends Ref{}" +
             "{AvailableTimes = " + availableTimes + "}";
-          dump.refDump += refs['ref' + i]['alloy_string'] + '\n';
 
+          if (!uniqueRefs.hasOwnProperty(uniqueIdentifier)) {
+            uniqueRefs[uniqueIdentifier] = {};
+            uniqueRefs[uniqueIdentifier].alloy_string = refs['ref' + i]['alloy_string'];
+            uniqueRefs[uniqueIdentifier].availableTimes = availableTimes;
+            uniqueRefs[uniqueIdentifier].full_name = refKeys['full name'];
+            uniqueRefs[uniqueIdentifier].email = refKeys['email'];
+            uniqueRefs[uniqueIdentifier].attending = refKeys['attending'];
+            dump.refDump += refs['ref' + i]['alloy_string'] + '\n';
+          } else {
+            //duplicate!
+            assert((uniqueRefs[uniqueIdentifier].availableTimes === availableTimes), 
+                    'ERROR: duplicate referee found with time intervals that do not match');
+            //if they do match, do nothing.
+          }
         }
     }
 
@@ -426,22 +439,40 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
             teamDump: "",
         };
 
+        let uniqueRefs = {};
+        let refInfoDump = "REFEREE REPORT \n\n";
         for (let i = 0; i < refFiles.length; i++) {
             const t = refFiles[i];
             if (t.match(/(.*).md$/) && !t.match(/^index/)) {
                 const fname = t.substring(t.lastIndexOf('/'), t.length);
                 const fpath = path.join(refScheduleDirAbsPath, fname);
-                result = _.merge(result, parseRefereesAndTeams(fpath, dump));
+                result = _.merge(result, parseRefereesAndTeams(fpath, dump, uniqueRefs));
+                console.log('FILENAME:' + fpath);
+                console.log(uniqueRefs);
             }
         }
 
-        // TODO: figure out a way to handle duplicates;
+        
+        Object.keys(uniqueRefs).forEach(function(key) {
+            refInfoDump += uniqueRefs[key].full_name + ' <' + uniqueRefs[key].email +
+                '>,\t\t\t' + uniqueRefs[key].attending + '\n'; 
+        });
+
         fs.writeFile('/tmp/referee_schedule.als', dump.refDump + '\n\n\n' + dump.teamDump,
             function(err) {
                 if(err) {
                     return console.log(err);
                 }
                 console.log("Successfully wrote alloy dump to: /tmp/referee_schedule.als");
+            }
+        );
+        
+        fs.writeFile('/tmp/referee_report.txt', refInfoDump,
+            function(err) {
+                if(err) {
+                    return console.log(err);
+                }
+                console.log("Successfully wrote referee report to: /tmp/referee_report.txt");
             }
         );
     }
