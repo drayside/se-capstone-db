@@ -434,12 +434,12 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
         }
 
         // TODO: figure out a way to handle duplicates;
-        fs.writeFile('/tmp/alloy_code.txt', dump.refDump + '\n\n\n' + dump.teamDump,
+        fs.writeFile('/tmp/referee_schedule.als', dump.refDump + '\n\n\n' + dump.teamDump,
             function(err) {
                 if(err) {
                     return console.log(err);
                 }
-                console.log("Successfully wrote alloy dump to: /tmp/alloy_code.txt");
+                console.log("Successfully wrote alloy dump to: /tmp/referee_schedule.als");
             }
         );
     }
