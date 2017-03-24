@@ -753,7 +753,7 @@
 <sig label="univ" ID="2" builtin="yes">
 </sig>
 
-<skolem label="$this/AvailableTimes" ID="m0">
+<field label="AvailableTimes" ID="m0">
    <tuple> <atom label="tianyuyang658$0"/> <atom label="Nine$0"/> </tuple>
    <tuple> <atom label="tianyuyang658$0"/> <atom label="NineThirty$0"/> </tuple>
    <tuple> <atom label="tianyuyang658$0"/> <atom label="Ten$0"/> </tuple>
@@ -1024,9 +1024,9 @@
    <tuple> <atom label="idziak$0"/> <atom label="TenThirty$0"/> </tuple>
    <tuple> <atom label="mvucicev$0"/> <atom label="TenThirty$0"/> </tuple>
    <types> <type ID="52"/> <type ID="5"/> </types>
-</skolem>
+</field>
 
-<skolem label="$this/refs" ID="m1">
+<field label="refs" ID="m1">
    <tuple> <atom label="Team2$0"/> <atom label="tianyuyang658$0"/> </tuple>
    <tuple> <atom label="Team2$0"/> <atom label="andrew_morton$0"/> </tuple>
    <tuple> <atom label="Team2$0"/> <atom label="tripunit$0"/> </tuple>
@@ -1124,7 +1124,7 @@
    <tuple> <atom label="Team30$0"/> <atom label="kevin$0"/> </tuple>
    <tuple> <atom label="Team30$0"/> <atom label="s26stewa$0"/> </tuple>
    <types> <type ID="34"/> <type ID="52"/> </types>
-</skolem>
+</field>
 
 </instance>
 
