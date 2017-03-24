@@ -117,41 +117,10 @@ one sig idziak extends Ref{}
 one sig mvucicev extends Ref{}
 
 
-fun Remote : Ref -> Int {
-	tianyuyang658 -> 2
- + 	andrew_morton -> 2
- + 	tripunit -> 2
- + 	iivkovic -> 2
- + 	broehl -> 2
- + 	rs2dsouz -> 2 
- + 	chantellegellert -> 2 
- + 	ramelard -> 2
- + 	carlos_moreno -> 2
- + 	murphy_berzish -> 2
- + 	dhshin -> 2
- + 	wmcowan -> 2
- + 	wgolab -> 2
- + 	a3zaman -> 2
- + 	jeff_zarnett -> 2
- + 	dblotsky -> 2
- + 	jimmylin -> 2
- + 	jmatlee -> 2
- + 	allyson_giannikouris -> 2
- + 	drayside -> 2
- + 	winkler_em -> 1
- + 	kepaik -> 1
- + 	csk -> 2
- + 	se_director -> 2 
- + 	kevin -> 2
- + 	whchang -> 2
- + 	pasward -> 2
- + 	bwbecker -> 2
- + 	eric_bahn -> 1
- + 	dan_brown -> 2
- + 	s26stewa -> 2
- + 	gvgbaran -> 2
- + 	idziak -> 2
- + 	mvucicev -> 2
+fun Remote : Ref {
+  	winkler_em
+ + 	kepaik
+ + 	eric_bahn
 }
 
 fun AvailableTimes : Ref -> Time {
@@ -317,7 +286,7 @@ fact schedule {
     -- every teams presentation room has them as the presenter
    all  t : Team | t = t.presRoom1.team || t = t.presRoom2.team
    -- all remote refs in room 1
-   all  t : Team, r : Ref | (r in t.refs && r.Remote != 2) => no t.presRoom1
+   all  t : Team, r : Ref | (r in t.refs && r in Remote) => no t.presRoom1
    -- side by side refs must be in same room
    all  t1, t2 : Team, r:Ref  | (r in t1.refs && r in t2.refs && #(r.RefTime) = 2) => ((no t1.presRoom1 && no t2.presRoom1) ||(no t1.presRoom2 && no t2.presRoom2))    
     -- if remove this and works it means that some refs available times are conflicting -> not solvable under any circumstances
