@@ -2,13 +2,15 @@
 
 
 
-				Referee: Donghyun Shin
 
-				Time     Team                   Location
-				-------  ---------------------  ----------
-				10:00AM  Manifold               DC1304
-				10:30AM  Speculative Execution  DC1306
-				11:30AM  Frustra                DC1304
-				12:00PM  Capital Software       DC1306
-				12:30PM  SAT                    DC1306
-				2:00PM   Dynalist               DC1304
+
+			Referee: Donghyun Shin
+
+			Time     Team                   Location
+			-------  ---------------------  ----------
+			10:00AM  Manifold               DC1304
+			10:30AM  Speculative Execution  DC1306
+			11:30AM  Frustra                DC1304
+			12:00PM  Capital Software       DC1306
+			12:30PM  SAT                    DC1306
+			2:00PM   Dynalist               DC1304

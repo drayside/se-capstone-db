@@ -188,12 +188,12 @@ for ref in Refs:
             refTab.sort(key=lambda x: timeToIntMap[x[0]])
 
     # ugly hack to add left + top padding to table
-    ref_file.write("\n\n\n\n");
-    ref_file.write("\t\t\t\tReferee: " + refereeToRefereeNames[ref] + '\n\n');
+    ref_file.write("\n\n\n\n\n\n");
+    ref_file.write("\t\t\tReferee: " + refereeToRefereeNames[ref] + '\n\n');
     table = tabulate(refTab, headers = ['Time','Team','Location']);
     tableArray = [s.strip() for s in table.splitlines()]
     for t in tableArray:
-        ref_file.write("\t\t\t\t" + t + '\n')
+        ref_file.write("\t\t\t" + t + '\n')
     ref_file.close()
 
     # before printing, change 'echo ' to 'lpr' and add printer

@@ -2,13 +2,15 @@
 
 
 
-				Referee: Tony Yang
 
-				Time     Team           Location
-				-------  -------------  ----------
-				10:00AM  STORM          DC1306
-				1:00PM   ReadYourStory  DC1306
-				1:30PM   Kaiba Corp.    DC1306
-				2:00PM   Dynalist       DC1304
-				2:30PM   MediReadi      DC1304
-				3:00PM   Qube           DC1306
+
+			Referee: Tony Yang
+
+			Time     Team           Location
+			-------  -------------  ----------
+			10:00AM  STORM          DC1306
+			1:00PM   ReadYourStory  DC1306
+			1:30PM   Kaiba Corp.    DC1306
+			2:00PM   Dynalist       DC1304
+			2:30PM   MediReadi      DC1304
+			3:00PM   Qube           DC1306

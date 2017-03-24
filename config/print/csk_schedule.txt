@@ -2,8 +2,10 @@
 
 
 
-				Referee: Craig Kaplan
 
-				Time    Team         Location
-				------  -----------  ----------
-				1:30PM  Kaiba Corp.  DC1306
+
+			Referee: Craig Kaplan
+
+			Time    Team         Location
+			------  -----------  ----------
+			1:30PM  Kaiba Corp.  DC1306

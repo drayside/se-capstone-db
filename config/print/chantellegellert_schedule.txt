@@ -2,12 +2,14 @@
 
 
 
-				Referee: Chantelle Gellert
 
-				Time     Team                    Location
-				-------  ----------------------  ----------
-				9:00AM   ROCKIT                  DC1304
-				11:30AM  Minerva                 DC1306
-				12:00PM  Calligre                DC1304
-				12:30PM  Closed for Refactoring  DC1304
-				3:00PM   Propelme                DC1304
+
+			Referee: Chantelle Gellert
+
+			Time     Team                    Location
+			-------  ----------------------  ----------
+			9:00AM   ROCKIT                  DC1304
+			11:30AM  Minerva                 DC1306
+			12:00PM  Calligre                DC1304
+			12:30PM  Closed for Refactoring  DC1304
+			3:00PM   Propelme                DC1304
