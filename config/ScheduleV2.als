@@ -288,7 +288,7 @@ fact schedule {
    -- all remote refs in room 1
    all  t : Team, r : Ref | (r in t.refs && r in Remote) => no t.presRoom1
    -- side by side refs must be in same room
-   all  t1, t2 : Team, r:(Ref-jmatlee-tripunit-pasward-andrew_morton)  | (r in t1.refs && r in t2.refs && (#(r.RefTime) = 2 || r = drayside)) => ((no t1.presRoom1 && no t2.presRoom1) ||(no t1.presRoom2 && no t2.presRoom2))    
+   all  t1, t2 : Team, r:(Ref-jmatlee)  | (r in t1.refs && r in t2.refs && (#(r.RefTime) = 2 || r = drayside)) => ((no t1.presRoom1 && no t2.presRoom1) ||(no t1.presRoom2 && no t2.presRoom2))    
     -- if remove this and works it means that some refs available times are conflicting -> not solvable under any circumstances
     -- refs only booked at their available times
     all r: Ref | r.RefTime in r.AvailableTimes
