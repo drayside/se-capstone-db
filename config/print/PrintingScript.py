@@ -167,6 +167,9 @@ team_schedule_file = open('team_schedule.txt', 'w');
 team_schedule_file.write(tabulate(Results, headers=['Team#', 'Team Name', 'Time', 'Room','Refs']))
 team_schedule_file.close()
 
+printScript = open('lprcommands.sh', 'w');
+printScript.write('#/bin/bash\n\n');
+
 for ref in Refs:
     refTab = []
     teamString = [];
@@ -180,14 +183,18 @@ for ref in Refs:
                 teamToNamesMap[k],
                 roomToProperRoomMap[loc],
             ])
-            teamString.append('team' + k + '.pdf');
+            teamString.append('lpr -P pdf team' + k + '.pdf');
             refTab.sort(key=lambda x: timeToIntMap[x[0]])
 
     ref_file.write("Referee: " + refereeToRefereeNames[ref] + '\n\n');
     ref_file.write(tabulate(refTab, headers = ['Time','Team','Location']))
     ref_file.close()
+
     # before printing, change 'echo ' to 'lpr' and add printer
     # subprocess.Popen(['lpr', '-Pcseng-prn', ref + '_schedule.txt']);
-    subprocess.Popen(['echo', ref + '_schedule.txt']);
+    printScript.write('lpr -P pdf ' + ref + '_schedule.txt' + '\n');
     for k in teamString:
-        subprocess.Popen(['echo', k]);
+        printScript.write(k + '\n');
+    printScript.write('\n\n');
+
+printScript.close()
