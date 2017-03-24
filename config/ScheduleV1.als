@@ -55,6 +55,7 @@ one sig badRefs {
     refs1: set Ref,
     refs2: set Ref
 }
+
 one sig tianyuyang658 extends Ref{}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three}
 one sig andrew_morton extends Ref{}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty}
 one sig tripunit extends Ref{}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three}
