@@ -39,16 +39,18 @@ abstract sig SessionRoom2
 
 
 abstract sig Ref {
-    RefTime: set Time,
-    AvailableTimes: some Time,
+    RefTime: set Time
+    // will be replaced by a constant function
+    //AvailableTimes: some Time,
 }
 
 abstract sig Team {
     presRoom1: lone SessionRoom1,
     presRoom2Equiv: lone SessionRoom2,
     presRoom2: lone SessionRoom2,
-    presRoom1Equiv: lone SessionRoom1,
-    refs: set Ref,
+    presRoom1Equiv: lone SessionRoom1
+    // will be replaced by a constant function
+    //refs: set Ref,
 }
 
 one sig badRefs {
@@ -73,12 +75,6 @@ one sig Ref3  extends Ref  {}{AvailableTimes = Nine + NineThirty + Ten + TenThir
 one sig Ref4  extends Ref  {}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three + ThreeThirty }
 one sig Ref5  extends Ref  {}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three + ThreeThirty}
 */
-
-
-
-
-
-
 
 
 
