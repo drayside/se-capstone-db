@@ -1,6 +1,10 @@
-Referee: Steven Stewart
 
-Time     Team              Location
--------  ----------------  ----------
-12:00PM  Capital Software  DC1306
-12:30PM  SAT               DC1306
+
+
+
+				Referee: Steven Stewart
+
+				Time     Team              Location
+				-------  ----------------  ----------
+				12:00PM  Capital Software  DC1306
+				12:30PM  SAT               DC1306

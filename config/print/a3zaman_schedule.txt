@@ -1,11 +1,15 @@
-Referee: Atulan Zaman
 
-Time     Team           Location
--------  -------------  ----------
-9:00AM   Delta          DC1306
-9:30AM   Evan's Rules   DC1306
-10:00AM  Manifold       DC1304
-11:00AM  Patronus       DC1304
-11:30AM  Minerva        DC1306
-2:00PM   homely.rent    DC1306
-2:30PM   InternCompass  DC1306
+
+
+
+				Referee: Atulan Zaman
+
+				Time     Team           Location
+				-------  -------------  ----------
+				9:00AM   Delta          DC1306
+				9:30AM   Evan's Rules   DC1306
+				10:00AM  Manifold       DC1304
+				11:00AM  Patronus       DC1304
+				11:30AM  Minerva        DC1306
+				2:00PM   homely.rent    DC1306
+				2:30PM   InternCompass  DC1306

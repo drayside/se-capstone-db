@@ -178,23 +178,31 @@ for ref in Refs:
         if ref in v:
             time = TeamSessionMapping[k][0]
             loc = TeamSessionMapping[k][1]
+            # hack to give spacing in tabulate
             refTab.append([
                 timeToProperTimeMap[time],
                 teamToNamesMap[k],
                 roomToProperRoomMap[loc],
             ])
-            teamString.append('lpr -P pdf team' + k + '.pdf');
+            teamString.append('lpr -P pdf ' + k + '.pdf');
             refTab.sort(key=lambda x: timeToIntMap[x[0]])
 
-    ref_file.write("Referee: " + refereeToRefereeNames[ref] + '\n\n');
-    ref_file.write(tabulate(refTab, headers = ['Time','Team','Location']))
+    # ugly hack to add left + top padding to table
+    ref_file.write("\n\n\n\n");
+    ref_file.write("\t\t\t\tReferee: " + refereeToRefereeNames[ref] + '\n\n');
+    table = tabulate(refTab, headers = ['Time','Team','Location']);
+    tableArray = [s.strip() for s in table.splitlines()]
+    for t in tableArray:
+        ref_file.write("\t\t\t\t" + t + '\n')
     ref_file.close()
 
     # before printing, change 'echo ' to 'lpr' and add printer
     # subprocess.Popen(['lpr', '-Pcseng-prn', ref + '_schedule.txt']);
     printScript.write('lpr -P pdf ' + ref + '_schedule.txt' + '\n');
-    for k in teamString:
-        printScript.write(k + '\n');
+
+    # uncomment once team files are in the directory.
+    # for k in teamString:
+    #    printScript.write(k + '\n');
     printScript.write('\n\n');
 
 printScript.close()

@@ -1,7 +1,11 @@
-Referee: Bernie Roehl
 
-Time     Team                    Location
--------  ----------------------  ----------
-9:30AM   Songhaus                DC1304
-10:00AM  STORM                   DC1306
-12:30PM  Closed for Refactoring  DC1304
+
+
+
+				Referee: Bernie Roehl
+
+				Time     Team                    Location
+				-------  ----------------------  ----------
+				9:30AM   Songhaus                DC1304
+				10:00AM  STORM                   DC1306
+				12:30PM  Closed for Refactoring  DC1304
