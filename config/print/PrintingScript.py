@@ -42,8 +42,8 @@ timeToProperTimeMap = {'Nine':'9:00AM',
               'Three':'3:00PM'}
 
 roomToProperRoomMap = {
-            'Room 1': 'DC1304',
-            'Room 2': 'DC1306',
+            'Room 1': 'DC1302',
+            'Room 2': 'DC1304',
         }
 
 teamToNamesMap = {
@@ -188,7 +188,7 @@ for ref in Refs:
             refTab.sort(key=lambda x: timeToIntMap[x[0]])
 
     # ugly hack to add left + top padding to table
-    ref_file.write("\n\n\n\n\n\n");
+    ref_file.write("\n\n\n\n\n\n\n\n\n");
     ref_file.write("\t\t\tReferee: " + refereeToRefereeNames[ref] + '\n\n');
     table = tabulate(refTab, headers = ['Time','Team','Location']);
     tableArray = [s.strip() for s in table.splitlines()]

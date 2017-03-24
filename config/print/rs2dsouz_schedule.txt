@@ -4,12 +4,15 @@
 
 
 
+
+
+
 			Referee: Rollen D'Souza
 
 			Time     Team         Location
 			-------  -----------  ----------
-			9:00AM   ROCKIT       DC1304
-			11:30AM  Frustra      DC1304
-			12:00PM  Calligre     DC1304
-			1:30PM   Kaiba Corp.  DC1306
-			2:30PM   MediReadi    DC1304
+			9:00AM   ROCKIT       DC1302
+			11:30AM  Frustra      DC1302
+			12:00PM  Calligre     DC1302
+			1:30PM   Kaiba Corp.  DC1304
+			2:30PM   MediReadi    DC1302

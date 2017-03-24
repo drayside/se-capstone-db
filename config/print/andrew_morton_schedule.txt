@@ -4,9 +4,12 @@
 
 
 
+
+
+
 			Referee: Andrew Morton
 
 			Time     Team                   Location
 			-------  ---------------------  ----------
-			10:00AM  STORM                  DC1306
-			10:30AM  Speculative Execution  DC1306
+			10:00AM  STORM                  DC1304
+			10:30AM  Speculative Execution  DC1304

@@ -4,8 +4,11 @@
 
 
 
+
+
+
 			Referee: Wayne Chang
 
 			Time    Team      Location
 			------  --------  ----------
-			2:00PM  Dynalist  DC1304
+			2:00PM  Dynalist  DC1302

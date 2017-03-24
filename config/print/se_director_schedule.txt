@@ -4,10 +4,13 @@
 
 
 
+
+
+
 			Referee: Patrick Lam
 
 			Time     Team         Location
 			-------  -----------  ----------
-			11:00AM  Patronus     DC1304
-			1:00PM   Xylo         DC1304
-			2:00PM   homely.rent  DC1306
+			11:00AM  Patronus     DC1302
+			1:00PM   Xylo         DC1302
+			2:00PM   homely.rent  DC1304

@@ -4,10 +4,13 @@
 
 
 
+
+
+
 			Referee: Jeff Zarnett
 
 			Time     Team                    Location
 			-------  ----------------------  ----------
-			12:00PM  Calligre                DC1304
-			12:30PM  Closed for Refactoring  DC1304
-			2:30PM   InternCompass           DC1306
+			12:00PM  Calligre                DC1302
+			12:30PM  Closed for Refactoring  DC1302
+			2:30PM   InternCompass           DC1304
