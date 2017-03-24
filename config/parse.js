@@ -383,6 +383,7 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
             uniqueRefs[uniqueIdentifier].full_name = refKeys['full name'];
             uniqueRefs[uniqueIdentifier].email = refKeys['email'];
             uniqueRefs[uniqueIdentifier].attending = refKeys['attending'];
+            dump.refDump += "one sig " + uniqueIdentifier + " extends Ref{}\n";
             dump.refArray.push(refs['ref' + i]['alloy_string'] + '\n');
           } else {
             //duplicate!
@@ -415,6 +416,7 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
     const uniqueTeamIdentifier = "Team" + team.team_number;
     team['alloy_string'] = '\t' + uniqueTeamIdentifier + " -> (" +
         teamRefs.join(' + ') + ")";
+    dump.teamDump += "one sig " + uniqueTeamIdentifier + " extends Team {}\n";
     dump.teamArray.push(team['alloy_string'] + '\n');
 
     result[fileName] = {
@@ -435,9 +437,11 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
 
         // can only pass objects by reference in js
         let dump = {
-            refDump: "Fun AvailableTimes : Ref -> Time {\n",
+            refDump: "",
+            refHeader: "fun AvailableTimes : Ref -> Time {\n",
             refArray: [],
-            teamDump: "Fun refs : Team -> Ref {\n ",
+            teamDump: "",
+            teamHeader: "fun refs : Team -> Ref {\n ",
             teamArray: [],
         };
 
@@ -454,15 +458,16 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
             }
         }
 
-        dump.refDump += dump.refArray.join(' + ') + '}\n';
-        dump.teamDump += dump.teamArray.join(' + ') + '}\n';
+        dump.refHeader += dump.refArray.join(' + ') + '}\n';
+        dump.teamHeader += dump.teamArray.join(' + ') + '}\n';
         
         Object.keys(uniqueRefs).forEach(function(key) {
             refInfoDump += uniqueRefs[key].full_name + ' <' + uniqueRefs[key].email +
                 '>,\t\t\t' + uniqueRefs[key].attending + '\n'; 
         });
 
-        fs.writeFile('/tmp/referee_schedule.als', dump.refDump + '\n\n\n' + dump.teamDump,
+        fs.writeFile('/tmp/referee_schedule.als', dump.refDump + '\n\n\n' + dump.refHeader
+                + '\n\n\n' + dump.teamDump + '\n\n\n' + dump.teamHeader,
             function(err) {
                 if(err) {
                     return console.log(err);
