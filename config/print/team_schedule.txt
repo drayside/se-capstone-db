@@ -1,0 +1,28 @@
+Team#    Team Name               Time     Room    Refs
+-------  ----------------------  -------  ------  ----------------------------------------------------------------------------------------------
+Team3    ROCKIT                  9:00AM   DC1304  Rollen D'Souza,  Chantelle Gellert,  Robert Amelard
+Team24   Songhaus                9:30AM   DC1304  Bernie Roehl,  Robert Amelard,  Dan Brown
+Team9    Manifold                10:00AM  DC1304  Murphy Berzish,  Donghyun Shin,  Atulan Zaman,  Derek Rayside
+Team29   CLAC                    10:30AM  DC1304  Kevin Veloso,  Stefan Idziak,  Mirko Vucicevich
+Team13   Patronus                11:00AM  DC1304  Atulan Zaman,  Derek Rayside,  Patrick Lam
+Team27   Frustra                 11:30AM  DC1304  Rollen D'Souza,  Donghyun Shin,  Kevin Veloso,  Gladimir Baranoski
+Team14   Calligre                12:00PM  DC1304  Rollen D'Souza,  Chantelle Gellert,  Jeff Zarnett
+Team16   Closed for Refactoring  12:30PM  DC1304  Bernie Roehl,  Chantelle Gellert,  Jeff Zarnett
+Team19   Xylo                    1:00PM   DC1304  Allyson Giannikouris,  Patrick Lam,  Kevin Veloso
+Team20   JASON                   1:30PM   DC1304  Murphy Berzish,  Dmitry Blotsky,  Derek Rayside,  Kevin Veloso
+Team15   Dynalist                2:00PM   DC1304  Tony Yang,  Donghyun Shin,  Kevin Veloso,  Wayne Chang
+Team7    MediReadi               2:30PM   DC1304  Tony Yang,  Rollen D'Souza,  Allyson Giannikouris
+Team28   Propelme                3:00PM   DC1304  Chantelle Gellert,  Dmitry Blotsky,  Allyson Giannikouris
+Team25   Delta                   9:00AM   DC1306  Atulan Zaman,  Derek Rayside,  Eric Winkler,  Kenneth Paik
+Team11   Evan's Rules            9:30AM   DC1306  Atulan Zaman,  Derek Rayside,  Eric Winkler,  Kenneth Paik
+Team2    STORM                   10:00AM  DC1306  Tony Yang,  Andrew Morton,  Mahesh Tripunitara,  Igor Ivkovic,  Bernie Roehl
+Team4    Speculative Execution   10:30AM  DC1306  Andrew Morton,  Carlos Moreno,  Murphy Berzish,  Donghyun Shin,  William Cowan,  Wojcieh Golab
+Team6    Web In A Box            11:00AM  DC1306  Mahesh Tripunitara,  Robert Amelard,  Jimmy Lin,  Joanne Atlee
+Team18   Minerva                 11:30AM  DC1306  Chantelle Gellert,  Murphy Berzish,  Atulan Zaman,  Derek Rayside,  Byron Weber Becker
+Team30   Capital Software        12:00PM  DC1306  Murphy Berzish,  Donghyun Shin,  Derek Rayside,  Kevin Veloso,  Steven Stewart
+Team26   SAT                     12:30PM  DC1306  Murphy Berzish,  Donghyun Shin,  Dmitry Blotsky,  Steven Stewart
+Team21   ReadYourStory           1:00PM   DC1306  Tony Yang,  Joanne Atlee,  Derek Rayside,  Eric Bahn
+Team12   Kaiba Corp.             1:30PM   DC1306  Tony Yang,  Rollen D'Souza,  Craig Kaplan
+Team23   homely.rent             2:00PM   DC1306  Atulan Zaman,  Patrick Lam,  Paul Ward
+Team5    InternCompass           2:30PM   DC1306  Atulan Zaman,  Jeff Zarnett,  Dmitry Blotsky
+Team17   Qube                    3:00PM   DC1306  Tony Yang,  Wojcieh Golab,  Paul Ward

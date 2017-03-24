@@ -1,0 +1,1144 @@
+<alloy builddate="2012-04-20 10:05 EDT">
+
+<instance bitwidth="0" maxseq="0" command="Run show" filename="/home/drayside/code/svn.ece/se_capstone/se-capstone-db/config/ScheduleV2.als">
+
+<sig label="seq/Int" ID="0" parentID="1" builtin="yes">
+</sig>
+
+<sig label="Int" ID="1" parentID="2" builtin="yes">
+</sig>
+
+<sig label="String" ID="3" parentID="2" builtin="yes">
+</sig>
+
+<sig label="this/Nine" ID="4" parentID="5" one="yes">
+   <atom label="Nine$0"/>
+</sig>
+
+<sig label="this/NineThirty" ID="6" parentID="5" one="yes">
+   <atom label="NineThirty$0"/>
+</sig>
+
+<sig label="this/Ten" ID="7" parentID="5" one="yes">
+   <atom label="Ten$0"/>
+</sig>
+
+<sig label="this/TenThirty" ID="8" parentID="5" one="yes">
+   <atom label="TenThirty$0"/>
+</sig>
+
+<sig label="this/Eleven" ID="9" parentID="5" one="yes">
+   <atom label="Eleven$0"/>
+</sig>
+
+<sig label="this/ElevenThirty" ID="10" parentID="5" one="yes">
+   <atom label="ElevenThirty$0"/>
+</sig>
+
+<sig label="this/Twelve" ID="11" parentID="5" one="yes">
+   <atom label="Twelve$0"/>
+</sig>
+
+<sig label="this/TwelveThirty" ID="12" parentID="5" one="yes">
+   <atom label="TwelveThirty$0"/>
+</sig>
+
+<sig label="this/One" ID="13" parentID="5" one="yes">
+   <atom label="One$0"/>
+</sig>
+
+<sig label="this/OneThirty" ID="14" parentID="5" one="yes">
+   <atom label="OneThirty$0"/>
+</sig>
+
+<sig label="this/Two" ID="15" parentID="5" one="yes">
+   <atom label="Two$0"/>
+</sig>
+
+<sig label="this/TwoThirty" ID="16" parentID="5" one="yes">
+   <atom label="TwoThirty$0"/>
+</sig>
+
+<sig label="this/Three" ID="17" parentID="5" one="yes">
+   <atom label="Three$0"/>
+</sig>
+
+<sig label="this/Time" ID="5" parentID="2" abstract="yes">
+</sig>
+
+<sig label="this/Session1" ID="18" parentID="19" one="yes">
+   <atom label="Session1$0"/>
+</sig>
+
+<sig label="this/Session2" ID="20" parentID="19" one="yes">
+   <atom label="Session2$0"/>
+</sig>
+
+<sig label="this/Session3" ID="21" parentID="19" one="yes">
+   <atom label="Session3$0"/>
+</sig>
+
+<sig label="this/Session4" ID="22" parentID="19" one="yes">
+   <atom label="Session4$0"/>
+</sig>
+
+<sig label="this/Session5" ID="23" parentID="19" one="yes">
+   <atom label="Session5$0"/>
+</sig>
+
+<sig label="this/Session6" ID="24" parentID="19" one="yes">
+   <atom label="Session6$0"/>
+</sig>
+
+<sig label="this/Session7" ID="25" parentID="19" one="yes">
+   <atom label="Session7$0"/>
+</sig>
+
+<sig label="this/Session8" ID="26" parentID="19" one="yes">
+   <atom label="Session8$0"/>
+</sig>
+
+<sig label="this/Session9" ID="27" parentID="19" one="yes">
+   <atom label="Session9$0"/>
+</sig>
+
+<sig label="this/Session10" ID="28" parentID="19" one="yes">
+   <atom label="Session10$0"/>
+</sig>
+
+<sig label="this/Session11" ID="29" parentID="19" one="yes">
+   <atom label="Session11$0"/>
+</sig>
+
+<sig label="this/Session12" ID="30" parentID="19" one="yes">
+   <atom label="Session12$0"/>
+</sig>
+
+<sig label="this/Session13" ID="31" parentID="19" one="yes">
+   <atom label="Session13$0"/>
+</sig>
+
+<sig label="this/SessionRoom1" ID="19" parentID="2" abstract="yes">
+</sig>
+
+<field label="time" ID="32" parentID="19">
+   <tuple> <atom label="Session1$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="Session2$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="Session3$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="Session4$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="Session5$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="Session6$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="Session7$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="Session8$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="Session9$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="Session10$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="Session11$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="Session12$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="Session13$0"/> <atom label="Three$0"/> </tuple>
+   <types> <type ID="19"/> <type ID="5"/> </types>
+</field>
+
+<field label="team" ID="33" parentID="19">
+   <tuple> <atom label="Session1$0"/> <atom label="Team3$0"/> </tuple>
+   <tuple> <atom label="Session2$0"/> <atom label="Team24$0"/> </tuple>
+   <tuple> <atom label="Session3$0"/> <atom label="Team9$0"/> </tuple>
+   <tuple> <atom label="Session4$0"/> <atom label="Team29$0"/> </tuple>
+   <tuple> <atom label="Session5$0"/> <atom label="Team13$0"/> </tuple>
+   <tuple> <atom label="Session6$0"/> <atom label="Team27$0"/> </tuple>
+   <tuple> <atom label="Session7$0"/> <atom label="Team14$0"/> </tuple>
+   <tuple> <atom label="Session8$0"/> <atom label="Team16$0"/> </tuple>
+   <tuple> <atom label="Session9$0"/> <atom label="Team19$0"/> </tuple>
+   <tuple> <atom label="Session10$0"/> <atom label="Team20$0"/> </tuple>
+   <tuple> <atom label="Session11$0"/> <atom label="Team15$0"/> </tuple>
+   <tuple> <atom label="Session12$0"/> <atom label="Team7$0"/> </tuple>
+   <tuple> <atom label="Session13$0"/> <atom label="Team28$0"/> </tuple>
+   <types> <type ID="19"/> <type ID="34"/> </types>
+</field>
+
+<sig label="this/SessionR1" ID="35" parentID="36" one="yes">
+   <atom label="SessionR1$0"/>
+</sig>
+
+<sig label="this/SessionR2" ID="37" parentID="36" one="yes">
+   <atom label="SessionR2$0"/>
+</sig>
+
+<sig label="this/SessionR3" ID="38" parentID="36" one="yes">
+   <atom label="SessionR3$0"/>
+</sig>
+
+<sig label="this/SessionR4" ID="39" parentID="36" one="yes">
+   <atom label="SessionR4$0"/>
+</sig>
+
+<sig label="this/SessionR5" ID="40" parentID="36" one="yes">
+   <atom label="SessionR5$0"/>
+</sig>
+
+<sig label="this/SessionR6" ID="41" parentID="36" one="yes">
+   <atom label="SessionR6$0"/>
+</sig>
+
+<sig label="this/SessionR7" ID="42" parentID="36" one="yes">
+   <atom label="SessionR7$0"/>
+</sig>
+
+<sig label="this/SessionR8" ID="43" parentID="36" one="yes">
+   <atom label="SessionR8$0"/>
+</sig>
+
+<sig label="this/SessionR9" ID="44" parentID="36" one="yes">
+   <atom label="SessionR9$0"/>
+</sig>
+
+<sig label="this/SessionR10" ID="45" parentID="36" one="yes">
+   <atom label="SessionR10$0"/>
+</sig>
+
+<sig label="this/SessionR11" ID="46" parentID="36" one="yes">
+   <atom label="SessionR11$0"/>
+</sig>
+
+<sig label="this/SessionR12" ID="47" parentID="36" one="yes">
+   <atom label="SessionR12$0"/>
+</sig>
+
+<sig label="this/SessionR13" ID="48" parentID="36" one="yes">
+   <atom label="SessionR13$0"/>
+</sig>
+
+<sig label="this/SessionRoom2" ID="36" parentID="2" abstract="yes">
+</sig>
+
+<field label="time" ID="49" parentID="36">
+   <tuple> <atom label="SessionR1$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="SessionR2$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="SessionR3$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="SessionR4$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="SessionR5$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="SessionR6$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="SessionR7$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="SessionR8$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="SessionR9$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="SessionR10$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="SessionR11$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="SessionR12$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="SessionR13$0"/> <atom label="Three$0"/> </tuple>
+   <types> <type ID="36"/> <type ID="5"/> </types>
+</field>
+
+<field label="team" ID="50" parentID="36">
+   <tuple> <atom label="SessionR1$0"/> <atom label="Team25$0"/> </tuple>
+   <tuple> <atom label="SessionR2$0"/> <atom label="Team11$0"/> </tuple>
+   <tuple> <atom label="SessionR3$0"/> <atom label="Team2$0"/> </tuple>
+   <tuple> <atom label="SessionR4$0"/> <atom label="Team4$0"/> </tuple>
+   <tuple> <atom label="SessionR5$0"/> <atom label="Team6$0"/> </tuple>
+   <tuple> <atom label="SessionR6$0"/> <atom label="Team18$0"/> </tuple>
+   <tuple> <atom label="SessionR7$0"/> <atom label="Team30$0"/> </tuple>
+   <tuple> <atom label="SessionR8$0"/> <atom label="Team26$0"/> </tuple>
+   <tuple> <atom label="SessionR9$0"/> <atom label="Team21$0"/> </tuple>
+   <tuple> <atom label="SessionR10$0"/> <atom label="Team12$0"/> </tuple>
+   <tuple> <atom label="SessionR11$0"/> <atom label="Team23$0"/> </tuple>
+   <tuple> <atom label="SessionR12$0"/> <atom label="Team5$0"/> </tuple>
+   <tuple> <atom label="SessionR13$0"/> <atom label="Team17$0"/> </tuple>
+   <types> <type ID="36"/> <type ID="34"/> </types>
+</field>
+
+<sig label="this/tianyuyang658" ID="51" parentID="52" one="yes">
+   <atom label="tianyuyang658$0"/>
+</sig>
+
+<sig label="this/andrew_morton" ID="53" parentID="52" one="yes">
+   <atom label="andrew_morton$0"/>
+</sig>
+
+<sig label="this/tripunit" ID="54" parentID="52" one="yes">
+   <atom label="tripunit$0"/>
+</sig>
+
+<sig label="this/iivkovic" ID="55" parentID="52" one="yes">
+   <atom label="iivkovic$0"/>
+</sig>
+
+<sig label="this/broehl" ID="56" parentID="52" one="yes">
+   <atom label="broehl$0"/>
+</sig>
+
+<sig label="this/rs2dsouz" ID="57" parentID="52" one="yes">
+   <atom label="rs2dsouz$0"/>
+</sig>
+
+<sig label="this/chantellegellert" ID="58" parentID="52" one="yes">
+   <atom label="chantellegellert$0"/>
+</sig>
+
+<sig label="this/ramelard" ID="59" parentID="52" one="yes">
+   <atom label="ramelard$0"/>
+</sig>
+
+<sig label="this/carlos_moreno" ID="60" parentID="52" one="yes">
+   <atom label="carlos_moreno$0"/>
+</sig>
+
+<sig label="this/murphy_berzish" ID="61" parentID="52" one="yes">
+   <atom label="murphy_berzish$0"/>
+</sig>
+
+<sig label="this/dhshin" ID="62" parentID="52" one="yes">
+   <atom label="dhshin$0"/>
+</sig>
+
+<sig label="this/wmcowan" ID="63" parentID="52" one="yes">
+   <atom label="wmcowan$0"/>
+</sig>
+
+<sig label="this/wgolab" ID="64" parentID="52" one="yes">
+   <atom label="wgolab$0"/>
+</sig>
+
+<sig label="this/a3zaman" ID="65" parentID="52" one="yes">
+   <atom label="a3zaman$0"/>
+</sig>
+
+<sig label="this/jeff_zarnett" ID="66" parentID="52" one="yes">
+   <atom label="jeff_zarnett$0"/>
+</sig>
+
+<sig label="this/dblotsky" ID="67" parentID="52" one="yes">
+   <atom label="dblotsky$0"/>
+</sig>
+
+<sig label="this/jimmylin" ID="68" parentID="52" one="yes">
+   <atom label="jimmylin$0"/>
+</sig>
+
+<sig label="this/jmatlee" ID="69" parentID="52" one="yes">
+   <atom label="jmatlee$0"/>
+</sig>
+
+<sig label="this/allyson_giannikouris" ID="70" parentID="52" one="yes">
+   <atom label="allyson_giannikouris$0"/>
+</sig>
+
+<sig label="this/drayside" ID="71" parentID="52" one="yes">
+   <atom label="drayside$0"/>
+</sig>
+
+<sig label="this/winkler_em" ID="72" parentID="52" one="yes">
+   <atom label="winkler_em$0"/>
+</sig>
+
+<sig label="this/kepaik" ID="73" parentID="52" one="yes">
+   <atom label="kepaik$0"/>
+</sig>
+
+<sig label="this/csk" ID="74" parentID="52" one="yes">
+   <atom label="csk$0"/>
+</sig>
+
+<sig label="this/se_director" ID="75" parentID="52" one="yes">
+   <atom label="se_director$0"/>
+</sig>
+
+<sig label="this/kevin" ID="76" parentID="52" one="yes">
+   <atom label="kevin$0"/>
+</sig>
+
+<sig label="this/whchang" ID="77" parentID="52" one="yes">
+   <atom label="whchang$0"/>
+</sig>
+
+<sig label="this/pasward" ID="78" parentID="52" one="yes">
+   <atom label="pasward$0"/>
+</sig>
+
+<sig label="this/bwbecker" ID="79" parentID="52" one="yes">
+   <atom label="bwbecker$0"/>
+</sig>
+
+<sig label="this/eric_bahn" ID="80" parentID="52" one="yes">
+   <atom label="eric_bahn$0"/>
+</sig>
+
+<sig label="this/dan_brown" ID="81" parentID="52" one="yes">
+   <atom label="dan_brown$0"/>
+</sig>
+
+<sig label="this/s26stewa" ID="82" parentID="52" one="yes">
+   <atom label="s26stewa$0"/>
+</sig>
+
+<sig label="this/gvgbaran" ID="83" parentID="52" one="yes">
+   <atom label="gvgbaran$0"/>
+</sig>
+
+<sig label="this/idziak" ID="84" parentID="52" one="yes">
+   <atom label="idziak$0"/>
+</sig>
+
+<sig label="this/mvucicev" ID="85" parentID="52" one="yes">
+   <atom label="mvucicev$0"/>
+</sig>
+
+<sig label="this/Ref" ID="52" parentID="2" abstract="yes">
+</sig>
+
+<field label="RefTime" ID="86" parentID="52">
+   <tuple> <atom label="tianyuyang658$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="tianyuyang658$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="tianyuyang658$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="tianyuyang658$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="tianyuyang658$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="tianyuyang658$0"/> <atom label="Three$0"/> </tuple>
+   <tuple> <atom label="andrew_morton$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="andrew_morton$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="tripunit$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="tripunit$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="iivkovic$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="broehl$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="broehl$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="broehl$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="rs2dsouz$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="rs2dsouz$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="rs2dsouz$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="rs2dsouz$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="rs2dsouz$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="chantellegellert$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="chantellegellert$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="chantellegellert$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="chantellegellert$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="chantellegellert$0"/> <atom label="Three$0"/> </tuple>
+   <tuple> <atom label="ramelard$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="ramelard$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="ramelard$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="carlos_moreno$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="murphy_berzish$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="murphy_berzish$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="murphy_berzish$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="murphy_berzish$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="murphy_berzish$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="murphy_berzish$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="dhshin$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="dhshin$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="dhshin$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="dhshin$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="dhshin$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="dhshin$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="wmcowan$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="wgolab$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="wgolab$0"/> <atom label="Three$0"/> </tuple>
+   <tuple> <atom label="a3zaman$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="a3zaman$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="a3zaman$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="a3zaman$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="a3zaman$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="a3zaman$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="a3zaman$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="jeff_zarnett$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="jeff_zarnett$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="jeff_zarnett$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="dblotsky$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="dblotsky$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="dblotsky$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="dblotsky$0"/> <atom label="Three$0"/> </tuple>
+   <tuple> <atom label="jimmylin$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="jmatlee$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="jmatlee$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="allyson_giannikouris$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="allyson_giannikouris$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="allyson_giannikouris$0"/> <atom label="Three$0"/> </tuple>
+   <tuple> <atom label="drayside$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="drayside$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="drayside$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="drayside$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="drayside$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="drayside$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="drayside$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="drayside$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="winkler_em$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="winkler_em$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="kepaik$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="kepaik$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="csk$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="se_director$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="se_director$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="se_director$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="kevin$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="kevin$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="kevin$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="kevin$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="kevin$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="kevin$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="whchang$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="pasward$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="pasward$0"/> <atom label="Three$0"/> </tuple>
+   <tuple> <atom label="bwbecker$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="eric_bahn$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="dan_brown$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="s26stewa$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="s26stewa$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="gvgbaran$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="idziak$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="mvucicev$0"/> <atom label="TenThirty$0"/> </tuple>
+   <types> <type ID="52"/> <type ID="5"/> </types>
+</field>
+
+<sig label="this/Team2" ID="87" parentID="34" one="yes">
+   <atom label="Team2$0"/>
+</sig>
+
+<sig label="this/Team3" ID="88" parentID="34" one="yes">
+   <atom label="Team3$0"/>
+</sig>
+
+<sig label="this/Team4" ID="89" parentID="34" one="yes">
+   <atom label="Team4$0"/>
+</sig>
+
+<sig label="this/Team5" ID="90" parentID="34" one="yes">
+   <atom label="Team5$0"/>
+</sig>
+
+<sig label="this/Team6" ID="91" parentID="34" one="yes">
+   <atom label="Team6$0"/>
+</sig>
+
+<sig label="this/Team7" ID="92" parentID="34" one="yes">
+   <atom label="Team7$0"/>
+</sig>
+
+<sig label="this/Team9" ID="93" parentID="34" one="yes">
+   <atom label="Team9$0"/>
+</sig>
+
+<sig label="this/Team11" ID="94" parentID="34" one="yes">
+   <atom label="Team11$0"/>
+</sig>
+
+<sig label="this/Team12" ID="95" parentID="34" one="yes">
+   <atom label="Team12$0"/>
+</sig>
+
+<sig label="this/Team13" ID="96" parentID="34" one="yes">
+   <atom label="Team13$0"/>
+</sig>
+
+<sig label="this/Team14" ID="97" parentID="34" one="yes">
+   <atom label="Team14$0"/>
+</sig>
+
+<sig label="this/Team15" ID="98" parentID="34" one="yes">
+   <atom label="Team15$0"/>
+</sig>
+
+<sig label="this/Team16" ID="99" parentID="34" one="yes">
+   <atom label="Team16$0"/>
+</sig>
+
+<sig label="this/Team17" ID="100" parentID="34" one="yes">
+   <atom label="Team17$0"/>
+</sig>
+
+<sig label="this/Team18" ID="101" parentID="34" one="yes">
+   <atom label="Team18$0"/>
+</sig>
+
+<sig label="this/Team19" ID="102" parentID="34" one="yes">
+   <atom label="Team19$0"/>
+</sig>
+
+<sig label="this/Team20" ID="103" parentID="34" one="yes">
+   <atom label="Team20$0"/>
+</sig>
+
+<sig label="this/Team21" ID="104" parentID="34" one="yes">
+   <atom label="Team21$0"/>
+</sig>
+
+<sig label="this/Team23" ID="105" parentID="34" one="yes">
+   <atom label="Team23$0"/>
+</sig>
+
+<sig label="this/Team24" ID="106" parentID="34" one="yes">
+   <atom label="Team24$0"/>
+</sig>
+
+<sig label="this/Team25" ID="107" parentID="34" one="yes">
+   <atom label="Team25$0"/>
+</sig>
+
+<sig label="this/Team26" ID="108" parentID="34" one="yes">
+   <atom label="Team26$0"/>
+</sig>
+
+<sig label="this/Team27" ID="109" parentID="34" one="yes">
+   <atom label="Team27$0"/>
+</sig>
+
+<sig label="this/Team28" ID="110" parentID="34" one="yes">
+   <atom label="Team28$0"/>
+</sig>
+
+<sig label="this/Team29" ID="111" parentID="34" one="yes">
+   <atom label="Team29$0"/>
+</sig>
+
+<sig label="this/Team30" ID="112" parentID="34" one="yes">
+   <atom label="Team30$0"/>
+</sig>
+
+<sig label="this/Team" ID="34" parentID="2" abstract="yes">
+</sig>
+
+<field label="presRoom1" ID="113" parentID="34">
+   <tuple> <atom label="Team3$0"/> <atom label="Session1$0"/> </tuple>
+   <tuple> <atom label="Team7$0"/> <atom label="Session12$0"/> </tuple>
+   <tuple> <atom label="Team9$0"/> <atom label="Session3$0"/> </tuple>
+   <tuple> <atom label="Team13$0"/> <atom label="Session5$0"/> </tuple>
+   <tuple> <atom label="Team14$0"/> <atom label="Session7$0"/> </tuple>
+   <tuple> <atom label="Team15$0"/> <atom label="Session11$0"/> </tuple>
+   <tuple> <atom label="Team16$0"/> <atom label="Session8$0"/> </tuple>
+   <tuple> <atom label="Team19$0"/> <atom label="Session9$0"/> </tuple>
+   <tuple> <atom label="Team20$0"/> <atom label="Session10$0"/> </tuple>
+   <tuple> <atom label="Team24$0"/> <atom label="Session2$0"/> </tuple>
+   <tuple> <atom label="Team27$0"/> <atom label="Session6$0"/> </tuple>
+   <tuple> <atom label="Team28$0"/> <atom label="Session13$0"/> </tuple>
+   <tuple> <atom label="Team29$0"/> <atom label="Session4$0"/> </tuple>
+   <types> <type ID="34"/> <type ID="19"/> </types>
+</field>
+
+<field label="presRoom2Equiv" ID="114" parentID="34">
+   <tuple> <atom label="Team3$0"/> <atom label="SessionR1$0"/> </tuple>
+   <tuple> <atom label="Team7$0"/> <atom label="SessionR12$0"/> </tuple>
+   <tuple> <atom label="Team9$0"/> <atom label="SessionR3$0"/> </tuple>
+   <tuple> <atom label="Team13$0"/> <atom label="SessionR5$0"/> </tuple>
+   <tuple> <atom label="Team14$0"/> <atom label="SessionR7$0"/> </tuple>
+   <tuple> <atom label="Team15$0"/> <atom label="SessionR11$0"/> </tuple>
+   <tuple> <atom label="Team16$0"/> <atom label="SessionR8$0"/> </tuple>
+   <tuple> <atom label="Team19$0"/> <atom label="SessionR9$0"/> </tuple>
+   <tuple> <atom label="Team20$0"/> <atom label="SessionR10$0"/> </tuple>
+   <tuple> <atom label="Team24$0"/> <atom label="SessionR2$0"/> </tuple>
+   <tuple> <atom label="Team27$0"/> <atom label="SessionR6$0"/> </tuple>
+   <tuple> <atom label="Team28$0"/> <atom label="SessionR13$0"/> </tuple>
+   <tuple> <atom label="Team29$0"/> <atom label="SessionR4$0"/> </tuple>
+   <types> <type ID="34"/> <type ID="36"/> </types>
+</field>
+
+<field label="presRoom2" ID="115" parentID="34">
+   <tuple> <atom label="Team2$0"/> <atom label="SessionR3$0"/> </tuple>
+   <tuple> <atom label="Team4$0"/> <atom label="SessionR4$0"/> </tuple>
+   <tuple> <atom label="Team5$0"/> <atom label="SessionR12$0"/> </tuple>
+   <tuple> <atom label="Team6$0"/> <atom label="SessionR5$0"/> </tuple>
+   <tuple> <atom label="Team11$0"/> <atom label="SessionR2$0"/> </tuple>
+   <tuple> <atom label="Team12$0"/> <atom label="SessionR10$0"/> </tuple>
+   <tuple> <atom label="Team17$0"/> <atom label="SessionR13$0"/> </tuple>
+   <tuple> <atom label="Team18$0"/> <atom label="SessionR6$0"/> </tuple>
+   <tuple> <atom label="Team21$0"/> <atom label="SessionR9$0"/> </tuple>
+   <tuple> <atom label="Team23$0"/> <atom label="SessionR11$0"/> </tuple>
+   <tuple> <atom label="Team25$0"/> <atom label="SessionR1$0"/> </tuple>
+   <tuple> <atom label="Team26$0"/> <atom label="SessionR8$0"/> </tuple>
+   <tuple> <atom label="Team30$0"/> <atom label="SessionR7$0"/> </tuple>
+   <types> <type ID="34"/> <type ID="36"/> </types>
+</field>
+
+<field label="presRoom1Equiv" ID="116" parentID="34">
+   <tuple> <atom label="Team2$0"/> <atom label="Session3$0"/> </tuple>
+   <tuple> <atom label="Team4$0"/> <atom label="Session4$0"/> </tuple>
+   <tuple> <atom label="Team5$0"/> <atom label="Session12$0"/> </tuple>
+   <tuple> <atom label="Team6$0"/> <atom label="Session5$0"/> </tuple>
+   <tuple> <atom label="Team11$0"/> <atom label="Session2$0"/> </tuple>
+   <tuple> <atom label="Team12$0"/> <atom label="Session10$0"/> </tuple>
+   <tuple> <atom label="Team17$0"/> <atom label="Session13$0"/> </tuple>
+   <tuple> <atom label="Team18$0"/> <atom label="Session6$0"/> </tuple>
+   <tuple> <atom label="Team21$0"/> <atom label="Session9$0"/> </tuple>
+   <tuple> <atom label="Team23$0"/> <atom label="Session11$0"/> </tuple>
+   <tuple> <atom label="Team25$0"/> <atom label="Session1$0"/> </tuple>
+   <tuple> <atom label="Team26$0"/> <atom label="Session8$0"/> </tuple>
+   <tuple> <atom label="Team30$0"/> <atom label="Session7$0"/> </tuple>
+   <types> <type ID="34"/> <type ID="19"/> </types>
+</field>
+
+<sig label="this/badRefs" ID="117" parentID="2" one="yes">
+   <atom label="badRefs$0"/>
+</sig>
+
+<field label="refs1" ID="118" parentID="117">
+   <tuple> <atom label="badRefs$0"/> <atom label="tripunit$0"/> </tuple>
+   <tuple> <atom label="badRefs$0"/> <atom label="chantellegellert$0"/> </tuple>
+   <tuple> <atom label="badRefs$0"/> <atom label="pasward$0"/> </tuple>
+   <types> <type ID="117"/> <type ID="52"/> </types>
+</field>
+
+<field label="refs2" ID="119" parentID="117">
+   <tuple> <atom label="badRefs$0"/> <atom label="wgolab$0"/> </tuple>
+   <tuple> <atom label="badRefs$0"/> <atom label="jmatlee$0"/> </tuple>
+   <types> <type ID="117"/> <type ID="52"/> </types>
+</field>
+
+<sig label="TimeOrd/Ord" ID="120" parentID="2" one="yes" private="yes">
+   <atom label="TimeOrd/Ord$0"/>
+</sig>
+
+<field label="First" ID="121" parentID="120" private="yes">
+   <tuple> <atom label="TimeOrd/Ord$0"/> <atom label="Nine$0"/> </tuple>
+   <types> <type ID="120"/> <type ID="5"/> </types>
+</field>
+
+<field label="Next" ID="122" parentID="120" private="yes">
+   <tuple> <atom label="TimeOrd/Ord$0"/> <atom label="Nine$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="TimeOrd/Ord$0"/> <atom label="NineThirty$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="TimeOrd/Ord$0"/> <atom label="Ten$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="TimeOrd/Ord$0"/> <atom label="TenThirty$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="TimeOrd/Ord$0"/> <atom label="Eleven$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="TimeOrd/Ord$0"/> <atom label="ElevenThirty$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="TimeOrd/Ord$0"/> <atom label="Twelve$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="TimeOrd/Ord$0"/> <atom label="TwelveThirty$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="TimeOrd/Ord$0"/> <atom label="One$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="TimeOrd/Ord$0"/> <atom label="OneThirty$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="TimeOrd/Ord$0"/> <atom label="Two$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="TimeOrd/Ord$0"/> <atom label="TwoThirty$0"/> <atom label="Three$0"/> </tuple>
+   <types> <type ID="120"/> <type ID="5"/> <type ID="5"/> </types>
+</field>
+
+<sig label="SessionRoom1Ord/Ord" ID="123" parentID="2" one="yes" private="yes">
+   <atom label="SessionRoom1Ord/Ord$0"/>
+</sig>
+
+<field label="First" ID="124" parentID="123" private="yes">
+   <tuple> <atom label="SessionRoom1Ord/Ord$0"/> <atom label="Session1$0"/> </tuple>
+   <types> <type ID="123"/> <type ID="19"/> </types>
+</field>
+
+<field label="Next" ID="125" parentID="123" private="yes">
+   <tuple> <atom label="SessionRoom1Ord/Ord$0"/> <atom label="Session1$0"/> <atom label="Session2$0"/> </tuple>
+   <tuple> <atom label="SessionRoom1Ord/Ord$0"/> <atom label="Session2$0"/> <atom label="Session3$0"/> </tuple>
+   <tuple> <atom label="SessionRoom1Ord/Ord$0"/> <atom label="Session3$0"/> <atom label="Session4$0"/> </tuple>
+   <tuple> <atom label="SessionRoom1Ord/Ord$0"/> <atom label="Session4$0"/> <atom label="Session5$0"/> </tuple>
+   <tuple> <atom label="SessionRoom1Ord/Ord$0"/> <atom label="Session5$0"/> <atom label="Session6$0"/> </tuple>
+   <tuple> <atom label="SessionRoom1Ord/Ord$0"/> <atom label="Session6$0"/> <atom label="Session7$0"/> </tuple>
+   <tuple> <atom label="SessionRoom1Ord/Ord$0"/> <atom label="Session7$0"/> <atom label="Session8$0"/> </tuple>
+   <tuple> <atom label="SessionRoom1Ord/Ord$0"/> <atom label="Session8$0"/> <atom label="Session9$0"/> </tuple>
+   <tuple> <atom label="SessionRoom1Ord/Ord$0"/> <atom label="Session9$0"/> <atom label="Session10$0"/> </tuple>
+   <tuple> <atom label="SessionRoom1Ord/Ord$0"/> <atom label="Session10$0"/> <atom label="Session11$0"/> </tuple>
+   <tuple> <atom label="SessionRoom1Ord/Ord$0"/> <atom label="Session11$0"/> <atom label="Session12$0"/> </tuple>
+   <tuple> <atom label="SessionRoom1Ord/Ord$0"/> <atom label="Session12$0"/> <atom label="Session13$0"/> </tuple>
+   <types> <type ID="123"/> <type ID="19"/> <type ID="19"/> </types>
+</field>
+
+<sig label="SessionRoom2Ord/Ord" ID="126" parentID="2" one="yes" private="yes">
+   <atom label="SessionRoom2Ord/Ord$0"/>
+</sig>
+
+<field label="First" ID="127" parentID="126" private="yes">
+   <tuple> <atom label="SessionRoom2Ord/Ord$0"/> <atom label="SessionR1$0"/> </tuple>
+   <types> <type ID="126"/> <type ID="36"/> </types>
+</field>
+
+<field label="Next" ID="128" parentID="126" private="yes">
+   <tuple> <atom label="SessionRoom2Ord/Ord$0"/> <atom label="SessionR1$0"/> <atom label="SessionR2$0"/> </tuple>
+   <tuple> <atom label="SessionRoom2Ord/Ord$0"/> <atom label="SessionR2$0"/> <atom label="SessionR3$0"/> </tuple>
+   <tuple> <atom label="SessionRoom2Ord/Ord$0"/> <atom label="SessionR3$0"/> <atom label="SessionR4$0"/> </tuple>
+   <tuple> <atom label="SessionRoom2Ord/Ord$0"/> <atom label="SessionR4$0"/> <atom label="SessionR5$0"/> </tuple>
+   <tuple> <atom label="SessionRoom2Ord/Ord$0"/> <atom label="SessionR5$0"/> <atom label="SessionR6$0"/> </tuple>
+   <tuple> <atom label="SessionRoom2Ord/Ord$0"/> <atom label="SessionR6$0"/> <atom label="SessionR7$0"/> </tuple>
+   <tuple> <atom label="SessionRoom2Ord/Ord$0"/> <atom label="SessionR7$0"/> <atom label="SessionR8$0"/> </tuple>
+   <tuple> <atom label="SessionRoom2Ord/Ord$0"/> <atom label="SessionR8$0"/> <atom label="SessionR9$0"/> </tuple>
+   <tuple> <atom label="SessionRoom2Ord/Ord$0"/> <atom label="SessionR9$0"/> <atom label="SessionR10$0"/> </tuple>
+   <tuple> <atom label="SessionRoom2Ord/Ord$0"/> <atom label="SessionR10$0"/> <atom label="SessionR11$0"/> </tuple>
+   <tuple> <atom label="SessionRoom2Ord/Ord$0"/> <atom label="SessionR11$0"/> <atom label="SessionR12$0"/> </tuple>
+   <tuple> <atom label="SessionRoom2Ord/Ord$0"/> <atom label="SessionR12$0"/> <atom label="SessionR13$0"/> </tuple>
+   <types> <type ID="126"/> <type ID="36"/> <type ID="36"/> </types>
+</field>
+
+<sig label="univ" ID="2" builtin="yes">
+</sig>
+
+<field label="Remote" ID="m0">
+   <tuple> <atom label="winkler_em$0"/> </tuple>
+   <tuple> <atom label="kepaik$0"/> </tuple>
+   <tuple> <atom label="eric_bahn$0"/> </tuple>
+   <types> <type ID="52"/> </types>
+</field>
+
+<field label="AvailableTimes" ID="m1">
+   <tuple> <atom label="tianyuyang658$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="tianyuyang658$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="tianyuyang658$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="tianyuyang658$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="tianyuyang658$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="tianyuyang658$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="tianyuyang658$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="tianyuyang658$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="tianyuyang658$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="tianyuyang658$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="tianyuyang658$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="tianyuyang658$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="tianyuyang658$0"/> <atom label="Three$0"/> </tuple>
+   <tuple> <atom label="andrew_morton$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="andrew_morton$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="andrew_morton$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="andrew_morton$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="andrew_morton$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="andrew_morton$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="tripunit$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="tripunit$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="tripunit$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="tripunit$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="tripunit$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="tripunit$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="tripunit$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="tripunit$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="tripunit$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="tripunit$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="tripunit$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="tripunit$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="tripunit$0"/> <atom label="Three$0"/> </tuple>
+   <tuple> <atom label="iivkovic$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="iivkovic$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="iivkovic$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="iivkovic$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="iivkovic$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="iivkovic$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="broehl$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="broehl$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="broehl$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="broehl$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="broehl$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="broehl$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="broehl$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="broehl$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="broehl$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="rs2dsouz$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="rs2dsouz$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="rs2dsouz$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="rs2dsouz$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="rs2dsouz$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="rs2dsouz$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="rs2dsouz$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="rs2dsouz$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="rs2dsouz$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="rs2dsouz$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="rs2dsouz$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="rs2dsouz$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="rs2dsouz$0"/> <atom label="Three$0"/> </tuple>
+   <tuple> <atom label="chantellegellert$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="chantellegellert$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="chantellegellert$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="chantellegellert$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="chantellegellert$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="chantellegellert$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="chantellegellert$0"/> <atom label="Three$0"/> </tuple>
+   <tuple> <atom label="ramelard$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="ramelard$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="ramelard$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="ramelard$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="ramelard$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="ramelard$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="ramelard$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="ramelard$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="ramelard$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="carlos_moreno$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="carlos_moreno$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="carlos_moreno$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="carlos_moreno$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="carlos_moreno$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="carlos_moreno$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="carlos_moreno$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="carlos_moreno$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="carlos_moreno$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="carlos_moreno$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="carlos_moreno$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="carlos_moreno$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="carlos_moreno$0"/> <atom label="Three$0"/> </tuple>
+   <tuple> <atom label="murphy_berzish$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="murphy_berzish$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="murphy_berzish$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="murphy_berzish$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="murphy_berzish$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="murphy_berzish$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="murphy_berzish$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="murphy_berzish$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="murphy_berzish$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="murphy_berzish$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="murphy_berzish$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="murphy_berzish$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="murphy_berzish$0"/> <atom label="Three$0"/> </tuple>
+   <tuple> <atom label="dhshin$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="dhshin$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="dhshin$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="dhshin$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="dhshin$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="dhshin$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="dhshin$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="dhshin$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="dhshin$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="dhshin$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="dhshin$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="wmcowan$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="wmcowan$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="wmcowan$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="wmcowan$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="wmcowan$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="wmcowan$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="wmcowan$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="wmcowan$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="wmcowan$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="wmcowan$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="wmcowan$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="wmcowan$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="wmcowan$0"/> <atom label="Three$0"/> </tuple>
+   <tuple> <atom label="wgolab$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="wgolab$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="wgolab$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="wgolab$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="wgolab$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="wgolab$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="wgolab$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="wgolab$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="wgolab$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="wgolab$0"/> <atom label="Three$0"/> </tuple>
+   <tuple> <atom label="a3zaman$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="a3zaman$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="a3zaman$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="a3zaman$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="a3zaman$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="a3zaman$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="a3zaman$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="a3zaman$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="a3zaman$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="a3zaman$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="a3zaman$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="a3zaman$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="a3zaman$0"/> <atom label="Three$0"/> </tuple>
+   <tuple> <atom label="jeff_zarnett$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="jeff_zarnett$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="jeff_zarnett$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="jeff_zarnett$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="jeff_zarnett$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="jeff_zarnett$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="jeff_zarnett$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="jeff_zarnett$0"/> <atom label="Three$0"/> </tuple>
+   <tuple> <atom label="dblotsky$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="dblotsky$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="dblotsky$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="dblotsky$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="dblotsky$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="dblotsky$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="dblotsky$0"/> <atom label="Three$0"/> </tuple>
+   <tuple> <atom label="jimmylin$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="jimmylin$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="jimmylin$0"/> <atom label="Three$0"/> </tuple>
+   <tuple> <atom label="jmatlee$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="jmatlee$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="jmatlee$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="jmatlee$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="jmatlee$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="allyson_giannikouris$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="allyson_giannikouris$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="allyson_giannikouris$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="allyson_giannikouris$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="allyson_giannikouris$0"/> <atom label="Three$0"/> </tuple>
+   <tuple> <atom label="drayside$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="drayside$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="drayside$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="drayside$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="drayside$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="drayside$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="drayside$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="drayside$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="drayside$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="drayside$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="drayside$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="drayside$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="drayside$0"/> <atom label="Three$0"/> </tuple>
+   <tuple> <atom label="winkler_em$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="winkler_em$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="winkler_em$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="winkler_em$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="kepaik$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="kepaik$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="kepaik$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="kepaik$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="csk$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="se_director$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="se_director$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="se_director$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="se_director$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="se_director$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="se_director$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="se_director$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="se_director$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="se_director$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="se_director$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="se_director$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="se_director$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="se_director$0"/> <atom label="Three$0"/> </tuple>
+   <tuple> <atom label="kevin$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="kevin$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="kevin$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="kevin$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="kevin$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="kevin$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="kevin$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="kevin$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="kevin$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="kevin$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="kevin$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="kevin$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="kevin$0"/> <atom label="Three$0"/> </tuple>
+   <tuple> <atom label="whchang$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="whchang$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="whchang$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="pasward$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="pasward$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="pasward$0"/> <atom label="Three$0"/> </tuple>
+   <tuple> <atom label="bwbecker$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="bwbecker$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="bwbecker$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="bwbecker$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="bwbecker$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="bwbecker$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="bwbecker$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="bwbecker$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="bwbecker$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="bwbecker$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="bwbecker$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="bwbecker$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="bwbecker$0"/> <atom label="Three$0"/> </tuple>
+   <tuple> <atom label="eric_bahn$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="eric_bahn$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="eric_bahn$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="eric_bahn$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="eric_bahn$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="eric_bahn$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="eric_bahn$0"/> <atom label="TwoThirty$0"/> </tuple>
+   <tuple> <atom label="eric_bahn$0"/> <atom label="Three$0"/> </tuple>
+   <tuple> <atom label="dan_brown$0"/> <atom label="Nine$0"/> </tuple>
+   <tuple> <atom label="dan_brown$0"/> <atom label="NineThirty$0"/> </tuple>
+   <tuple> <atom label="dan_brown$0"/> <atom label="Ten$0"/> </tuple>
+   <tuple> <atom label="dan_brown$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="dan_brown$0"/> <atom label="Eleven$0"/> </tuple>
+   <tuple> <atom label="dan_brown$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="dan_brown$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="dan_brown$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="dan_brown$0"/> <atom label="One$0"/> </tuple>
+   <tuple> <atom label="s26stewa$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="s26stewa$0"/> <atom label="Twelve$0"/> </tuple>
+   <tuple> <atom label="s26stewa$0"/> <atom label="TwelveThirty$0"/> </tuple>
+   <tuple> <atom label="gvgbaran$0"/> <atom label="ElevenThirty$0"/> </tuple>
+   <tuple> <atom label="gvgbaran$0"/> <atom label="OneThirty$0"/> </tuple>
+   <tuple> <atom label="gvgbaran$0"/> <atom label="Two$0"/> </tuple>
+   <tuple> <atom label="idziak$0"/> <atom label="TenThirty$0"/> </tuple>
+   <tuple> <atom label="mvucicev$0"/> <atom label="TenThirty$0"/> </tuple>
+   <types> <type ID="52"/> <type ID="5"/> </types>
+</field>
+
+<field label="refs" ID="m2">
+   <tuple> <atom label="Team2$0"/> <atom label="tianyuyang658$0"/> </tuple>
+   <tuple> <atom label="Team2$0"/> <atom label="andrew_morton$0"/> </tuple>
+   <tuple> <atom label="Team2$0"/> <atom label="tripunit$0"/> </tuple>
+   <tuple> <atom label="Team2$0"/> <atom label="iivkovic$0"/> </tuple>
+   <tuple> <atom label="Team2$0"/> <atom label="broehl$0"/> </tuple>
+   <tuple> <atom label="Team3$0"/> <atom label="rs2dsouz$0"/> </tuple>
+   <tuple> <atom label="Team3$0"/> <atom label="chantellegellert$0"/> </tuple>
+   <tuple> <atom label="Team3$0"/> <atom label="ramelard$0"/> </tuple>
+   <tuple> <atom label="Team4$0"/> <atom label="andrew_morton$0"/> </tuple>
+   <tuple> <atom label="Team4$0"/> <atom label="carlos_moreno$0"/> </tuple>
+   <tuple> <atom label="Team4$0"/> <atom label="murphy_berzish$0"/> </tuple>
+   <tuple> <atom label="Team4$0"/> <atom label="dhshin$0"/> </tuple>
+   <tuple> <atom label="Team4$0"/> <atom label="wmcowan$0"/> </tuple>
+   <tuple> <atom label="Team4$0"/> <atom label="wgolab$0"/> </tuple>
+   <tuple> <atom label="Team5$0"/> <atom label="a3zaman$0"/> </tuple>
+   <tuple> <atom label="Team5$0"/> <atom label="jeff_zarnett$0"/> </tuple>
+   <tuple> <atom label="Team5$0"/> <atom label="dblotsky$0"/> </tuple>
+   <tuple> <atom label="Team6$0"/> <atom label="tripunit$0"/> </tuple>
+   <tuple> <atom label="Team6$0"/> <atom label="ramelard$0"/> </tuple>
+   <tuple> <atom label="Team6$0"/> <atom label="jimmylin$0"/> </tuple>
+   <tuple> <atom label="Team6$0"/> <atom label="jmatlee$0"/> </tuple>
+   <tuple> <atom label="Team7$0"/> <atom label="tianyuyang658$0"/> </tuple>
+   <tuple> <atom label="Team7$0"/> <atom label="rs2dsouz$0"/> </tuple>
+   <tuple> <atom label="Team7$0"/> <atom label="allyson_giannikouris$0"/> </tuple>
+   <tuple> <atom label="Team9$0"/> <atom label="murphy_berzish$0"/> </tuple>
+   <tuple> <atom label="Team9$0"/> <atom label="dhshin$0"/> </tuple>
+   <tuple> <atom label="Team9$0"/> <atom label="a3zaman$0"/> </tuple>
+   <tuple> <atom label="Team9$0"/> <atom label="drayside$0"/> </tuple>
+   <tuple> <atom label="Team11$0"/> <atom label="a3zaman$0"/> </tuple>
+   <tuple> <atom label="Team11$0"/> <atom label="drayside$0"/> </tuple>
+   <tuple> <atom label="Team11$0"/> <atom label="winkler_em$0"/> </tuple>
+   <tuple> <atom label="Team11$0"/> <atom label="kepaik$0"/> </tuple>
+   <tuple> <atom label="Team12$0"/> <atom label="tianyuyang658$0"/> </tuple>
+   <tuple> <atom label="Team12$0"/> <atom label="rs2dsouz$0"/> </tuple>
+   <tuple> <atom label="Team12$0"/> <atom label="csk$0"/> </tuple>
+   <tuple> <atom label="Team13$0"/> <atom label="a3zaman$0"/> </tuple>
+   <tuple> <atom label="Team13$0"/> <atom label="drayside$0"/> </tuple>
+   <tuple> <atom label="Team13$0"/> <atom label="se_director$0"/> </tuple>
+   <tuple> <atom label="Team14$0"/> <atom label="rs2dsouz$0"/> </tuple>
+   <tuple> <atom label="Team14$0"/> <atom label="chantellegellert$0"/> </tuple>
+   <tuple> <atom label="Team14$0"/> <atom label="jeff_zarnett$0"/> </tuple>
+   <tuple> <atom label="Team15$0"/> <atom label="tianyuyang658$0"/> </tuple>
+   <tuple> <atom label="Team15$0"/> <atom label="dhshin$0"/> </tuple>
+   <tuple> <atom label="Team15$0"/> <atom label="kevin$0"/> </tuple>
+   <tuple> <atom label="Team15$0"/> <atom label="whchang$0"/> </tuple>
+   <tuple> <atom label="Team16$0"/> <atom label="broehl$0"/> </tuple>
+   <tuple> <atom label="Team16$0"/> <atom label="chantellegellert$0"/> </tuple>
+   <tuple> <atom label="Team16$0"/> <atom label="jeff_zarnett$0"/> </tuple>
+   <tuple> <atom label="Team17$0"/> <atom label="tianyuyang658$0"/> </tuple>
+   <tuple> <atom label="Team17$0"/> <atom label="wgolab$0"/> </tuple>
+   <tuple> <atom label="Team17$0"/> <atom label="pasward$0"/> </tuple>
+   <tuple> <atom label="Team18$0"/> <atom label="chantellegellert$0"/> </tuple>
+   <tuple> <atom label="Team18$0"/> <atom label="murphy_berzish$0"/> </tuple>
+   <tuple> <atom label="Team18$0"/> <atom label="a3zaman$0"/> </tuple>
+   <tuple> <atom label="Team18$0"/> <atom label="drayside$0"/> </tuple>
+   <tuple> <atom label="Team18$0"/> <atom label="bwbecker$0"/> </tuple>
+   <tuple> <atom label="Team19$0"/> <atom label="allyson_giannikouris$0"/> </tuple>
+   <tuple> <atom label="Team19$0"/> <atom label="se_director$0"/> </tuple>
+   <tuple> <atom label="Team19$0"/> <atom label="kevin$0"/> </tuple>
+   <tuple> <atom label="Team20$0"/> <atom label="murphy_berzish$0"/> </tuple>
+   <tuple> <atom label="Team20$0"/> <atom label="dblotsky$0"/> </tuple>
+   <tuple> <atom label="Team20$0"/> <atom label="drayside$0"/> </tuple>
+   <tuple> <atom label="Team20$0"/> <atom label="kevin$0"/> </tuple>
+   <tuple> <atom label="Team21$0"/> <atom label="tianyuyang658$0"/> </tuple>
+   <tuple> <atom label="Team21$0"/> <atom label="jmatlee$0"/> </tuple>
+   <tuple> <atom label="Team21$0"/> <atom label="drayside$0"/> </tuple>
+   <tuple> <atom label="Team21$0"/> <atom label="eric_bahn$0"/> </tuple>
+   <tuple> <atom label="Team23$0"/> <atom label="a3zaman$0"/> </tuple>
+   <tuple> <atom label="Team23$0"/> <atom label="se_director$0"/> </tuple>
+   <tuple> <atom label="Team23$0"/> <atom label="pasward$0"/> </tuple>
+   <tuple> <atom label="Team24$0"/> <atom label="broehl$0"/> </tuple>
+   <tuple> <atom label="Team24$0"/> <atom label="ramelard$0"/> </tuple>
+   <tuple> <atom label="Team24$0"/> <atom label="dan_brown$0"/> </tuple>
+   <tuple> <atom label="Team25$0"/> <atom label="a3zaman$0"/> </tuple>
+   <tuple> <atom label="Team25$0"/> <atom label="drayside$0"/> </tuple>
+   <tuple> <atom label="Team25$0"/> <atom label="winkler_em$0"/> </tuple>
+   <tuple> <atom label="Team25$0"/> <atom label="kepaik$0"/> </tuple>
+   <tuple> <atom label="Team26$0"/> <atom label="murphy_berzish$0"/> </tuple>
+   <tuple> <atom label="Team26$0"/> <atom label="dhshin$0"/> </tuple>
+   <tuple> <atom label="Team26$0"/> <atom label="dblotsky$0"/> </tuple>
+   <tuple> <atom label="Team26$0"/> <atom label="s26stewa$0"/> </tuple>
+   <tuple> <atom label="Team27$0"/> <atom label="rs2dsouz$0"/> </tuple>
+   <tuple> <atom label="Team27$0"/> <atom label="dhshin$0"/> </tuple>
+   <tuple> <atom label="Team27$0"/> <atom label="kevin$0"/> </tuple>
+   <tuple> <atom label="Team27$0"/> <atom label="gvgbaran$0"/> </tuple>
+   <tuple> <atom label="Team28$0"/> <atom label="chantellegellert$0"/> </tuple>
+   <tuple> <atom label="Team28$0"/> <atom label="dblotsky$0"/> </tuple>
+   <tuple> <atom label="Team28$0"/> <atom label="allyson_giannikouris$0"/> </tuple>
+   <tuple> <atom label="Team29$0"/> <atom label="kevin$0"/> </tuple>
+   <tuple> <atom label="Team29$0"/> <atom label="idziak$0"/> </tuple>
+   <tuple> <atom label="Team29$0"/> <atom label="mvucicev$0"/> </tuple>
+   <tuple> <atom label="Team30$0"/> <atom label="murphy_berzish$0"/> </tuple>
+   <tuple> <atom label="Team30$0"/> <atom label="dhshin$0"/> </tuple>
+   <tuple> <atom label="Team30$0"/> <atom label="drayside$0"/> </tuple>
+   <tuple> <atom label="Team30$0"/> <atom label="kevin$0"/> </tuple>
+   <tuple> <atom label="Team30$0"/> <atom label="s26stewa$0"/> </tuple>
+   <types> <type ID="34"/> <type ID="52"/> </types>
+</field>
+
+</instance>
+
+<source filename="/home/drayside/code/svn.ece/se_capstone/se-capstone-db/config/ScheduleV2.als" content="module schedule&#x000a;&#x000a;open util/ordering[Time] as TimeOrd&#x000a;open util/ordering[SessionRoom1] as SessionRoom1Ord&#x000a;open util/ordering[SessionRoom2] as SessionRoom2Ord&#x000a;&#x000a;&#x000a;&#x000a;abstract sig Time {}&#x000a;one sig Nine extends Time {} {Nine = TimeOrd/first[] }&#x000a;one sig NineThirty extends Time {}{NineThirty= TimeOrd/next[Nine]}&#x000a;one sig Ten extends Time {}{Ten = TimeOrd/next[NineThirty] }&#x000a;one sig TenThirty extends Time {}{TenThirty = TimeOrd/next[Ten]}&#x000a;one sig Eleven extends Time {}{Eleven = TimeOrd/next[TenThirty]}&#x000a;one sig ElevenThirty extends Time {}{ElevenThirty = TimeOrd/next[Eleven]}&#x000a;one sig Twelve extends Time {}{Twelve = TimeOrd/next[ElevenThirty]}&#x000a;one sig TwelveThirty extends Time {}{TwelveThirty = TimeOrd/next[Twelve]}&#x000a;one sig One extends Time {}{One = TimeOrd/next[TwelveThirty]}&#x000a;one sig OneThirty extends Time {}{OneThirty = TimeOrd/next[One]}&#x000a;one sig Two extends Time {}{Two = TimeOrd/next[OneThirty]}&#x000a;one sig TwoThirty extends Time {}{TwoThirty = TimeOrd/next[Two]}&#x000a;one sig Three extends Time {}{Three = TimeOrd/last[]}&#x000a;&#x000a;&#x000a;&#x000a;&#x000a;abstract sig SessionRoom1&#x000a;{&#x000a;    time : one Time,&#x000a;    team: lone Team,&#x000a;}&#x000a;&#x000a;abstract sig SessionRoom2 &#x000a;{&#x000a;    time : one Time,&#x000a;    team: lone Team,&#x000a;}&#x000a;&#x000a;&#x000a;&#x000a;abstract sig Ref {&#x000a;    RefTime: set Time,&#x000a;&#x000a;    // will be replaced by a constant function&#x000a;    //Remote: Int, &#x000a;    //AvailableTimes: some Time,&#x000a;}&#x000a;&#x000a;abstract sig Team {&#x000a;    presRoom1: lone SessionRoom1,&#x000a;    presRoom2Equiv: lone SessionRoom2,&#x000a;    presRoom2: lone SessionRoom2,&#x000a;    presRoom1Equiv: lone SessionRoom1&#x000a;    // will be replaced by a constant function&#x000a;    //refs: set Ref,&#x000a;}&#x000a;&#x000a;one sig badRefs {&#x000a;    refs1: set Ref,&#x000a;    refs2: set Ref&#x000a;}&#x000a;&#x000a;&#x000a;&#x000a;&#x000a;/* INSERT TEAMS HERE&#x000a;&#x000a;one sig Team1 extends Team {}{refs = (Ref1 + Ref2 + Ref3 + Ref4)}&#x000a;one sig Team2 extends Team {}{refs = (Ref4 + Ref2 + Ref3)}&#x000a;one sig Team3 extends Team {}{refs = (Ref4 + Ref2 + Ref5)}&#x000a;*/&#x000a;/* INSERT REFS HERE&#x000a;&#x000a;one sig Ref1  extends Ref  {}{AvailableTimes =  Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three + ThreeThirty}&#x000a;one sig Ref2  extends Ref  {}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three + ThreeThirty }&#x000a;one sig Ref3  extends Ref  {}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three + ThreeThirty}&#x000a;one sig Ref4  extends Ref  {}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three + ThreeThirty }&#x000a;one sig Ref5  extends Ref  {}{AvailableTimes = Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three + ThreeThirty}&#x000a;*/&#x000a;&#x000a;&#x000a;&#x000a;&#x000a;one sig tianyuyang658 extends Ref{}&#x000a;one sig andrew_morton extends Ref{}&#x000a;one sig tripunit extends Ref{}&#x000a;one sig iivkovic extends Ref{}&#x000a;one sig broehl extends Ref{}&#x000a;one sig rs2dsouz extends Ref{}&#x000a;one sig chantellegellert extends Ref{}&#x000a;one sig ramelard extends Ref{}&#x000a;one sig carlos_moreno extends Ref{}&#x000a;one sig murphy_berzish extends Ref{}&#x000a;one sig dhshin extends Ref{}&#x000a;one sig wmcowan extends Ref{}&#x000a;one sig wgolab extends Ref{}&#x000a;one sig a3zaman extends Ref{}&#x000a;one sig jeff_zarnett extends Ref{}&#x000a;one sig dblotsky extends Ref{}&#x000a;one sig jimmylin extends Ref{}&#x000a;one sig jmatlee extends Ref{}&#x000a;one sig allyson_giannikouris extends Ref{}&#x000a;one sig drayside extends Ref{}&#x000a;one sig winkler_em extends Ref{}&#x000a;one sig kepaik extends Ref{}&#x000a;one sig csk extends Ref{}&#x000a;one sig se_director extends Ref{}&#x000a;one sig kevin extends Ref{}&#x000a;one sig whchang extends Ref{}&#x000a;one sig pasward extends Ref{}&#x000a;one sig bwbecker extends Ref{}&#x000a;one sig eric_bahn extends Ref{}&#x000a;one sig dan_brown extends Ref{}&#x000a;one sig s26stewa extends Ref{}&#x000a;one sig gvgbaran extends Ref{}&#x000a;one sig idziak extends Ref{}&#x000a;one sig mvucicev extends Ref{}&#x000a;&#x000a;&#x000a;fun Remote : Ref {&#x000a;  &#x0009;winkler_em&#x000a; + &#x0009;kepaik&#x000a; + &#x0009;eric_bahn&#x000a;}&#x000a;&#x000a;fun AvailableTimes : Ref -&gt; Time {&#x000a;&#x0009;tianyuyang658 -&gt; (Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three)&#x000a; + &#x0009;andrew_morton -&gt; (Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty)&#x000a; + &#x0009;tripunit -&gt; (Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three)&#x000a; + &#x0009;iivkovic -&gt; (Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty)&#x000a; + &#x0009;broehl -&gt; (Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One)&#x000a; + &#x0009;rs2dsouz -&gt; (Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three)&#x000a; + &#x0009;chantellegellert -&gt; (Nine + NineThirty + ElevenThirty + Twelve + TwelveThirty + TwoThirty + Three)&#x000a; + &#x0009;ramelard -&gt; (Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One)&#x000a; + &#x0009;carlos_moreno -&gt; (Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three)&#x000a; + &#x0009;murphy_berzish -&gt; (Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three)&#x000a; + &#x0009;dhshin -&gt; (Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two)&#x000a; + &#x0009;wmcowan -&gt; (Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three)&#x000a; + &#x0009;wgolab -&gt; (TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three)&#x000a; + &#x0009;a3zaman -&gt; (Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three)&#x000a; + &#x0009;jeff_zarnett -&gt; (ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three)&#x000a; + &#x0009;dblotsky -&gt; (Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three)&#x000a; + &#x0009;jimmylin -&gt; (Eleven + ElevenThirty + Three)&#x000a; + &#x0009;jmatlee -&gt; (Eleven + ElevenThirty + Twelve + TwelveThirty + One)&#x000a; + &#x0009;allyson_giannikouris -&gt; (One + OneThirty + Two + TwoThirty + Three)&#x000a; + &#x0009;drayside -&gt; (Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three)&#x000a; + &#x0009;winkler_em -&gt; (Nine + NineThirty + Ten + TenThirty)&#x000a; + &#x0009;kepaik -&gt; (Nine + NineThirty + Ten + TenThirty)&#x000a; + &#x0009;csk -&gt; (OneThirty)&#x000a; + &#x0009;se_director -&gt; (Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three)&#x000a; + &#x0009;kevin -&gt; (Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three)&#x000a; + &#x0009;whchang -&gt; (OneThirty + Two + TwoThirty)&#x000a; + &#x0009;pasward -&gt; (Two + TwoThirty + Three)&#x000a; + &#x0009;bwbecker -&gt; (Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One + OneThirty + Two + TwoThirty + Three)&#x000a; + &#x0009;eric_bahn -&gt; (Ten + TenThirty + TwelveThirty + One + OneThirty + Two + TwoThirty + Three)&#x000a; + &#x0009;dan_brown -&gt; (Nine + NineThirty + Ten + TenThirty + Eleven + ElevenThirty + Twelve + TwelveThirty + One)&#x000a; + &#x0009;s26stewa -&gt; (ElevenThirty + Twelve + TwelveThirty)&#x000a; + &#x0009;gvgbaran -&gt; (ElevenThirty + OneThirty + Two)&#x000a; + &#x0009;idziak -&gt; (TenThirty)&#x000a; + &#x0009;mvucicev -&gt; (TenThirty)&#x000a;}&#x000a;&#x000a;&#x000a;&#x000a;one sig Team2 extends Team {}&#x000a;one sig Team3 extends Team {}&#x000a;one sig Team4 extends Team {}&#x000a;one sig Team5 extends Team {}&#x000a;one sig Team6 extends Team {}&#x000a;one sig Team7 extends Team {}&#x000a;one sig Team9 extends Team {}&#x000a;one sig Team11 extends Team {}&#x000a;one sig Team12 extends Team {}&#x000a;one sig Team13 extends Team {}&#x000a;one sig Team14 extends Team {}&#x000a;one sig Team15 extends Team {}&#x000a;one sig Team16 extends Team {}&#x000a;one sig Team17 extends Team {}&#x000a;one sig Team18 extends Team {}&#x000a;one sig Team19 extends Team {}&#x000a;one sig Team20 extends Team {}&#x000a;one sig Team21 extends Team {}&#x000a;one sig Team23 extends Team {}&#x000a;one sig Team24 extends Team {}&#x000a;one sig Team25 extends Team {}&#x000a;one sig Team26 extends Team {}&#x000a;one sig Team27 extends Team {}&#x000a;one sig Team28 extends Team {}&#x000a;one sig Team29 extends Team {}&#x000a;one sig Team30 extends Team {}&#x000a;&#x000a;&#x000a;&#x000a;fun refs : Team -&gt; Ref {&#x000a; &#x0009;Team2 -&gt; (tianyuyang658 + andrew_morton + tripunit + iivkovic + broehl)&#x000a; + &#x0009;Team3 -&gt; (rs2dsouz + chantellegellert + ramelard)&#x000a; + &#x0009;Team4 -&gt; (andrew_morton + carlos_moreno + murphy_berzish + dhshin + wmcowan + wgolab)&#x000a; + &#x0009;Team5 -&gt; (a3zaman + jeff_zarnett + dblotsky)&#x000a; + &#x0009;Team6 -&gt; (jimmylin + tripunit + jmatlee + ramelard)&#x000a; + &#x0009;Team7 -&gt; (tianyuyang658 + rs2dsouz + allyson_giannikouris)&#x000a; + &#x0009;Team9 -&gt; (murphy_berzish + a3zaman + dhshin + drayside)&#x000a; + &#x0009;Team11 -&gt; (winkler_em + kepaik + drayside + a3zaman)&#x000a; + &#x0009;Team12 -&gt; (tianyuyang658 + rs2dsouz + csk)&#x000a; + &#x0009;Team13 -&gt; (a3zaman + drayside + se_director)&#x000a; + &#x0009;Team14 -&gt; (rs2dsouz + chantellegellert + jeff_zarnett)&#x000a; + &#x0009;Team15 -&gt; (kevin + tianyuyang658 + dhshin + whchang)&#x000a; + &#x0009;Team16 -&gt; (chantellegellert + broehl + jeff_zarnett)&#x000a; + &#x0009;Team17 -&gt; (tianyuyang658 + pasward + wgolab)&#x000a; + &#x0009;Team18 -&gt; (murphy_berzish + bwbecker + a3zaman + chantellegellert + drayside)&#x000a; + &#x0009;Team19 -&gt; (kevin + se_director + allyson_giannikouris)&#x000a; + &#x0009;Team20 -&gt; (kevin + murphy_berzish + dblotsky + drayside)&#x000a; + &#x0009;Team21 -&gt; (tianyuyang658 + eric_bahn + jmatlee + drayside)&#x000a; + &#x0009;Team23 -&gt; (a3zaman + pasward + se_director)&#x000a; + &#x0009;Team24 -&gt; (dan_brown + ramelard + broehl)&#x000a; + &#x0009;Team25 -&gt; (winkler_em + kepaik + drayside + a3zaman)&#x000a; + &#x0009;Team26 -&gt; (s26stewa + murphy_berzish + dhshin + dblotsky)&#x000a; + &#x0009;Team27 -&gt; (kevin + dhshin + rs2dsouz + gvgbaran)&#x000a; + &#x0009;Team28 -&gt; (chantellegellert + allyson_giannikouris + dblotsky)&#x000a; + &#x0009;Team29 -&gt; (kevin + idziak + mvucicev)&#x000a; + &#x0009;Team30 -&gt; (kevin + s26stewa + murphy_berzish + dhshin + drayside)&#x000a;}&#x000a;&#x000a;one sig Session1 extends SessionRoom1 {} { time = Nine Session1 = SessionRoom1Ord/first[]}&#x000a;one sig Session2 extends SessionRoom1 {} { time = NineThirty  Session2 = SessionRoom1Ord/next[Session1]}&#x000a;one sig Session3 extends SessionRoom1 {} { time = Ten  Session3 = SessionRoom1Ord/next[Session2]}&#x000a;one sig Session4 extends SessionRoom1 {} { time = TenThirty  Session4 = SessionRoom1Ord/next[Session3]}&#x000a;one sig Session5 extends SessionRoom1 {} { time = Eleven  Session5 = SessionRoom1Ord/next[Session4]}&#x000a;one sig Session6 extends SessionRoom1 {} { time = ElevenThirty  Session6 = SessionRoom1Ord/next[Session5]}&#x000a;one sig Session7 extends SessionRoom1 {} { time = Twelve  Session7 = SessionRoom1Ord/next[Session6]}&#x000a;one sig Session8 extends SessionRoom1 {} { time = TwelveThirty  Session8 = SessionRoom1Ord/next[Session7]}&#x000a;one sig Session9 extends SessionRoom1 {} { time = One Session9 = SessionRoom1Ord/next[Session8]}&#x000a;one sig Session10 extends SessionRoom1 {} { time = OneThirty  Session10 = SessionRoom1Ord/next[Session9]}&#x000a;one sig Session11 extends SessionRoom1 {} { time = Two  Session11 = SessionRoom1Ord/next[Session10]}&#x000a;one sig Session12 extends SessionRoom1 {} { time = TwoThirty  Session12 = SessionRoom1Ord/next[Session11]}&#x000a;one sig Session13 extends SessionRoom1 {} { time = Three Session13 = SessionRoom1Ord/last[]}&#x000a;&#x000a;one sig SessionR1 extends SessionRoom2 {} { time = Nine SessionR1 = SessionRoom2Ord/first[]}&#x000a;one sig SessionR2 extends SessionRoom2 {} { time = NineThirty  SessionR2 = SessionRoom2Ord/next[SessionR1]}&#x000a;one sig SessionR3 extends SessionRoom2 {} { time = Ten  SessionR3 = SessionRoom2Ord/next[SessionR2]}&#x000a;one sig SessionR4 extends SessionRoom2 {} { time = TenThirty  SessionR4 = SessionRoom2Ord/next[SessionR3]}&#x000a;one sig SessionR5 extends SessionRoom2 {} { time = Eleven  SessionR5 = SessionRoom2Ord/next[SessionR4]}&#x000a;one sig SessionR6 extends SessionRoom2 {} { time = ElevenThirty  SessionR6 = SessionRoom2Ord/next[SessionR5]}&#x000a;one sig SessionR7 extends SessionRoom2 {} { time = Twelve  SessionR7 = SessionRoom2Ord/next[SessionR6]}&#x000a;one sig SessionR8 extends SessionRoom2 {} { time = TwelveThirty  SessionR8 = SessionRoom2Ord/next[SessionR7]}&#x000a;one sig SessionR9 extends SessionRoom2 {} { time = One SessionR9 = SessionRoom2Ord/next[SessionR8]}&#x000a;one sig SessionR10 extends SessionRoom2 {} { time = OneThirty  SessionR10 = SessionRoom2Ord/next[SessionR9]}&#x000a;one sig SessionR11 extends SessionRoom2 {} { time = Two  SessionR11 = SessionRoom2Ord/next[SessionR10]}&#x000a;one sig SessionR12 extends SessionRoom2 {} { time = TwoThirty  SessionR12 = SessionRoom2Ord/next[SessionR11]}&#x000a;one sig SessionR13 extends SessionRoom2 {} { time = Three SessionR13 = SessionRoom2Ord/last[]}&#x000a;&#x000a;&#x000a;&#x000a;&#x000a;&#x000a;&#x000a;&#x000a;&#x000a;&#x000a;&#x000a;&#x000a;&#x000a;&#x000a;&#x000a;&#x000a;fact schedule {&#x000a;&#x000a;    -- at most two teams on the ice  &#x000a;    -- each team has at most one room equivalent (because they have one real room)&#x000a;    all t: Team | no t.presRoom1Equiv || no t.presRoom2Equiv&#x000a;    -- the room1 equivalent must be same time as room2 actual time&#x000a;    all t:Team | no t.presRoom1 =&gt; t.presRoom1Equiv.time = t.presRoom2.time&#x000a;    -- the room2 equivalent must be same time as room1 actual time&#x000a;    all t:Team | no t.presRoom2 =&gt; t.presRoom2Equiv.time = t.presRoom1.time&#x000a;    -- each team can only be in one room&#x000a;    all t: Team | no t.presRoom1 or no t.presRoom2&#x000a;    -- each ref can only be in one room at a same time&#x000a;    all r: Ref, disjoint t1,t2:Team | r in t1.refs &amp;&amp; r in t2.refs =&gt; (no t1.presRoom1 &amp;&amp; t1.presRoom2.time != t2.presRoom1.time) || (no t1.presRoom2 &amp;&amp; t1.presRoom1.time != t2.presRoom2.time)&#x000a;    -- no two teams can  be in the same room&#x000a;    all disjoint t1, t2: Team | t1.presRoom1 != t2.presRoom1 ||  t1.presRoom2 != t2.presRoom2&#x000a;    -- ref time must be the same as presentation time&#x000a;    all t : Team, r: Ref | r in t.refs =&gt; (no t.presRoom2 &amp;&amp; t.presRoom1.time in r.RefTime || no t.presRoom1 &amp;&amp; t.presRoom2.time in r.RefTime)&#x000a;    -- no two sessions can have the same team&#x000a;    all disjoint s1, s2: SessionRoom1 |  no s1.team || no s2.team || s1.team != s2.team&#x000a;    all disjoint s1, s2: SessionRoom2 |  no s1.team || no s2.team || s1.team != s2.team&#x000a;    all  s1:SessionRoom2, s2: SessionRoom1 |  no s1.team || no s2.team || s1.team != s2.team&#x000a;    -- every teams presentation room has them as the presenter&#x000a;   all  t : Team | t = t.presRoom1.team || t = t.presRoom2.team&#x000a;   -- all remote refs in room 1&#x000a;   all  t : Team, r : Ref | (r in t.refs &amp;&amp; r in Remote) =&gt; no t.presRoom1&#x000a;   -- side by side refs must be in same room&#x000a;   all  t1, t2 : Team, r:Ref  | (r in t1.refs &amp;&amp; r in t2.refs &amp;&amp; #(r.RefTime) = 2) =&gt; ((no t1.presRoom1 &amp;&amp; no t2.presRoom1) ||(no t1.presRoom2 &amp;&amp; no t2.presRoom2))    &#x000a;    -- if remove this and works it means that some refs available times are conflicting -&gt; not solvable under any circumstances&#x000a;    -- refs only booked at their available times&#x000a;    all r: Ref | r.RefTime in r.AvailableTimes&#x000a;    all r:Ref,  s1:SessionRoom1, s2: SessionRoom2 | (s1.time = s2.time and s1.time in r.RefTime) =&gt; (r in s1.team.refs || r in s2.team.refs)&#x000a;    -- this is trying to optimize times based on reoccuring refs -- ideally run without these lines, make sure everything else is okay then try running with this for optimization   &#x000a;    all r:Ref, t:Time | (#(r.RefTime) = 2 &amp;&amp; t in r.RefTime &amp;&amp; (t.next not in r.RefTime) &amp;&amp; (t.prev not in r.RefTime)  ) =&gt; (r in badRefs.refs1 || r in badRefs.refs2) &#x000a;    all r:Ref | (#(r.RefTime) = 2 &amp;&amp; (Nine in r.RefTime &amp;&amp; NineThirty not in r.RefTime) ||  (Three in r.RefTime &amp;&amp; TwoThirty not in r.RefTime)) =&gt; (r in badRefs.refs1 || r in badRefs.refs2) &#x000a;    -- optimizating parameters -- we need two in order to solve bit depth issue&#x000a;    #(badRefs.refs2) &lt; 3&#x000a;    #(badRefs.refs2) &gt; 0&#x000a;    #(badRefs.refs1) &lt; 4&#x000a;    #(badRefs.refs1) &gt; 0&#x000a;    --all t:Time, r:Ref, disjoint t1, t2:Team | (r in t1.refs &amp;&amp; r in t2.refs &amp;&amp; t in r.AvailableTimes &amp;&amp; (t = t1.presRoom1.time || t = t1.presRoom2.time) &amp;&amp;  (t.next in r.AvailableTimes || t.prev in r.AvailableTimes)) =&gt;   &#x000a;    --(&#x000a;        --(  r in t1.presRoom1.next.team.refs || r in t1.presRoom1.prev.team.refs ||  r in t1.presRoom2Equiv.next.team.refs ||  r in t1.presRoom2Equiv.prev.team.refs) ||&#x000a;        --(  r in t1.presRoom2.prev.team.refs ||  r in t1.presRoom2.next.team.refs ||  r in t1.presRoom1Equiv.prev.team.refs || r in t1.presRoom1Equiv.next.team.refs) &#x000a;    --)&#x000a;&#x000a;&#x000a;    &#x000a;}&#x000a;&#x000a;pred show() {&#x000a;   &#x000a;}&#x000a;&#x000a;run show &#x000a;"/>
+
+<source filename="/$alloy4$/models/util/integer.als" content="module util/integer&#x000a;&#x000a;/*&#x000a; * A collection of utility functions for using Integers in Alloy.&#x000a; * Note that integer overflows are silently truncated to the current bitwidth&#x000a; * using the 2&apos;s complement arithmetic.&#x000a; */&#x000a;&#x000a;fun add  [n1, n2: Int] : Int { this/plus[n1, n2] }&#x000a;fun plus [n1, n2: Int] : Int { n1 fun/add n2 }&#x000a;&#x000a;fun sub   [n1, n2: Int] : Int { this/minus[n1, n2] }&#x000a;fun minus [n1, n2: Int] : Int { n1 fun/sub n2 }&#x000a;&#x000a;fun mul [n1, n2: Int] : Int { n1 fun/mul n2 }&#x000a;&#x000a;// Performs the division with &quot;round to zero&quot; semantics, except the following 3 cases&#x000a;// 1) if a is 0, then it returns 0&#x000a;// 2) else if b is 0, then it returns 1 if a is negative and -1 if a is positive&#x000a;// 3) else if a is the smallest negative integer, and b is -1, then it returns a&#x000a;fun div [n1, n2: Int] : Int { n1 fun/div n2 }&#x000a;&#x000a;// answer is defined to be the unique integer that satisfies &quot;a = ((a/b)*b) + remainder&quot;&#x000a;fun rem [n1, n2: Int] : Int { n1 fun/rem n2 }&#x000a;&#x000a;/* negate */&#x000a;fun negate [n: Int] : Int { 0 fun/sub n }&#x000a;&#x000a;/* equal to */&#x000a;pred eq [n1, n2: Int] { int[n1] = int[n2] }&#x000a;&#x000a;/* greater than */&#x000a;pred gt [n1, n2: Int] { n1 &gt; n2 }&#x000a;&#x000a;/* less then */&#x000a;pred lt [n1, n2: Int] { n1 &lt; n2 }&#x000a;&#x000a;/* greater than or equal */&#x000a;pred gte [n1, n2: Int] { n1 &gt;= n2 }&#x000a;&#x000a;/* less than or equal */&#x000a;pred lte [n1, n2: Int] { n1 &lt;= n2 }&#x000a;&#x000a;/* integer is zero */&#x000a;pred zero [n: Int] { n = 0 }&#x000a;&#x000a;/* positive */&#x000a;pred pos  [n: Int] { n &gt; 0 }&#x000a;&#x000a;/* negative */&#x000a;pred neg  [n: Int] { n &lt; 0 }&#x000a;&#x000a;/* non-positive */&#x000a;pred nonpos [n: Int] { n &lt;= 0 }&#x000a;&#x000a;/* non-negative */&#x000a;pred nonneg [n: Int] { n &gt;= 0 }&#x000a;&#x000a;/* signum (aka sign or sgn) */&#x000a;fun signum [n: Int] : Int { n&lt;0 =&gt; (0 fun/sub 1) else (n&gt;0 =&gt; 1 else 0) }&#x000a;&#x000a;/*&#x000a; * returns the ith element (zero-based) from the set s&#x000a; * in the ordering of &apos;next&apos;, which is a linear ordering&#x000a; * relation like that provided by util/ordering&#x000a; */&#x000a;fun int2elem[i: Int, next: univ-&gt;univ, s: set univ] : lone s {&#x000a;  {e: s | #^next.e = int i }&#x000a;}&#x000a;&#x000a;/*&#x000a; * returns the index of the element (zero-based) in the&#x000a; * ordering of next, which is a linear ordering relation&#x000a; * like that provided by util/ordering&#x000a; */&#x000a;fun elem2int[e: univ, next: univ-&gt;univ] : lone Int {&#x000a;  Int[#^next.e]&#x000a;}&#x000a;&#x000a;// returns the largest integer in the current bitwidth&#x000a;fun max:one Int { fun/max }&#x000a;&#x000a;// returns the smallest integer in the current bitwidth&#x000a;fun min:one Int { fun/min }&#x000a;&#x000a;// maps each integer (except max) to the integer after it&#x000a;fun next:Int-&gt;Int { fun/next }&#x000a;&#x000a;// maps each integer (except min) to the integer before it&#x000a;fun prev:Int-&gt;Int { ~next }&#x000a;&#x000a;// given a set of integers, return the largest element&#x000a;fun max [es: set Int]: lone Int { es - es.^prev }&#x000a;&#x000a;// given a set of integers, return the smallest element&#x000a;fun min [es: set Int]: lone Int { es - es.^next }&#x000a;&#x000a;// given an integer, return all integers prior to it&#x000a;fun prevs [e: Int]: set Int { e.^prev }&#x000a;&#x000a;// given an integer, return all integers following it&#x000a;fun nexts [e: Int]: set Int { e.^next }&#x000a;&#x000a;// returns the larger of the two integers&#x000a;fun larger [e1, e2: Int]: Int { let a=int[e1], b=int[e2] | (a&lt;b =&gt; b else a) }&#x000a;&#x000a;// returns the smaller of the two integers&#x000a;fun smaller [e1, e2: Int]: Int { let a=int[e1], b=int[e2] | (a&lt;b =&gt; a else b) }&#x000a;"/>
+
+<source filename="/$alloy4$/models/util/ordering.als" content="module util/ordering[exactly elem]&#x000a;&#x000a;/*&#x000a; * Creates a single linear ordering over the atoms in elem. It also constrains all&#x000a; * the atoms to exist that are permitted by the scope on elem. That is, if the scope&#x000a; * on a signature S is 5, opening util/ordering[S] will force S to have 5 elements&#x000a; * and create a linear ordering over those five elements. The predicates and&#x000a; * functions below provide access to properties of the linear ordering, such as&#x000a; * which element is first in the ordering, or whether a given element precedes&#x000a; * another. You cannotcreate multiple linear orderings over the same signature with&#x000a; * this model. If you that functionality, try using the util/sequence module instead.&#x000a; *&#x000a; * Technical comment:&#x000a; * An important constraint: elem must contain all atoms permitted by the scope.&#x000a; * This is to let the analyzer optimize the analysis by setting all fields of each&#x000a; * instantiation of Ord to predefined values: e.g. by setting &apos;last&apos; to the highest&#x000a; * atom of elem and by setting &apos;next&apos; to {&lt;T0,T1&gt;,&lt;T1,T2&gt;,...&lt;Tn-1,Tn&gt;}, where n is&#x000a; * the scope of elem. Without this constraint, it might not be true that Ord.last is&#x000a; * a subset of elem, and that the domain and range of Ord.next lie inside elem.&#x000a; *&#x000a; * author: Ilya Shlyakhter&#x000a; * revisions: Daniel jackson&#x000a; */&#x000a;&#x000a;private one sig Ord {&#x000a;   First: set elem,&#x000a;   Next: elem -&gt; elem&#x000a;} {&#x000a;   pred/totalOrder[elem,First,Next]&#x000a;}&#x000a;&#x000a;// first&#x000a;fun first: one elem { Ord.First }&#x000a;&#x000a;// last&#x000a;fun last: one elem { elem - (next.elem) }&#x000a;&#x000a;// return a mapping from each element to its predecessor&#x000a;fun prev : elem-&gt;elem { ~(Ord.Next) }&#x000a;&#x000a;// return a mapping from each element to its successor&#x000a;fun next : elem-&gt;elem { Ord.Next }&#x000a;&#x000a;// return elements prior to e in the ordering&#x000a;fun prevs [e: elem]: set elem { e.^(~(Ord.Next)) }&#x000a;&#x000a;// return elements following e in the ordering&#x000a;fun nexts [e: elem]: set elem { e.^(Ord.Next) }&#x000a;&#x000a;// e1 is less than e2 in the ordering&#x000a;pred lt [e1, e2: elem] { e1 in prevs[e2] }&#x000a;&#x000a;// e1 is greater than e2 in the ordering&#x000a;pred gt [e1, e2: elem] { e1 in nexts[e2] }&#x000a;&#x000a;// e1 is less than or equal to e2 in the ordering&#x000a;pred lte [e1, e2: elem] { e1=e2 || lt [e1,e2] }&#x000a;&#x000a;// e1 is greater than or equal to e2 in the ordering&#x000a;pred gte [e1, e2: elem] { e1=e2 || gt [e1,e2] }&#x000a;&#x000a;// returns the larger of the two elements in the ordering&#x000a;fun larger [e1, e2: elem]: elem { lt[e1,e2] =&gt; e2 else e1 }&#x000a;&#x000a;// returns the smaller of the two elements in the ordering&#x000a;fun smaller [e1, e2: elem]: elem { lt[e1,e2] =&gt; e1 else e2 }&#x000a;&#x000a;// returns the largest element in es&#x000a;// or the empty set if es is empty&#x000a;fun max [es: set elem]: lone elem { es - es.^(~(Ord.Next)) }&#x000a;&#x000a;// returns the smallest element in es&#x000a;// or the empty set if es is empty&#x000a;fun min [es: set elem]: lone elem { es - es.^(Ord.Next) }&#x000a;&#x000a;assert correct {&#x000a;  let mynext = Ord.Next |&#x000a;  let myprev = ~mynext | {&#x000a;     ( all b:elem | (lone b.next) &amp;&amp; (lone b.prev) &amp;&amp; (b !in b.^mynext) )&#x000a;     ( (no first.prev) &amp;&amp; (no last.next) )&#x000a;     ( all b:elem | (b!=first &amp;&amp; b!=last) =&gt; (one b.prev &amp;&amp; one b.next) )&#x000a;     ( !one elem =&gt; (one first &amp;&amp; one last &amp;&amp; first!=last &amp;&amp; one first.next &amp;&amp; one last.prev) )&#x000a;     ( one elem =&gt; (first=elem &amp;&amp; last=elem &amp;&amp; no myprev &amp;&amp; no mynext) )&#x000a;     ( myprev=~mynext )&#x000a;     ( elem = first.*mynext )&#x000a;     (all disj a,b:elem | a in b.^mynext or a in b.^myprev)&#x000a;     (no disj a,b:elem | a in b.^mynext and a in b.^myprev)&#x000a;     (all disj a,b,c:elem | (b in a.^mynext and c in b.^mynext) =&gt;(c in a.^mynext))&#x000a;     (all disj a,b,c:elem | (b in a.^myprev and c in b.^myprev) =&gt;(c in a.^myprev))&#x000a;  }&#x000a;}&#x000a;run {} for exactly 0 elem expect 0&#x000a;run {} for exactly 1 elem expect 1&#x000a;run {} for exactly 2 elem expect 1&#x000a;run {} for exactly 3 elem expect 1&#x000a;run {} for exactly 4 elem expect 1&#x000a;check correct for exactly 0 elem&#x000a;check correct for exactly 1 elem&#x000a;check correct for exactly 2 elem&#x000a;check correct for exactly 3 elem&#x000a;check correct for exactly 4 elem&#x000a;check correct for exactly 5 elem&#x000a;"/>
+
+</alloy>
