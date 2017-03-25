@@ -150,7 +150,7 @@ for c in root.find('instance').findall('field'):
             if ("R" not in session):
                 SessionRoom = "Room 1"
                 Results.append([
-                    teamXML,
+                    #teamXML,
                     teamToNamesMap[teamXML],
                     timeToProperTimeMap[time],
                     roomToProperRoomMap[SessionRoom],
@@ -161,7 +161,7 @@ for c in root.find('instance').findall('field'):
                 SessionRoom = "Room 2"
                 TeamSessionMapping[teamXML]=[time, "Room 2"]
                 Results.append([
-                    teamXML,
+                    #teamXML,
                     teamToNamesMap[teamXML],
                     timeToProperTimeMap[time],
                     roomToProperRoomMap[SessionRoom],
@@ -171,7 +171,7 @@ for c in root.find('instance').findall('field'):
 # print team schedule to file
 
 team_schedule_file = open('team_schedule.txt', 'w');
-team_schedule_file.write(tabulate(Results, headers=['Team#', 'Team Name', 'Time', 'Room','Refs']))
+team_schedule_file.write(tabulate(Results, headers=['Team Name', 'Time', 'Room','Refs']))
 team_schedule_file.close()
 
 printScript = open('lprcommands.sh', 'w');
