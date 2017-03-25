@@ -11,7 +11,7 @@
 
 			Time     Team           Location
 			-------  -------------  ----------
+			12:00PM  InternCompass  DC1302
 			12:30PM  SAT            DC1304
-			1:30PM   JASON          DC1302
-			2:30PM   InternCompass  DC1304
-			3:00PM   Propelme       DC1302
+			1:30PM   JASON          DC1304
+			3:00PM   Propelme       DC1304

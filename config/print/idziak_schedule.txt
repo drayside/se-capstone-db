@@ -11,4 +11,4 @@
 
 			Time     Team    Location
 			-------  ------  ----------
-			10:30AM  CLAC    DC1302
+			10:30AM  CLAC    DC1304

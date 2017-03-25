@@ -11,9 +11,9 @@
 
 			Time     Team                   Location
 			-------  ---------------------  ----------
-			10:00AM  Manifold               DC1302
-			10:30AM  Speculative Execution  DC1304
-			11:30AM  Frustra                DC1302
+			10:30AM  Speculative Execution  DC1302
+			11:00AM  Manifold               DC1304
+			11:30AM  Frustra                DC1304
 			12:00PM  Capital Software       DC1304
 			12:30PM  SAT                    DC1304
 			2:00PM   Dynalist               DC1302

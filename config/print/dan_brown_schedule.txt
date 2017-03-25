@@ -11,4 +11,4 @@
 
 			Time    Team      Location
 			------  --------  ----------
-			9:30AM  Songhaus  DC1302
+			9:00AM  Songhaus  DC1302

@@ -11,5 +11,5 @@
 
 			Time    Team         Location
 			------  -----------  ----------
-			2:00PM  homely.rent  DC1304
-			3:00PM  Qube         DC1304
+			2:30PM  homely.rent  DC1302
+			3:00PM  Qube         DC1302

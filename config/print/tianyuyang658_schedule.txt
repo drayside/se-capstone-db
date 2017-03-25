@@ -11,9 +11,9 @@
 
 			Time     Team           Location
 			-------  -------------  ----------
-			10:00AM  STORM          DC1304
+			10:00AM  STORM          DC1302
 			1:00PM   ReadYourStory  DC1304
-			1:30PM   Kaiba Corp.    DC1304
+			1:30PM   Kaiba Corp.    DC1302
 			2:00PM   Dynalist       DC1302
-			2:30PM   MediReadi      DC1302
-			3:00PM   Qube           DC1304
+			2:30PM   MediReadi      DC1304
+			3:00PM   Qube           DC1302

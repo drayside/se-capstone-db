@@ -11,6 +11,6 @@
 
 			Time     Team                    Location
 			-------  ----------------------  ----------
-			12:00PM  Calligre                DC1302
-			12:30PM  Closed for Refactoring  DC1302
-			2:30PM   InternCompass           DC1304
+			11:30AM  Closed for Refactoring  DC1302
+			12:00PM  InternCompass           DC1302
+			12:30PM  Calligre                DC1302

@@ -9,6 +9,6 @@
 
 			Referee: Byron Weber Becker
 
-			Time     Team     Location
-			-------  -------  ----------
-			11:30AM  Minerva  DC1304
+			Time    Team     Location
+			------  -------  ----------
+			9:00AM  Minerva  DC1304

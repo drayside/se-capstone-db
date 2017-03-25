@@ -11,6 +11,6 @@
 
 			Time     Team                    Location
 			-------  ----------------------  ----------
-			9:30AM   Songhaus                DC1302
-			10:00AM  STORM                   DC1304
-			12:30PM  Closed for Refactoring  DC1302
+			9:00AM   Songhaus                DC1302
+			10:00AM  STORM                   DC1302
+			11:30AM  Closed for Refactoring  DC1302

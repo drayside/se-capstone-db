@@ -11,8 +11,8 @@
 
 			Time     Team                    Location
 			-------  ----------------------  ----------
-			9:00AM   ROCKIT                  DC1302
-			11:30AM  Minerva                 DC1304
-			12:00PM  Calligre                DC1302
-			12:30PM  Closed for Refactoring  DC1302
-			3:00PM   Propelme                DC1302
+			9:00AM   Minerva                 DC1304
+			9:30AM   ROCKIT                  DC1302
+			11:30AM  Closed for Refactoring  DC1302
+			12:30PM  Calligre                DC1302
+			3:00PM   Propelme                DC1304

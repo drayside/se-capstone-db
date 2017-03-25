@@ -11,4 +11,4 @@
 
 			Time     Team     Location
 			-------  -------  ----------
-			11:30AM  Frustra  DC1302
+			11:30AM  Frustra  DC1304

@@ -11,4 +11,4 @@
 
 			Time    Team         Location
 			------  -----------  ----------
-			1:30PM  Kaiba Corp.  DC1304
+			1:30PM  Kaiba Corp.  DC1302
