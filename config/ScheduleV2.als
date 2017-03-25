@@ -194,7 +194,7 @@ one sig Team30 extends Team {}
 fun refs : Team -> Ref {
  	Team2 -> (tianyuyang658 + andrew_morton + tripunit + iivkovic + broehl)
  + 	Team3 -> (rs2dsouz + chantellegellert + ramelard)
- + 	Team4 -> (andrew_morton + carlos_moreno + murphy_berzish + dhshin + wmcowan + wgolab)
+ + 	Team4 -> (andrew_morton + carlos_moreno + murphy_berzish + dhshin + wmcowan + wgolab) // Speculative Execution
  + 	Team5 -> (a3zaman + jeff_zarnett + dblotsky)
  + 	Team6 -> (jimmylin + tripunit + jmatlee + ramelard)
  + 	Team7 -> (tianyuyang658 + rs2dsouz + allyson_giannikouris)
@@ -211,10 +211,10 @@ fun refs : Team -> Ref {
  + 	Team20 -> (kevin + murphy_berzish + dblotsky + drayside)
  + 	Team21 -> (tianyuyang658 + eric_bahn + jmatlee + drayside)
  + 	Team23 -> (a3zaman + pasward + se_director)
- + 	Team24 -> (dan_brown + ramelard + broehl)
+ + 	Team24 -> (dan_brown + ramelard + broehl) // Songhaus
  + 	Team25 -> (winkler_em + kepaik + drayside + a3zaman)
  + 	Team26 -> (s26stewa + murphy_berzish + dhshin + dblotsky + drayside)
- + 	Team27 -> (kevin + dhshin + rs2dsouz + gvgbaran)
+ + 	Team27 -> (kevin + dhshin + rs2dsouz + gvgbaran + drayside)  // Frustra
  + 	Team28 -> (chantellegellert + allyson_giannikouris + dblotsky)
  + 	Team29 -> (kevin + idziak + mvucicev)
  + 	Team30 -> (kevin + s26stewa + murphy_berzish + dhshin + drayside)
