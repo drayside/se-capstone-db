@@ -1,9 +1,16 @@
+#!/usr/bin/python
+
 from tabulate import tabulate
 from lxml import etree
 import subprocess
 import sys
 import os
 
+if len(sys.argv) == 1 :
+    print "please name XML file from Alloy on command line"
+    sys.exit()
+
+# get name of XML input file from command line
 tree = etree.parse(sys.argv[1])
 root = tree.getroot()
 
