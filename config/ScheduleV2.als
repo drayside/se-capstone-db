@@ -213,7 +213,7 @@ fun refs : Team -> Ref {
  + 	Team23 -> (a3zaman + pasward + se_director)
  + 	Team24 -> (dan_brown + ramelard + broehl)
  + 	Team25 -> (winkler_em + kepaik + drayside + a3zaman)
- + 	Team26 -> (s26stewa + murphy_berzish + dhshin + dblotsky)
+ + 	Team26 -> (s26stewa + murphy_berzish + dhshin + dblotsky + drayside)
  + 	Team27 -> (kevin + dhshin + rs2dsouz + gvgbaran)
  + 	Team28 -> (chantellegellert + allyson_giannikouris + dblotsky)
  + 	Team29 -> (kevin + idziak + mvucicev)
