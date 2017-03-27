@@ -1,104 +1,202 @@
 #/bin/bash
 
-lpr -P pdf tianyuyang658_schedule.txt
+lpr -Pcseng-prn tianyuyang658_schedule.txt
+lpr -Pcseng-prn se2017-team*STORM*.pdf
+lpr -Pcseng-prn se2017-team*ReadYourStory*.pdf
+lpr -Pcseng-prn se2017-team*Kaiba*.pdf
+lpr -Pcseng-prn se2017-team*Dynalist*.pdf
+lpr -Pcseng-prn se2017-team*MediReadi*.pdf
+lpr -Pcseng-prn se2017-team*Qube*.pdf
 
 
-lpr -P pdf andrew_morton_schedule.txt
+lpr -Pcseng-prn andrew_morton_schedule.txt
+lpr -Pcseng-prn se2017-team*STORM*.pdf
+lpr -Pcseng-prn se2017-team*Speculative*.pdf
 
 
-lpr -P pdf tripunit_schedule.txt
+lpr -Pcseng-prn tripunit_schedule.txt
+lpr -Pcseng-prn se2017-team*STORM*.pdf
+lpr -Pcseng-prn se2017-team*Web*.pdf
 
 
-lpr -P pdf iivkovic_schedule.txt
+lpr -Pcseng-prn iivkovic_schedule.txt
+lpr -Pcseng-prn se2017-team*STORM*.pdf
 
 
-lpr -P pdf broehl_schedule.txt
+lpr -Pcseng-prn broehl_schedule.txt
+lpr -Pcseng-prn se2017-team*Songhaus*.pdf
+lpr -Pcseng-prn se2017-team*STORM*.pdf
+lpr -Pcseng-prn se2017-team*Closed*.pdf
 
 
-lpr -P pdf rs2dsouz_schedule.txt
+lpr -Pcseng-prn rs2dsouz_schedule.txt
+lpr -Pcseng-prn se2017-team*ROCKIT*.pdf
+lpr -Pcseng-prn se2017-team*Frustra*.pdf
+lpr -Pcseng-prn se2017-team*Calligre*.pdf
+lpr -Pcseng-prn se2017-team*Kaiba*.pdf
+lpr -Pcseng-prn se2017-team*MediReadi*.pdf
 
 
-lpr -P pdf chantellegellert_schedule.txt
+lpr -Pcseng-prn chantellegellert_schedule.txt
+lpr -Pcseng-prn se2017-team*Minerva*.pdf
+lpr -Pcseng-prn se2017-team*ROCKIT*.pdf
+lpr -Pcseng-prn se2017-team*Closed*.pdf
+lpr -Pcseng-prn se2017-team*Calligre*.pdf
+lpr -Pcseng-prn se2017-team*Propelme*.pdf
 
 
-lpr -P pdf ramelard_schedule.txt
+lpr -Pcseng-prn ramelard_schedule.txt
+lpr -Pcseng-prn se2017-team*Songhaus*.pdf
+lpr -Pcseng-prn se2017-team*ROCKIT*.pdf
+lpr -Pcseng-prn se2017-team*Web*.pdf
 
 
-lpr -P pdf carlos_moreno_schedule.txt
+lpr -Pcseng-prn carlos_moreno_schedule.txt
+lpr -Pcseng-prn se2017-team*Speculative*.pdf
 
 
-lpr -P pdf murphy_berzish_schedule.txt
+lpr -Pcseng-prn murphy_berzish_schedule.txt
+lpr -Pcseng-prn se2017-team*Minerva*.pdf
+lpr -Pcseng-prn se2017-team*Speculative*.pdf
+lpr -Pcseng-prn se2017-team*Manifold*.pdf
+lpr -Pcseng-prn se2017-team*Capital*.pdf
+lpr -Pcseng-prn se2017-team*SAT*.pdf
+lpr -Pcseng-prn se2017-team*JASON*.pdf
 
 
-lpr -P pdf dhshin_schedule.txt
+lpr -Pcseng-prn dhshin_schedule.txt
+lpr -Pcseng-prn se2017-team*Speculative*.pdf
+lpr -Pcseng-prn se2017-team*Manifold*.pdf
+lpr -Pcseng-prn se2017-team*Frustra*.pdf
+lpr -Pcseng-prn se2017-team*Capital*.pdf
+lpr -Pcseng-prn se2017-team*SAT*.pdf
+lpr -Pcseng-prn se2017-team*Dynalist*.pdf
 
 
-lpr -P pdf wmcowan_schedule.txt
+lpr -Pcseng-prn wmcowan_schedule.txt
+lpr -Pcseng-prn se2017-team*Speculative*.pdf
 
 
-lpr -P pdf wgolab_schedule.txt
+lpr -Pcseng-prn wgolab_schedule.txt
+lpr -Pcseng-prn se2017-team*Speculative*.pdf
+lpr -Pcseng-prn se2017-team*Qube*.pdf
 
 
-lpr -P pdf a3zaman_schedule.txt
+lpr -Pcseng-prn a3zaman_schedule.txt
+lpr -Pcseng-prn se2017-team*Minerva*.pdf
+lpr -Pcseng-prn se2017-team*Evan's*.pdf
+lpr -Pcseng-prn se2017-team*Delta*.pdf
+lpr -Pcseng-prn se2017-team*Manifold*.pdf
+lpr -Pcseng-prn se2017-team*InternCompass*.pdf
+lpr -Pcseng-prn se2017-team*Patronus*.pdf
+lpr -Pcseng-prn se2017-team*homely.rent*.pdf
 
 
-lpr -P pdf jeff_zarnett_schedule.txt
+lpr -Pcseng-prn jeff_zarnett_schedule.txt
+lpr -Pcseng-prn se2017-team*Closed*.pdf
+lpr -Pcseng-prn se2017-team*InternCompass*.pdf
+lpr -Pcseng-prn se2017-team*Calligre*.pdf
 
 
-lpr -P pdf dblotsky_schedule.txt
+lpr -Pcseng-prn dblotsky_schedule.txt
+lpr -Pcseng-prn se2017-team*InternCompass*.pdf
+lpr -Pcseng-prn se2017-team*SAT*.pdf
+lpr -Pcseng-prn se2017-team*JASON*.pdf
+lpr -Pcseng-prn se2017-team*Propelme*.pdf
 
 
-lpr -P pdf jimmylin_schedule.txt
+lpr -Pcseng-prn jimmylin_schedule.txt
+lpr -Pcseng-prn se2017-team*Web*.pdf
 
 
-lpr -P pdf jmatlee_schedule.txt
+lpr -Pcseng-prn jmatlee_schedule.txt
+lpr -Pcseng-prn se2017-team*Web*.pdf
+lpr -Pcseng-prn se2017-team*ReadYourStory*.pdf
 
 
-lpr -P pdf allyson_giannikouris_schedule.txt
+lpr -Pcseng-prn allyson_giannikouris_schedule.txt
+lpr -Pcseng-prn se2017-team*Xylo*.pdf
+lpr -Pcseng-prn se2017-team*MediReadi*.pdf
+lpr -Pcseng-prn se2017-team*Propelme*.pdf
 
 
-lpr -P pdf drayside_schedule.txt
+lpr -Pcseng-prn drayside_schedule.txt
+lpr -Pcseng-prn se2017-team*Minerva*.pdf
+lpr -Pcseng-prn se2017-team*Evan's*.pdf
+lpr -Pcseng-prn se2017-team*Delta*.pdf
+lpr -Pcseng-prn se2017-team*Manifold*.pdf
+lpr -Pcseng-prn se2017-team*Frustra*.pdf
+lpr -Pcseng-prn se2017-team*Capital*.pdf
+lpr -Pcseng-prn se2017-team*SAT*.pdf
+lpr -Pcseng-prn se2017-team*ReadYourStory*.pdf
+lpr -Pcseng-prn se2017-team*JASON*.pdf
+lpr -Pcseng-prn se2017-team*Patronus*.pdf
 
 
-lpr -P pdf winkler_em_schedule.txt
+lpr -Pcseng-prn winkler_em_schedule.txt
+lpr -Pcseng-prn se2017-team*Evan's*.pdf
+lpr -Pcseng-prn se2017-team*Delta*.pdf
 
 
-lpr -P pdf kepaik_schedule.txt
+lpr -Pcseng-prn kepaik_schedule.txt
+lpr -Pcseng-prn se2017-team*Evan's*.pdf
+lpr -Pcseng-prn se2017-team*Delta*.pdf
 
 
-lpr -P pdf csk_schedule.txt
+lpr -Pcseng-prn csk_schedule.txt
+lpr -Pcseng-prn se2017-team*Kaiba*.pdf
 
 
-lpr -P pdf se_director_schedule.txt
+lpr -Pcseng-prn se_director_schedule.txt
+lpr -Pcseng-prn se2017-team*Xylo*.pdf
+lpr -Pcseng-prn se2017-team*Patronus*.pdf
+lpr -Pcseng-prn se2017-team*homely.rent*.pdf
 
 
-lpr -P pdf kevin_schedule.txt
+lpr -Pcseng-prn kevin_schedule.txt
+lpr -Pcseng-prn se2017-team*CLAC*.pdf
+lpr -Pcseng-prn se2017-team*Frustra*.pdf
+lpr -Pcseng-prn se2017-team*Capital*.pdf
+lpr -Pcseng-prn se2017-team*Xylo*.pdf
+lpr -Pcseng-prn se2017-team*JASON*.pdf
+lpr -Pcseng-prn se2017-team*Dynalist*.pdf
 
 
-lpr -P pdf whchang_schedule.txt
+lpr -Pcseng-prn whchang_schedule.txt
+lpr -Pcseng-prn se2017-team*Dynalist*.pdf
 
 
-lpr -P pdf pasward_schedule.txt
+lpr -Pcseng-prn pasward_schedule.txt
+lpr -Pcseng-prn se2017-team*homely.rent*.pdf
+lpr -Pcseng-prn se2017-team*Qube*.pdf
 
 
-lpr -P pdf bwbecker_schedule.txt
+lpr -Pcseng-prn bwbecker_schedule.txt
+lpr -Pcseng-prn se2017-team*Minerva*.pdf
 
 
-lpr -P pdf eric_bahn_schedule.txt
+lpr -Pcseng-prn eric_bahn_schedule.txt
+lpr -Pcseng-prn se2017-team*ReadYourStory*.pdf
 
 
-lpr -P pdf dan_brown_schedule.txt
+lpr -Pcseng-prn dan_brown_schedule.txt
+lpr -Pcseng-prn se2017-team*Songhaus*.pdf
 
 
-lpr -P pdf s26stewa_schedule.txt
+lpr -Pcseng-prn s26stewa_schedule.txt
+lpr -Pcseng-prn se2017-team*Capital*.pdf
+lpr -Pcseng-prn se2017-team*SAT*.pdf
 
 
-lpr -P pdf gvgbaran_schedule.txt
+lpr -Pcseng-prn gvgbaran_schedule.txt
+lpr -Pcseng-prn se2017-team*Frustra*.pdf
 
 
-lpr -P pdf idziak_schedule.txt
+lpr -Pcseng-prn idziak_schedule.txt
+lpr -Pcseng-prn se2017-team*CLAC*.pdf
 
 
-lpr -P pdf mvucicev_schedule.txt
+lpr -Pcseng-prn mvucicev_schedule.txt
+lpr -Pcseng-prn se2017-team*CLAC*.pdf
 
 
