@@ -191,7 +191,7 @@ for ref in Refs:
                 teamToNamesMap[k],
                 roomToProperRoomMap[loc],
             ])
-            teamString.append('lpr -P pdf ' + k + '.pdf');
+            teamString.append('lpr -Pcseng-prn pdf ' + k + '.pdf');
             refTab.sort(key=lambda x: timeToIntMap[x[0]])
 
     # ugly hack to add left + top padding to table
@@ -205,11 +205,14 @@ for ref in Refs:
 
     # before printing, change 'echo ' to 'lpr' and add printer
     # subprocess.Popen(['lpr', '-Pcseng-prn', ref + '_schedule.txt']);
-    printScript.write('lpr -P pdf ' + ref + '_schedule.txt' + '\n');
+    printScript.write('lpr -Pcseng-prn ' + ref + '_schedule.txt' + '\n');
 
     # uncomment once team files are in the directory.
-    # for k in teamString:
+    #for k in teamString:
     #    printScript.write(k + '\n');
+    for k in refTab :
+        name = k[1].split()[0]
+        printScript.write("lpr -Pcseng-prn se2017-team*" + name + "*.pdf" + '\n');
     printScript.write('\n\n');
 
 printScript.close()
