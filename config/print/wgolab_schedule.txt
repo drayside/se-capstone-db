@@ -1,0 +1,15 @@
+
+
+
+
+
+
+
+
+
+			Referee: Wojcieh Golab
+
+			Time     Team                   Location
+			-------  ---------------------  ----------
+			10:30AM  Speculative Execution  DC1302
+			3:00PM   Qube                   DC1302

@@ -1,16 +1,49 @@
 "use strict";
-
 var restify = require('restify');
 var config = require('./config/default');
-var parse = require('./config/parse');
+
 var _ = require('lodash');
 var fs = require('fs');
 var path = require('path');
+const commandLineArgs = require('command-line-args');
+const options = commandLineArgs([
+    {name: 'markdown-directory', type: String},
+    {name: 'referee-schedule-directory', type: String}
+]);
 
+var mdDirAbsPath;//markdown directory absolute path
+var refScheduleDirAbsPath; //directory containing referee schedule markdown files
+
+if (options['markdown-directory'] == undefined) {
+  if(config.markdownDirectory == undefined) {//no default specified, exit
+    console.error("No default found for 'markdown directory' in './config/config.json'!");
+    console.error("No '--markdown-directory' option passed to script!");
+    //TODO: print usage
+    process.exit(1);
+  }
+  mdDirAbsPath = path.resolve(__dirname, config.markdownDirectory);
+  console.log("--- Using default markdown directory path: '%s' ---", mdDirAbsPath);
+} else {
+  mdDirAbsPath = path.resolve(__dirname, options['markdown-directory']);
+  console.log("--- Using specified markdown directory path: '%s' ---", mdDirAbsPath);
+}
+
+if (options['referee-schedule-directory'] == undefined) {
+  console.log("No '--referee-schedule-directory' option passed to script!");
+  
+  // always parse the mdDirAbsPath files.
+  var parse = require('./config/parse')(mdDirAbsPath, false);//parse module uses markdown dir
+} else {
+  refScheduleDirAbsPath = path.resolve(__dirname, options['referee-schedule-directory']);
+  // parse the mdDirAbsPath files and the optional refScheduleDirAbsPath files
+  var parse = require('./config/parse')(mdDirAbsPath, true, refScheduleDirAbsPath);
+}
+
+//var parse = require('./config/parse')(mdDirAbsPath);//parse module uses markdown directory
 var graphGenerator = require('./app/graph/graphGenerator')(parse);
 var projectHelpers = require('./app/helpers/projectHelpers')(parse);
-var projectHandlers = require('./app/routes/projectHandlers')(projectHelpers);
 
+var projectHandlers = require('./app/routes/projectHandlers')(projectHelpers, mdDirAbsPath);//constructor sets markdown directory
 var server = restify.createServer();
 
 // Log uncaught exceptions

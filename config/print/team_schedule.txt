@@ -1,0 +1,28 @@
+Team Name               Time     Room    Refs
+----------------------  -------  ------  ----------------------------------------------------------------------------------------------
+Songhaus                9:00AM   DC1302  Bernie Roehl,  Robert Amelard,  Dan Brown
+ROCKIT                  9:30AM   DC1302  Rollen D'Souza,  Chantelle Gellert,  Robert Amelard
+STORM                   10:00AM  DC1302  Tony Yang,  Andrew Morton,  Mahesh Tripunitara,  Igor Ivkovic,  Bernie Roehl
+Speculative Execution   10:30AM  DC1302  Andrew Morton,  Carlos Moreno,  Murphy Berzish,  Donghyun Shin,  William Cowan,  Wojcieh Golab
+Web In A Box            11:00AM  DC1302  Mahesh Tripunitara,  Robert Amelard,  Jimmy Lin,  Joanne Atlee
+Closed for Refactoring  11:30AM  DC1302  Bernie Roehl,  Chantelle Gellert,  Jeff Zarnett
+InternCompass           12:00PM  DC1302  Atulan Zaman,  Jeff Zarnett,  Dmitry Blotsky
+Calligre                12:30PM  DC1302  Rollen D'Souza,  Chantelle Gellert,  Jeff Zarnett
+Xylo                    1:00PM   DC1302  Allyson Giannikouris,  Patrick Lam,  Kevin Veloso
+Kaiba Corp.             1:30PM   DC1302  Tony Yang,  Rollen D'Souza,  Craig Kaplan
+Dynalist                2:00PM   DC1302  Tony Yang,  Donghyun Shin,  Kevin Veloso,  Wayne Chang
+homely.rent             2:30PM   DC1302  Atulan Zaman,  Patrick Lam,  Paul Ward
+Qube                    3:00PM   DC1302  Tony Yang,  Wojcieh Golab,  Paul Ward
+Minerva                 9:00AM   DC1304  Chantelle Gellert,  Murphy Berzish,  Atulan Zaman,  Derek Rayside,  Byron Weber Becker
+Evan's Rules            9:30AM   DC1304  Atulan Zaman,  Derek Rayside,  Eric Winkler,  Kenneth Paik
+Delta                   10:00AM  DC1304  Atulan Zaman,  Derek Rayside,  Eric Winkler,  Kenneth Paik
+CLAC                    10:30AM  DC1304  Kevin Veloso,  Stefan Idziak,  Mirko Vucicevich
+Manifold                11:00AM  DC1304  Murphy Berzish,  Donghyun Shin,  Atulan Zaman,  Derek Rayside
+Frustra                 11:30AM  DC1304  Rollen D'Souza,  Donghyun Shin,  Derek Rayside,  Kevin Veloso,  Gladimir Baranoski
+Capital Software        12:00PM  DC1304  Murphy Berzish,  Donghyun Shin,  Derek Rayside,  Kevin Veloso,  Steven Stewart
+SAT                     12:30PM  DC1304  Murphy Berzish,  Donghyun Shin,  Dmitry Blotsky,  Derek Rayside,  Steven Stewart
+ReadYourStory           1:00PM   DC1304  Tony Yang,  Joanne Atlee,  Derek Rayside,  Eric Bahn
+JASON                   1:30PM   DC1304  Murphy Berzish,  Dmitry Blotsky,  Derek Rayside,  Kevin Veloso
+Patronus                2:00PM   DC1304  Atulan Zaman,  Derek Rayside,  Patrick Lam
+MediReadi               2:30PM   DC1304  Tony Yang,  Rollen D'Souza,  Allyson Giannikouris
+Propelme                3:00PM   DC1304  Chantelle Gellert,  Dmitry Blotsky,  Allyson Giannikouris

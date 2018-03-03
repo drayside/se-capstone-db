@@ -7,7 +7,7 @@
 ## Installation
 1. Checkout https://github.com/drayside/se-capstone-db.git
 2. From the root folder, run `npm install`
-3. After installation, run `nodemon server.js`
+3. After installation, run `nodemon server.js [ --markdown-directory <path> ]`
 4. Point your browser to `localhost:3000`
 
 # API Documentation
