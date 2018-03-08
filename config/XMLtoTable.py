@@ -22,7 +22,10 @@ timeToIntMap = {'Nine':0,
               'OneThirty':9,
               'Two':10,
               'TwoThirty':11,
-              'Three':12}
+              'Three':12,
+              'ThreeThirty':13,
+              'Four':14,
+              'FourThirty':15}
 
 
 for c in root.find('instance').findall('field'):
