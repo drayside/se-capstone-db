@@ -29,7 +29,10 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
     17 : 'Five'
   };
 
-  const NUMBER_OF_REFEREES = 10;
+  const MIN_TIME = 9;
+  const MAX_TIME = 17;
+  const MAX_NUMBER_OF_REFEREES = 10;
+
   var FLOATER_COUNTER = 0;
 
   function beginsWith(str, prefix){
@@ -280,11 +283,16 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
   };
 
   const parse_time_interval = function(start, end) {
+    // bring times within range, if necessary
+    if (start < MIN_TIME) start = MIN_TIME
+    if (end > MAX_TIME) end = MAX_TIME
+
+    // check that times are sensible
     assert(start < end, 'start < end - constraint violated');
-    assert((start>= 9.0 && start <= 16.5),
-            'Symposium Day start time  [9-16.5] range violated');
-    assert((end>= 9.5 && end <= 17) || (end >= 1.0 && end <= 5.0),
-            'Symposium Day end time [9.5-5] range violated');
+    assert((start>= MIN_TIME && start <= MAX_TIME),
+            'Symposium Day start time range violated');
+    assert((end>= MIN_TIME + 0.5 && end <= MAX_TIME + 0.5), 
+            'Symposium Day end time range violated');
 
     var list  = [];
     var t = start;
@@ -303,8 +311,12 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
     return list.toString().replace(/,/g," + ");
   }
 
+  const scrub = function(str) {
+    return str.replace(/\[/g, "").replace(/\]/g, "");
+  }
+
   const parseTimes = function(timeStr) {
-    var rawTimes = timeStr.split('-');
+    var rawTimes = timeStr.replace(/\[/g, "").replace(/\]/g, "").split('-');
 
     console.log('TIME:', rawTimes);
     var rawStartTime = rawTimes[0].split(':');
@@ -337,7 +349,8 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
     // extract referees
     const refs = {};
     let teamRefs = [];
-    for (let i = 0; i < NUMBER_OF_REFEREES; i++) {
+    let floaterAdded = 0;
+    for (let i = 0; i < MAX_NUMBER_OF_REFEREES; i++) {
         //console.log("filename: ", fileName);
         const refRegExp = new RegExp('^###\\s*Referee\\s+' + (i + 1));
         const refKeys = extractKeyList(fileContent, 2, refRegExp);
@@ -346,9 +359,17 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
           if(refKeys['full name'] == '[First] [Last]') {
             //console.log("adding floater for ", fileName);
 
+            // only add one floater per team
+            if (floaterAdded > 0) continue;
+            else floaterAdded++;
+
             refKeys['full name'] = 'Floater Referee';
             FLOATER_COUNTER++;
             refKeys['email'] = 'floater' + FLOATER_COUNTER + '@testmail.com';
+          } else {
+            // strip the square brackets out of the names and emails
+            refKeys['full name'] = scrub(refKeys['full name']);
+            refKeys['email'] = scrub(refKeys['email']);
           }
 
           refs['ref' + i] = _.pick(refKeys, ['full name', 'email', 'attending']);
@@ -361,8 +382,7 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
             if (flatList[j] != '[HH:MM] - [HH:MM]') {
               availableTimes[k] = parseTimes(flatList[j]);
             } else {
-              //TODO better
-              availableTimes[0] = parseTimes('9:00 - 15:30');
+              availableTimes[0] = parse_time_interval(MIN_TIME, MAX_TIME);
               break;
             }
           }
@@ -380,11 +400,14 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
             uniqueRefs[uniqueIdentifier] = {};
             uniqueRefs[uniqueIdentifier].alloy_string = refs['ref' + i]['alloy_string'];
             uniqueRefs[uniqueIdentifier].availableTimes = availableTimes;
-            uniqueRefs[uniqueIdentifier].full_name = refKeys['full name'];
-            uniqueRefs[uniqueIdentifier].email = refKeys['email'];
-            uniqueRefs[uniqueIdentifier].attending = refKeys['attending'];
+            uniqueRefs[uniqueIdentifier].full_name = scrub(refKeys['full name']);
+            uniqueRefs[uniqueIdentifier].email = scrub(refKeys['email']);
+            uniqueRefs[uniqueIdentifier].attending = scrub(refKeys['attending']);
             dump.refDump += "one sig " + uniqueIdentifier + " extends Ref{}\n";
             dump.refArray.push(refs['ref' + i]['alloy_string'] + '\n');
+            if (uniqueRefs[uniqueIdentifier].attending == "Remotely") {
+                dump.refRemoteArray.push(uniqueIdentifier + "\n");
+            }
           } else {
             //duplicate!
             assert((uniqueRefs[uniqueIdentifier].availableTimes === availableTimes), 
@@ -409,11 +432,11 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
     if (teamNameIndex > -1) {
         const rawTeamName = fileContent[teamNameIndex].split(':');
         if (rawTeamName.length > 1) {
-            team['team_name'] = rawTeamName[1];
+            team['team_name'] = rawTeamName[1].replace(/ /g, "_");
         }
     }
 
-    const uniqueTeamIdentifier = "Team" + team.team_number;
+    const uniqueTeamIdentifier = "Team" + team.team_name;
     team['alloy_string'] = '\t' + uniqueTeamIdentifier + " -> (" +
         teamRefs.join(' + ') + ")";
     dump.teamDump += "one sig " + uniqueTeamIdentifier + " extends Team {}\n";
@@ -440,6 +463,8 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
             refDump: "",
             refHeader: "fun AvailableTimes : Ref -> Time {\n",
             refArray: [],
+            refRemoteHeader: "fun RemoteRefs : Ref {\n",
+            refRemoteArray: [],
             teamDump: "",
             teamHeader: "fun refs : Team -> Ref {\n ",
             teamArray: [],
@@ -459,6 +484,7 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
         }
 
         dump.refHeader += dump.refArray.join(' + ') + '}\n';
+        dump.refRemoteHeader += dump.refRemoteArray.join(' + ') + '}\n';
         dump.teamHeader += dump.teamArray.join(' + ') + '}\n';
         
         Object.keys(uniqueRefs).forEach(function(key) {
@@ -467,6 +493,7 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
         });
 
         fs.writeFile('/tmp/referee_schedule.als', dump.refDump + '\n\n\n' + dump.refHeader
+                + '\n\n' + dump.refRemoteHeader
                 + '\n\n\n' + dump.teamDump + '\n\n\n' + dump.teamHeader,
             function(err) {
                 if(err) {
