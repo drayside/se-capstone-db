@@ -27,9 +27,8 @@ timeToIntMap = {'Nine':0,
               'Four':14,
               'FourThirty':15}
 
-
-for c in root.find('instance').findall('field'):
-    if (c.get('label') == 'refs'):
+for c in root.find('instance').findall('skolem'):
+    if (c.get('label') == '$this/refs'):
         for p in c.findall('tuple'):
             team = p.findall('atom')[0].get('label').replace("$0","")
             ref = p.findall('atom')[1].get('label').replace("$0","") 
@@ -39,27 +38,27 @@ for c in root.find('instance').findall('field'):
                 Refs.append(ref)
             RefTeamMapping[team] =  RefTeamMapping[team] + " " + ref      
 
-for c in root.find('instance').findall('field'):
-    if (c.get('label') == 'time'): 
+for c in root.find('instance').findall('skolem'):
+    if (c.get('label') == '$this/time'): 
         for p in c.findall('tuple'):
             session = p.findall('atom')[0].get('label').replace("$0","")
             time = p.findall('atom')[1].get('label').replace("$0","")
             TimeSessionMapping[session] = time
 
 for c in root.find('instance').findall('field'):
-    if (c.get('label') == 'team'): 
+    if (c.get('label') == 'schedule'): 
         for p in c.findall('tuple'): 
             session = p.findall('atom')[0].get('label').replace("$0","")
             time = TimeSessionMapping[session]
             teamXML = p.findall('atom')[1].get('label').replace("$0","")
            
             if ("R" not in session):
-                timeRoom = time + " Room 1"
+                timeRoom = time + " DC1302"
                 Results.append([teamXML, timeRoom, RefTeamMapping[teamXML]])
-                TeamSessionMapping[teamXML]= [time, "Room1"]
+                TeamSessionMapping[teamXML]= [time, "DC1302"]
             else:
-                timeRoom = time + " Room 2"
-                TeamSessionMapping[teamXML]=[time, "Room2"]
+                timeRoom = time + " DC1304"
+                TeamSessionMapping[teamXML]=[time, "DC1304"]
                 Results.append([teamXML,  timeRoom, RefTeamMapping[teamXML]])
 print tabulate(Results, headers=['Team', 'Time/Room','Refs'])
 print "\n"
