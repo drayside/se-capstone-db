@@ -26,6 +26,22 @@ timeToIntMap = {'Nine':0,
               'ThreeThirty':13,
               'Four':14,
               'FourThirty':15}
+timeToStringMap = {'Nine':'09:00',
+              'NineThirty':'09:30',
+              'Ten':'10:00',
+              'TenThirty':'10:30',
+              'Eleven':'11:00',
+              'ElevenThirty':'11:30',
+              'Twelve':'12:00',
+              'TwelveThirty':'12:30',
+              'One':'13:00',
+              'OneThirty':'13:30',
+              'Two':'14:00',
+              'TwoThirty':'14:30',
+              'Three':'15:00',
+              'ThreeThirty':'15:30',
+              'Four':'16:00',
+              'FourThirty':'16:30'}
 
 for c in root.find('instance').findall('skolem'):
     if (c.get('label') == '$this/refs'):
@@ -50,6 +66,7 @@ for c in root.find('instance').findall('field'):
         for p in c.findall('tuple'): 
             session = p.findall('atom')[0].get('label').replace("$0","")
             time = TimeSessionMapping[session]
+            time = timeToStringMap[time]
             teamXML = p.findall('atom')[1].get('label').replace("$0","")
            
             if ("R" not in session):
@@ -67,9 +84,10 @@ for ref in Refs:
     for k, v in RefTeamMapping.items():
         if ref in v:
             time = TeamSessionMapping[k][0]
+            #time = timeToStringMap[time]
             loc = TeamSessionMapping[k][1]
             refTab.append([time, k, loc])
-            refTab.sort(key=lambda x: timeToIntMap[x[0]])
+            refTab.sort(key=lambda x: x[0])
         
     print "Referee: "+ ref
     print tabulate(refTab, headers = ['Time','Team','Location']) 
