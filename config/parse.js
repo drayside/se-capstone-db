@@ -353,6 +353,25 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
     console.log(fileName);
     // Parse
 
+    //extract teams
+    const team = {};
+    const teamNumberIndex = firstMatch(fileContent, /^#\s*Team#:/);
+    if (teamNumberIndex > -1) {
+        const rawTeamNumber = fileContent[teamNumberIndex].split(':');
+        if (rawTeamNumber.length > 1) {
+            team['team_number'] = parseInt(rawTeamNumber[1]);
+        }
+    }
+
+    const teamNameIndex = firstMatch(fileContent, /^#\s*Team\s+Name:/);
+    if (teamNameIndex > -1) {
+        const rawTeamName = fileContent[teamNameIndex].split(':');
+        if (rawTeamName.length > 1) {
+            team['team_name'] = rawTeamName[1].replace(/ /g, "_");
+        }
+    }
+
+
     // extract referees
     const refs = {};
     let teamRefs = [];
@@ -418,31 +437,17 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
           } else {
             //duplicate!
             assert((uniqueRefs[uniqueIdentifier].availableTimes === availableTimes), 
-                    'ERROR: duplicate referee found with time intervals that do not match');
+                    'ERROR: duplicate referee found with time intervals that do not match: \n' +
+                      uniqueIdentifier + "\n" +
+                      team['team_name'] + "\n" +
+                      uniqueRefs[uniqueIdentifier].availableTimes + "\n" +
+                      availableTimes);
             //if they do match, do nothing.
           }
         }
     }
 
-    //extract teams
-
-    const team = {};
-    const teamNumberIndex = firstMatch(fileContent, /^#\s*Team#:/);
-    if (teamNumberIndex > -1) {
-        const rawTeamNumber = fileContent[teamNumberIndex].split(':');
-        if (rawTeamNumber.length > 1) {
-            team['team_number'] = parseInt(rawTeamNumber[1]);
-        }
-    }
-
-    const teamNameIndex = firstMatch(fileContent, /^#\s*Team\s+Name:/);
-    if (teamNameIndex > -1) {
-        const rawTeamName = fileContent[teamNameIndex].split(':');
-        if (rawTeamName.length > 1) {
-            team['team_name'] = rawTeamName[1].replace(/ /g, "_");
-        }
-    }
-
+    // dump output
     const uniqueTeamIdentifier = "Team" + team.team_name;
     team['alloy_string'] = '\t' + uniqueTeamIdentifier + " -> (" +
         teamRefs.join(' + ') + ")";
