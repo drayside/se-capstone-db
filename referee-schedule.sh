@@ -21,4 +21,5 @@ chmod +x .$0.tmp
 dos2unix referees/*.md
 
 # start the analysis
+# needs NodeJS v6 --- some kind of systemic error with later versions
 node server.js --referee-schedule-directory ./referees/
