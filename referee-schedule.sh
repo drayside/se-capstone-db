@@ -8,6 +8,8 @@ mkdir -p referees
 # 2019 Team UnrealGoose will present on a different day
 find ../2019/se491/teams -name RefereeForm.md \
     | grep -v UnrealGoose \
+    | grep -v -i DEFUNCT \
+    | sort \
     | gawk '/md/ {
         split($1, a, "/"); # break up the path
         t=a[5]; # team name is this element
@@ -19,4 +21,4 @@ chmod +x .$0.tmp
 dos2unix referees/*.md
 
 # start the analysis
-nodejs server.js --referee-schedule-directory ./referees/
+node server.js --referee-schedule-directory ./referees/
