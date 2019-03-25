@@ -68,7 +68,11 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
       case 2 : return /^## /;
       case 3 : return /^### /;
       case 4 : return /^#### /;
-      default: throw ("unknown Markdown level " + level);
+      case 5 : return /^##### /;
+      default: {
+        console.trace();
+        throw ("unknown Markdown level " + level);
+        }
     }
   }
 
@@ -100,18 +104,21 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
   /**
    * @desc Extract a list of values from Markdown.
    *       Use one of the API helper functions above instead of this one.
-   * @param array a - array of strings that is the input file
+   * @param array aOriginal - array of strings that is the input file
    * @param regex header - to match the header
    * @param emtpyStructure - either [] or {}, depending on desired return type
    * @return regular array or associative array - the values of the list
    */
-  function extractList(a, level, header, emptyStructure, expectDeep) {
+  function extractList(aOriginal, level, header, emptyStructure, expectDeep) {
     // default is flat list
     if (typeof emptyStructure === 'undefined') { emptyStructure = []; }
     // default is shallow list
     if (typeof expectDeep === 'undefined') { expectDeep = false; }
     // defensive copy of emptyStructure
     emptyStructure = Array.isArray(emptyStructure) ? [] : {};
+    // defensive copy of lines of interest from aOriginal
+    // any line that starts with a "#" or "*" (perhaps preceeded by whitespace)
+    const a = aOriginal.filter(line => /^\s*(#|\*).*/.test(line));
 
     // where does the list start?
     var start = firstMatch(a, header);
