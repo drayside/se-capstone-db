@@ -367,7 +367,7 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
     if (teamNameIndex > -1) {
         const rawTeamName = fileContent[teamNameIndex].split(':');
         if (rawTeamName.length > 1) {
-            team['team_name'] = rawTeamName[1].replace(/ /g, "_");
+            team['team_name'] = rawTeamName[1].replace(/ /g, "_").replace(/-/g, "_");
         }
     }
 
