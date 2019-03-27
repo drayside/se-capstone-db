@@ -77,8 +77,8 @@ for c in root.find('instance').findall('field'):
                 timeRoom = time + " DC1304"
                 TeamSessionMapping[teamXML]=[time, "DC1304"]
                 Results.append([teamXML,  timeRoom, RefTeamMapping[teamXML]])
-print tabulate(Results, headers=['Team', 'Time/Room','Refs'])
-print "\n"
+print (tabulate(Results, headers=['Team', 'Time/Room','Refs']))
+print ("\n")
 for ref in Refs:
     refTab = [];
     for k, v in RefTeamMapping.items():
@@ -89,6 +89,6 @@ for ref in Refs:
             refTab.append([time, k, loc])
             refTab.sort(key=lambda x: x[0])
         
-    print "Referee: "+ ref
-    print tabulate(refTab, headers = ['Time','Team','Location']) 
-    print "\n"
+    print ("Referee: "+ ref)
+    print (tabulate(refTab, headers = ['Time','Team','Location']))
+    print ("\n")
