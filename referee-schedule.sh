@@ -6,8 +6,11 @@ mkdir -p referees
 # generate a script to copy over the referee forms, 
 # and give them the name of the team
 # 2019 Team UnrealGoose will present on a different day
+# 2019 Team DegreeCompass will go at 8:30am, before we start solving
 find ../2019/se491/teams -name RefereeForm.md \
     | grep -v UnrealGoose \
+    | grep -v DegreeCompass \
+    | grep -v TEST \
     | grep -v -i DEFUNCT \
     | sort \
     | gawk '/md/ {
