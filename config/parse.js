@@ -373,15 +373,43 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
 
 
     // extract referees
+    //const SuppressRefs = new Set([]);
+    const SuppressRefs = new Set([
+        // SE staff
+        //"drayside", 
+        //"murphy_berzish", 
+        //"rbabaeec", 
+        //"wgolab",
+        //"p23lam", 
+        //"rs2dsouz",
+        //"srahaman", 
+        // CS494 staff
+        //"andrew_morton", 
+        //"daniel_watson", 
+        // Watonomous Staff
+        //"xmfan", 
+        // Singletons
+        //"tyler",
+        "ssaini",
+        "lestacey",
+        //"anaafi12",
+        //"joseph_sum", 
+        //"stefan_ng", 
+        //"john_koumoundouros", 
+        ]);
+
     const refs = {};
     let teamRefs = [];
     let floaterAdded = 0;
+    let teamAvailableTimes = new Set([]);
     for (let i = 0; i < MAX_NUMBER_OF_REFEREES; i++) {
         //console.log("filename: ", fileName);
         const refRegExp = new RegExp('^###\\s*Referee\\s+' + (i + 1));
         const refKeys = extractKeyList(fileContent, 2, refRegExp);
         //console.log(refKeys);
         if (Object.keys(refKeys).length > 0) {
+
+          // check for floater ref
           if(refKeys['full name'] == '[First] [Last]') {
             //console.log("adding floater for ", fileName);
 
@@ -399,6 +427,12 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
           }
 
           refs['ref' + i] = _.pick(refKeys, ['full name', 'email', 'attending']);
+
+          const uniqueIdentifier = refs['ref' + i]['email'].split('@')[0].replace('.', '_').replace('-','_');
+          if(SuppressRefs.has(uniqueIdentifier)) {
+            continue;
+          }
+
           const flatList = extractFlatList(fileContent, 2, refRegExp);
           const index = flatList.indexOf('Available Times (24 hr format):');
           // all bullets following this will be time intervals [HH:MM - HH:MM];
@@ -413,19 +447,29 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
             }
           }
           availableTimes = availableTimes.join(' + ');
+          /*
+          let refAvailableTimeSet = new Set([availableTimes.toString().split("+").map(x => x.trim())]);
+          if (0 == i) {
+            // initialize
+            teamAvailableTimes = refAvailableTimeSet;
+          } else {
+            // intersect
 
-          //console.log(refs['ref' + i]);
-          const uniqueIdentifier = refs['ref' + i]['email'].split('@')[0].replace('.', '_').replace('-','_');
-          //console.log(uniqueIdentifier);
+          }
+          console.log("TATS: " + [...teamAvailableTimes].join(" "));
+          */
+
           teamRefs.push(uniqueIdentifier);
           
           refs['ref' + i]['alloy_string'] = '\t' + uniqueIdentifier + " -> (" + availableTimes 
               + ")";
 
           if (!uniqueRefs.hasOwnProperty(uniqueIdentifier)) {
+            // new referee
             uniqueRefs[uniqueIdentifier] = {};
             uniqueRefs[uniqueIdentifier].alloy_string = refs['ref' + i]['alloy_string'];
             uniqueRefs[uniqueIdentifier].availableTimes = availableTimes;
+            //uniqueRefs[uniqueIdentifier].availableTimeSet = availableTimeSet;
             uniqueRefs[uniqueIdentifier].full_name = scrub(refKeys['full name']);
             uniqueRefs[uniqueIdentifier].email = scrub(refKeys['email']);
             uniqueRefs[uniqueIdentifier].attending = scrub(refKeys['attending']);
@@ -445,7 +489,7 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
             //if they do match, do nothing.
           }
         }
-    }
+    } // end referee loop for this team
 
     // dump output
     const uniqueTeamIdentifier = "Team" + team.team_name;
@@ -453,6 +497,27 @@ module.exports = function(mdDirAbsPath, shouldParseRefs, refScheduleDirAbsPath) 
         teamRefs.join(' + ') + ")";
     dump.teamDump += "one sig " + uniqueTeamIdentifier + " extends Team {}\n";
     dump.teamArray.push(team['alloy_string'] + '\n');
+
+    // check that the referees for this team are at least mutually available
+    // HERE 
+    /*
+    let teamTimes = new Set();
+    if (teamRefs.length > 0) {
+        teamTimes = new Set(uniqueRefs[teamRefs[0]].availableTimeSet);
+        console.log("initTeamTimes: " + [...teamTimes].join(" "));
+        for (let i = 1; i < teamRefs.length; i++) {
+            let nextRefTimes = uniqueRefs[teamRefs[0]].availableTimeSet;
+            console.log("nextRefTimes:  " + [...nextRefTimes].join(" "));
+            teamTimes = new Set([...teamTimes].filter(x => nextRefTimes.has(x)));
+            console.log("nextTeamTimes: " + [...teamTimes].join(" "));
+        }
+        assert((teamTimes.size > 0), "Team " + uniqueTeamIdentifier + " has no intersection times");
+    } else {
+        // no refs, so no times
+    }
+    console.log("TEAM TIMES: " + uniqueTeamIdentifier + " " + [...teamTimes].join(" "));
+    */
+    //assert(uniqueTeamIdentifier != "Team_Abode", "It's Abode!");
 
     result[fileName] = {
         team: team,
