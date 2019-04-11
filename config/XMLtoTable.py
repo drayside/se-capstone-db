@@ -1,8 +1,18 @@
 from tabulate import tabulate
 from lxml import etree
 import sys
+import csv
 
-tree = etree.parse(sys.argv[1])
+# read booths.csv
+TeamBoothMapping = {}
+with open(sys.argv[1]) as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    for row in csv_reader:
+        TeamBoothMapping[row[0]] = row[1];
+
+
+# read schedule.xml
+tree = etree.parse(sys.argv[2])
 root = tree.getroot()
 
 TimeSessionMapping = {}
@@ -79,16 +89,19 @@ for c in root.find('instance').findall('field'):
                 Results.append([teamXML,  timeRoom, RefTeamMapping[teamXML]])
 print (tabulate(Results, headers=['Team', 'Time/Room','Refs']))
 print ("\n")
+
+# now schedules for individual referees
 for ref in Refs:
     refTab = [];
     for k, v in RefTeamMapping.items():
         if ref in v:
             time = TeamSessionMapping[k][0]
             #time = timeToStringMap[time]
-            loc = TeamSessionMapping[k][1]
-            refTab.append([time, k, loc])
+            talk = TeamSessionMapping[k][1]
+            booth = TeamBoothMapping[k]
+            refTab.append([time, k, talk, booth])
             refTab.sort(key=lambda x: x[0])
         
     print ("Referee: "+ ref)
-    print (tabulate(refTab, headers = ['Time','Team','Location']))
+    print (tabulate(refTab, headers = ['Time','Team','Talk','Poster']))
     print ("\n")
